@@ -1,0 +1,1086 @@
+/* Conyso Mart, option C "Bold market" (chosen 2026-10-14 from three rendered options).
+   Yellow and magenta blocks, thick ink outlines, sticker prices, Baloo 2
+   (covers Devanagari). Contrast measured: ink 16.97, muted 8.87, buttons 12.45,
+   hero 8.27, disabled 8.72.
+   Consolidated 2026-10-15 after the design audit: one gutter, one section
+   rhythm, one button system, one card spec. Order: tokens, base, header,
+   layout, buttons, components by page, motion, reduced motion. */
+
+/* ==========================================================================
+   Tokens
+   ========================================================================== */
+:root { --body: "Baloo 2", system-ui, sans-serif; --display: "Baloo 2", system-ui, sans-serif;
+  --ink: #1B1033; --muted: #4E4566; --bg: #FFF8E7; --card: #FFFFFF; --line: #1B1033;
+  --yellow: #FFD23F; --magenta: #8A1C7C; --green: #1A7F45; --cream-tint: #FFF1C2; --peach: #FFE3D3; --lilac: #E9E3FF;
+  --nav-bg: #FFD23F; --nav-ink: #1B1033; --nav-line: 3px solid #1B1033; --logo-font: 800 1.5rem "Baloo 2", sans-serif;
+  --btn: #1B1033; --btn-ink: #FFD23F; --r-btn: 12px; --r-chip: 12px; --r-card: 18px;
+  --hero-bg: #8A1C7C; --hero-ink: #FFFFFF; --hero-pad: 2.6rem 1.2rem 3rem;
+  /* one card spec: 3px ink outline, 18px radius, 4px hard shadow; big blocks get 6px */
+  --card-line: 3px solid #1B1033; --card-pad: 0.7rem; --sh: 4px 4px 0; --card-shadow: 4px 4px 0 #1B1033; --card-shadow-lg: 6px 6px 0 #1B1033;
+  --gap: 1.1rem; --section: clamp(2.2rem, 5vw, 3rem);
+  --price-font: 800 1.2rem "Baloo 2", sans-serif; --foot-bg: #1B1033; --foot-ink: #FFD23F; }
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body.mart { margin: 0; font: 16px/1.55 var(--body); color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+@media (min-width: 900px) { body.mart { font-size: 17px; } }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+p { text-wrap: pretty; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0 0 0.6rem; }
+h1, h2 { font-weight: 800; }
+h1, h2, .mart-story h3 { text-wrap: balance; }
+h1, h2, .mart-card-name, .mart-line-name, .mart-note a, .mart-sources a, .mart-credit { overflow-wrap: anywhere; }
+:focus-visible { outline: 3px solid #8A1C7C; outline-offset: 3px; border-radius: 6px; }
+.mart-foot :focus-visible, .mart-vhero :focus-visible, .mart-phero.mart-tone-0 :focus-visible, .mart-phero.mart-tone-2 :focus-visible, .mart-mission :focus-visible, .mart-forbrands :focus-visible { outline-color: #FFD23F; }
+.mart-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.mart-skip { position: absolute; z-index: 50; left: 1rem; top: -200px; display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.2rem; background: #1B1033; color: #FFD23F; border: 3px solid #FFD23F; border-radius: var(--r-btn); font-weight: 800; text-decoration: none; }
+.mart-skip:focus { top: 0.6rem; }
+
+/* ==========================================================================
+   Header and menu
+   ========================================================================== */
+.mart-nav { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: nowrap; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; background: var(--nav-bg); color: var(--nav-ink); border-bottom: var(--nav-line); }
+.mart-logo { font: var(--logo-font); text-decoration: none; line-height: 1; margin-right: auto; white-space: nowrap; }
+.mart-logo small { display: block; font: 600 0.7rem var(--body); letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; margin-top: 0.25rem; }
+.mart-nav nav { display: flex; gap: 0.25rem; }
+.mart-nav .mart-menu { display: flex; gap: 0.25rem; }
+.mart-menu a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0.7rem; border-radius: 99px; text-decoration: none; font-weight: 700; font-size: 0.92rem; }
+.mart-menu a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.mart-menu a[aria-current="page"] { background: #1B1033; color: #FFD23F; text-decoration: none; }
+@media (min-width: 900px) { .mart-menu a { font-size: 1rem; } }
+.mart-cart-btn { min-height: 44px; padding: 0 1rem; border: 0; border-radius: var(--r-btn); background: var(--btn); color: var(--btn-ink); font: 700 0.92rem var(--body); cursor: pointer; white-space: nowrap; }
+.mart-cart-btn span { display: inline-grid; place-items: center; min-width: 1.5rem; height: 1.5rem; margin-left: 0.35rem; border-radius: 99px; background: var(--btn-ink); color: var(--btn); font-size: 0.8rem; }
+.mart-menu-btn { display: none; min-height: 44px; padding: 0 0.9rem; border: 3px solid #1B1033; border-radius: var(--r-btn); background: #FFFFFF; color: #1B1033; font: 800 0.92rem var(--body); cursor: pointer; }
+@media (max-width: 640px) {
+  .mart-nav { flex-wrap: wrap; }
+  .mart-menu-btn { display: inline-flex; align-items: center; margin-left: auto; }
+  .mart-nav .mart-menu { display: none; order: 5; width: 100%; flex-direction: column; padding: 0.4rem 0 0.2rem; border-top: 2px solid #1B1033; margin-top: 0.4rem; }
+  .mart-nav .mart-menu.is-open { display: flex; }
+  .mart-menu a[aria-current="page"] { align-self: flex-start; }
+  .mart-logo { margin-right: 0; }
+}
+#mart-stale { margin: 0; padding: 0.6rem 1rem; background: #FFF4CC; color: #5C4600; font-size: 0.9rem; }
+
+/* ==========================================================================
+   Layout: one gutter, one section rhythm
+   main's content edge is the gutter. Full-bleed bands inside main pad by
+   (50vw - 50%), which lands their content exactly on main's edge; the footer
+   (outside main) pads by (50% - 544px), the same line.
+   ========================================================================== */
+main { padding: 1.5rem 1rem 3rem; max-width: 1120px; margin: 0 auto; }
+.mart-bleed { margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding-left: calc(50vw - 50%); padding-right: calc(50vw - 50%); }
+main > .mart-bleed:first-child, main > .mart-crumbs + .mart-bleed, main > noscript:first-child + .mart-bleed,
+main > .mart-phone-home + .mart-bleed, main > noscript:first-child + .mart-phone-home + .mart-bleed { margin-top: -1.5rem; }
+main > .mart-crumbs + .mart-phero { margin-top: 0; }
+/* every top-level block is one --section below the one before it */
+main > :where(section, article, div, ul, ol, dl, form, h2):where(:not(:first-child)) { margin-top: var(--section); }
+main > :where(section, article, div, ul, ol, dl, form) { margin-bottom: 0; }
+main > .mart-crumbs + *, main > h2 + *, main > noscript:first-child + *, main > .mart-phone-home + *, main > .mart-top-pick + .mart-table-wrap, main > .mart-search + .mart-filters,
+main > .mart-filters + *, main > .mart-vhero + .mart-ticker, main > .mart-ticker + .mart-mission, main > .mart-buybar { margin-top: 0; }
+main > .mart-search:not(:first-child) { margin-top: var(--section); }
+main > p { margin: 1rem 0 0; }
+main > .mart-phero + :is(p, details), main > .mart-vhero + :is(p, details) { margin-top: var(--section); }
+main > .mart-table-wrap + .mart-note, main > .mart-grid + .mart-note { margin-top: 0.8rem; }
+main section > h2:first-child, main section > .mart-section-head:first-child h2 { margin-top: 0; }
+main h2 { font-size: clamp(1.7rem, 4.5vw, 2.6rem); line-height: 1; }
+main > h2 { margin-bottom: 0.9rem; }
+
+/* page headlines: big, ink, a yellow highlighter stroke under the words */
+main > h1, .mart-brand h1, .mart-product h1, .mart-prose > h1 { font-size: clamp(2.2rem, 6.5vw, 4rem); line-height: 0.98; letter-spacing: -0.01em; }
+main > h1 { display: inline; background: linear-gradient(transparent 62%, #FFD23F 62%, #FFD23F 92%, transparent 92%); box-decoration-break: clone; -webkit-box-decoration-break: clone; background-size: 0% 100%; background-repeat: no-repeat; animation: mart-highlight .8s .2s cubic-bezier(.2,.8,.2,1) forwards; }
+main > h1 + * { margin-top: 1.2rem; }
+@keyframes mart-highlight { to { background-size: 100% 100%; } }
+.mart-lead { font-size: 1.15rem; max-width: 60ch; }
+.mart-note { color: var(--muted); }
+.mart-section-head { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1rem; }
+.mart-section-head h2 { margin: 0; }
+.mart-section-head a { font-weight: 800; min-height: 44px; display: inline-flex; align-items: center; }
+.mart-kicker { display: inline-block; margin: 0 0 0.6rem; padding: 0.15rem 0.9rem; background: #FFD23F; border: 3px solid #1B1033; border-radius: 99px; font-weight: 800; }
+.mart-count { display: inline-grid; place-items: center; min-width: 1.7rem; height: 1.45rem; margin-left: 0.45rem; padding: 0 0.45rem; border-radius: 99px; background: #1B1033; color: #FFD23F; font-size: 0.78rem; font-weight: 800; line-height: 1; }
+
+/* breadcrumbs: padded so each link is a 44px tap target without moving the line */
+.mart-crumbs { font-size: 0.85rem; color: var(--muted); margin: 0 0 1rem; }
+.mart-crumbs a { color: var(--ink); padding-block: 12px; }
+.mart-phero > .mart-crumbs { position: relative; z-index: 1; margin: -0.8rem 0 1rem; color: inherit; opacity: 0.85; }
+.mart-phero > .mart-crumbs a { color: inherit; }
+
+/* old plain hero (kept for the launch "soon" state) */
+.mart-hero { padding: var(--hero-pad); margin: 0 -1rem 2rem; background: var(--hero-bg); color: var(--hero-ink); }
+.mart-hero h1 { font-size: clamp(2.2rem, 7vw, 4.2rem); max-width: 14ch; text-shadow: 3px 3px 0 #1B1033; }
+.mart-hero p { font-size: 1.1rem; max-width: 40ch; }
+
+/* ==========================================================================
+   Buttons: one radius, one 4px shadow, four variants
+   primary  ink fill, yellow text, magenta shadow
+   accent   yellow fill, ink text, ink shadow
+   second.  white fill, ink text, ink shadow
+   WhatsApp green fill, white text, ink shadow
+   ========================================================================== */
+.mart-cta, .mart-add, .mart-form button, #mart-order, .mart-share, .mart-notify, #mart-toast button, #mart-new-order {
+  --bs: #8A1C7C;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; min-height: 48px; padding: 0 1.3rem;
+  border: 3px solid #1B1033; border-radius: var(--r-btn); background: #1B1033; color: #FFD23F;
+  font: 800 1rem/1.15 var(--body); text-decoration: none; text-align: center; cursor: pointer;
+  box-shadow: var(--sh) var(--bs); transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease; }
+:is(.mart-cta, .mart-add, .mart-form button, #mart-order, .mart-share, .mart-notify, #mart-toast button, #mart-new-order):hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--bs); }
+:is(.mart-cta, .mart-add, .mart-form button, #mart-order, .mart-share, .mart-notify, #mart-toast button, #mart-new-order):active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--bs); }
+.mart-cta { min-height: 52px; margin-top: 0.6rem; }
+/* accent */
+.mart-cta-yellow, #mart-toast button, #mart-new-order { --bs: #1B1033; background: #FFD23F; color: #1B1033; }
+/* secondary */
+.mart-cta-light { --bs: #1B1033; background: #FFFFFF; color: #1B1033; }
+/* WhatsApp */
+#mart-order, .mart-share, .mart-notify { --bs: #1B1033; background: #1A7F45; color: #FFFFFF; }
+.mart-share:hover, .mart-notify:hover { background: #16703C; }
+/* on dark bands an ink shadow disappears: accent buttons there cast magenta, ink buttons turn yellow */
+.mart-vhero .mart-cta-yellow, .mart-vhero .mart-cta-light, .mart-forbrands .mart-cta, .mart-tone-2 .mart-cta { --bs: #8A1C7C; }
+.mart-forbrands .mart-cta:not(.mart-cta-light), .mart-tone-2 .mart-cta:not(.mart-cta-light) { background: #FFD23F; color: #1B1033; }
+.mart-tone-0 .mart-cta:not(.mart-cta-yellow):not(.mart-cta-light) { --bs: #FFD23F; }
+.mart-forbrands .mart-cta { width: max-content; max-width: 100%; }
+.mart-ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 1.4rem 0 0; }
+.mart-ctas .mart-cta { margin: 0; }
+/* card Add */
+.mart-add { width: calc(100% - 4px); margin-top: auto; min-height: 44px; font-size: 0.95rem; }
+.mart-add:disabled, .mart-add:disabled:hover { background: #E4E0EC; color: #3D355A; box-shadow: none; transform: none; cursor: default; }
+/* product page Add */
+.mart-product .mart-add { width: auto; min-width: 180px; min-height: 56px; padding: 0 1.6rem; font-size: 1.1rem; }
+/* forms */
+.mart-form button { min-height: 52px; padding: 0 1.8rem; font-size: 1.05rem; }
+/* cart */
+#mart-order { width: calc(100% - 4px); min-height: 56px; margin-top: 0.4rem; font-size: 1.15rem; }
+#mart-order:disabled, #mart-order:disabled:hover { opacity: 0.75; box-shadow: none; transform: none; cursor: default; }
+#mart-new-order { width: calc(100% - 4px); margin-top: 0.8rem; }
+.mart-share, .mart-notify { margin-top: 0.9rem; }
+.mart-notify { margin-top: 0.6rem; }
+#mart-toast button { flex: none; min-height: 44px; padding: 0 1rem; font-size: 0.95rem; }
+/* small utility buttons stay quiet */
+#mart-cart-close { min-height: 44px; padding: 0 1rem; border: 3px solid #1B1033; border-radius: var(--r-btn); background: #FFFFFF; color: #1B1033; font: 800 0.95rem var(--body); cursor: pointer; }
+
+/* ==========================================================================
+   Home: video hero, sticker, logo ticker, mission band
+   ========================================================================== */
+.mart-vhero { position: relative; display: grid; align-items: end; min-height: min(86vh, 720px); padding-top: 0; padding-bottom: 0; overflow: hidden; background: #1B1033; color: #FFFFFF; border-bottom: 3px solid #1B1033; }
+.mart-vhero-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.75; }
+/* scrim only where the words sit: clear at the top, near-solid at the bottom */
+.mart-vhero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,16,51,0) 18%, rgba(27,16,51,0.55) 48%, rgba(27,16,51,0.88) 78%, rgba(27,16,51,0.95) 100%); }
+.mart-vhero-in { position: relative; z-index: 1; width: 100%; padding: 2.2rem 0 4.8rem; }
+.mart-vhero h1 { font-size: clamp(2.6rem, 8.5vw, 6rem); line-height: 0.92; margin: 0 0 1rem; text-shadow: 4px 4px 0 #1B1033; max-width: 16ch; }
+.mart-vhero h1 span { display: block; animation: mart-rise .9s cubic-bezier(.2,.8,.2,1) both; }
+.mart-vhero h1 span + span { color: #FFD23F; animation-delay: .15s; }
+.mart-vhero p { font-size: 1.15rem; max-width: 38ch; }
+.mart-vhero-soon { min-height: 0; background: #8A1C7C; }
+.mart-vhero-soon .mart-vhero-in { padding-top: 3rem; padding-bottom: 3rem; }
+@media (min-width: 900px) { .mart-vhero-in { padding: 3rem 0 5rem; } .mart-vhero p { font-size: 1.25rem; } }
+@keyframes mart-rise { from { opacity: 0; transform: translateY(40px); } }
+.mart-vhero-pause { position: absolute; z-index: 2; left: max(1rem, calc(50% - 544px)); bottom: 1rem; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 3px solid #FFFFFF; border-radius: 50%; background: #1B1033; color: #FFFFFF; font: 800 1rem/1 var(--body); cursor: pointer; box-shadow: 3px 3px 0 #8A1C7C; }
+.mart-vhero-pause:hover { background: #8A1C7C; }
+.mart-vhero-pause svg { width: 18px; height: 18px; fill: currentColor; }
+.mart-hero-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1.1rem; padding: 0; }
+.mart-hero-chips > * { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.2rem 0.85rem; border: 2px solid rgba(255,255,255,0.75); border-radius: 99px; background: rgba(27,16,51,0.55); color: #FFFFFF; font-size: 0.92rem; font-weight: 700; line-height: 1.3; }
+.mart-hero-chips > * b, .mart-hero-chips > * strong { color: #FFD23F; }
+/* the ₹0 sticker: a static tilt, so it is always readable */
+.mart-sticker { position: absolute; z-index: 2; right: 1rem; top: 1.2rem; width: 112px; height: 112px; display: grid; place-content: center; text-align: center; border-radius: 50%; background: #FFD23F; color: #1B1033; border: 3px solid #1B1033; box-shadow: 4px 4px 0 #8A1C7C; font-weight: 800; line-height: 1; rotate: -8deg; }
+.mart-sticker b { font-size: 2rem; display: block; }
+@media (min-width: 900px) { .mart-sticker { right: max(1rem, calc(50% - 544px)); top: 2.5rem; width: 140px; height: 140px; } .mart-sticker b { font-size: 2.6rem; } }
+
+/* logo ticker: keeps moving, pauses while someone reads it */
+.mart-ticker { overflow: hidden; margin: 0 calc(50% - 50vw) 0; background: #FFD23F; border-bottom: 3px solid #1B1033; }
+.mart-ticker div { display: flex; align-items: center; gap: 2rem; width: max-content; padding: 0.75rem 0; animation: mart-marquee 26s linear infinite; }
+.mart-ticker:hover div, .mart-ticker:focus-within div { animation-play-state: paused; }
+.mart-ticker span { font-size: 1.7rem; font-weight: 800; }
+.mart-ticker img { width: auto; height: auto; max-height: 38px; max-width: 140px; object-fit: contain; }
+.mart-ticker img.mart-logo-dark { padding: 4px; }
+@keyframes mart-marquee { to { transform: translateX(-50%); } }
+
+/* mission band */
+.mart-mission { background: #8A1C7C; color: #FFFFFF; padding-top: 3rem; padding-bottom: 3rem; }
+.mart-mission h2 { font-size: clamp(2rem, 6vw, 3.6rem); line-height: 0.95; max-width: 18ch; text-shadow: 3px 3px 0 #1B1033; }
+.mart-mission h2 em { font-style: normal; color: #FFD23F; }
+.mart-mission p { font-size: 1.15rem; max-width: 52ch; }
+.mart-route { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; font-weight: 800; }
+.mart-route span { background: #FFFFFF; color: #1B1033; border: 3px solid #1B1033; border-radius: 99px; padding: 0.3rem 1rem; }
+.mart-route .now { background: #FFD23F; animation: mart-pulse 1.8s ease-in-out 3; }
+.mart-route i { font-style: normal; opacity: 0.85; }
+@keyframes mart-pulse { 50% { box-shadow: 0 0 0 8px rgba(255,210,63,.35); } }
+
+/* trust strip: three short lines on cream */
+.mart-trust { padding: 1.2rem 0; border-top: 3px solid #1B1033; border-bottom: 3px solid #1B1033; }
+.mart-trust ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem 1.6rem; margin: 0; padding: 0; }
+.mart-trust li { position: relative; padding-left: 2.6rem; line-height: 1.35; }
+.mart-trust li::before { content: "\2713"; position: absolute; left: 0; top: 0.05rem; width: 1.9rem; height: 1.9rem; display: grid; place-items: center; border: 2px solid #1B1033; border-radius: 50%; background: #FFD23F; font-weight: 800; }
+.mart-trust b { display: block; font-size: 1.1rem; }
+.mart-trust span { display: block; color: var(--muted); font-weight: 600; }
+.mart-trust :is(svg, img, .mart-trust-ico) { flex: none; width: 36px; height: 36px; display: grid; place-items: center; padding: 6px; border: 2px solid #1B1033; border-radius: 50%; background: #FFD23F; color: #1B1033; }
+
+/* two ways to buy */
+.mart-ways-grid { display: grid; gap: 1.2rem; }
+@media (min-width: 800px) { .mart-ways-grid { grid-template-columns: 1fr 1fr; } }
+.mart-way { position: relative; overflow: hidden; padding: 1.5rem; border: 3px solid #1B1033; border-radius: 24px; box-shadow: var(--card-shadow-lg); }
+.mart-way-online { background: #FFE3D3; }
+.mart-way-shops { background: #E9E3FF; }
+.mart-way h3 { font-size: 1.9rem; line-height: 1; margin-bottom: 0.4rem; }
+.mart-way ul { list-style: none; padding: 0; font-size: 1.05rem; font-weight: 600; }
+.mart-way li { position: relative; padding-left: 1.6rem; margin: 0.25rem 0; }
+.mart-way li::before { content: "\2713"; position: absolute; left: 0; font-weight: 800; color: #8A1C7C; }
+.mart-coming.mart-way li::before { content: "\2022"; }
+
+/* home: one compact band per featured brand */
+.mart-stories { display: grid; gap: 1.1rem; }
+.mart-stories h2 { margin-bottom: 0.2rem; }
+.mart-story { display: grid; grid-template-columns: 1fr; overflow: hidden; background: #FFFFFF; border: 3px solid #1B1033; border-radius: 24px; box-shadow: var(--card-shadow-lg); }
+.mart-story-hero { display: grid; place-items: center; background: var(--tint); height: 170px; overflow: hidden; }
+.mart-story-hero img { height: 150px; width: auto; max-width: 90%; object-fit: contain; border-radius: 12px; animation: mart-float 6s ease-in-out 3; transition: transform .3s ease; }
+.mart-story:hover .mart-story-hero img { transform: scale(1.06) rotate(-2deg); }
+@keyframes mart-float { 50% { translate: 0 -8px; } }
+.mart-story-body { padding: 1rem 1.2rem 1.2rem; }
+.mart-story-body > img { height: 40px; width: auto; max-width: 120px; object-fit: contain; }
+.mart-story-body > img.mart-logo-dark { padding: 4px; }
+.mart-story h3 { font-size: 1.6rem; margin: 0.2rem 0 0.2rem; }
+.mart-story p { margin: 0 0 0.6rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.mart-story-thumbs { display: flex; gap: 0.5rem; margin-bottom: 0.9rem; }
+.mart-story-thumbs a { display: block; min-width: 44px; min-height: 44px; }
+.mart-story-thumbs img { width: 56px; height: 56px; object-fit: contain; background: var(--tint); border: 2px solid #1B1033; border-radius: 12px; padding: 3px; transition: transform .2s ease; }
+.mart-story-thumbs a:hover img { transform: translateY(-3px); }
+.mart-story .mart-cta { margin: 0; }
+@media (min-width: 760px) {
+  .mart-story { grid-template-columns: 240px 1fr; min-height: 230px; }
+  .mart-story:nth-of-type(even) { grid-template-columns: 1fr 240px; }
+  .mart-story:nth-of-type(even) .mart-story-hero { order: 2; }
+  .mart-story-hero { height: auto; border-right: 3px solid #1B1033; }
+  .mart-story:nth-of-type(even) .mart-story-hero { border-right: 0; border-left: 3px solid #1B1033; }
+  .mart-story-hero img { height: 190px; }
+  .mart-story-body { padding: 1.2rem 1.5rem; align-self: center; }
+}
+
+/* brand logo tiles (home, for-retailers) */
+.mart-brands ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.8rem; }
+.mart-brands li a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; min-height: 120px; padding: 0.9rem; border: 3px solid #1B1033; border-radius: var(--r-card); background: #FFFFFF; box-shadow: var(--card-shadow); font-weight: 800; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.mart-brands li a:hover { transform: translate(-3px, -3px) rotate(-1.5deg); box-shadow: 7px 7px 0 #8A1C7C; }
+.mart-brands li a img { width: 100px; height: 60px; object-fit: contain; }
+
+/* for brands band, and what comes next */
+.mart-forbrands { display: grid; gap: 1rem; align-items: center; background: #1B1033; color: #FFFFFF; padding-top: 3rem; padding-bottom: 3rem; }
+.mart-forbrands h2 { color: #FFD23F; font-size: clamp(2rem, 5vw, 3rem); }
+.mart-forbrands p { font-size: 1.1rem; max-width: 52ch; }
+@media (min-width: 900px) { .mart-forbrands { grid-template-columns: 1.4fr 1fr; } }
+.mart-next { text-align: left; padding: 0; }
+.mart-next h2 { max-width: 22ch; margin: 0; }
+
+/* ==========================================================================
+   Inner-page hero band
+   ========================================================================== */
+.mart-phero { position: relative; overflow: hidden; margin-bottom: 0; padding-top: 2.2rem; padding-bottom: 2.4rem; border-bottom: 3px solid #1B1033; }
+main > .mart-phero:first-child { margin-top: -1.5rem; }
+.mart-tone-0 { background: #8A1C7C; color: #FFFFFF; }
+.mart-tone-1 { background: #FFD23F; color: #1B1033; }
+.mart-tone-2 { background: #1B1033; color: #FFFFFF; }
+.mart-phero-in { display: grid; gap: 1.4rem 3rem; align-items: center; }
+.mart-phero h1 { font-size: clamp(2.3rem, 7vw, 4.4rem); line-height: 0.95; margin: 0 0 0.7rem; max-width: 16ch; animation: mart-rise .8s cubic-bezier(.2,.8,.2,1) both; }
+.mart-tone-0 h1, .mart-tone-2 h1 { text-shadow: 4px 4px 0 #1B1033; }
+.mart-tone-2 h1 { color: #FFD23F; }
+.mart-phero h1::after { content: ""; display: block; width: 3.2em; max-width: 60%; height: 0.14em; margin-top: 0.25em; border-radius: 99px; background: #FFD23F; transform-origin: left; animation: mart-sweep .7s .35s cubic-bezier(.2,.8,.2,1) both; }
+.mart-tone-1 h1::after { background: #8A1C7C; }
+@keyframes mart-sweep { from { transform: scaleX(0); } }
+.mart-phero p { font-size: 1.15rem; max-width: 46ch; margin: 0; }
+@media (min-width: 900px) { .mart-phero p { font-size: 1.25rem; } }
+.mart-phero-art { position: relative; height: 150px; will-change: transform; transform: translateY(var(--mart-depth, 0px)); }
+.mart-phero-art img { position: absolute; width: 120px; height: 120px; object-fit: contain; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-card); padding: 6px; box-shadow: 5px 5px 0 rgba(27,16,51,.6); animation: mart-bob 5s ease-in-out 3; }
+.mart-phero-art img:nth-child(1) { left: 0; top: 18px; rotate: -8deg; }
+.mart-phero-art img:nth-child(2) { left: 110px; top: 0; rotate: 4deg; animation-delay: -1.6s; }
+.mart-phero-art img:nth-child(3) { left: 220px; top: 24px; rotate: -3deg; animation-delay: -3.2s; }
+@keyframes mart-bob { 50% { translate: 0 -10px; } }
+@media (min-width: 860px) {
+  .mart-phero-in { grid-template-columns: 1.3fr 1fr; }
+  .mart-phero-art { height: 220px; }
+  .mart-phero-art img { width: 160px; height: 160px; }
+  .mart-phero-art img:nth-child(2) { left: 140px; }
+  .mart-phero-art img:nth-child(3) { left: 280px; top: 50px; }
+}
+@media (max-width: 699px) {
+  .mart-phero { padding-top: 1.6rem; padding-bottom: 1.6rem; }
+  .mart-phero-art { height: 104px; }
+  .mart-phero-art img { width: 86px; height: 86px; }
+  .mart-phero-art img:nth-child(2) { left: 80px; }
+  .mart-phero-art img:nth-child(3) { left: 160px; top: 14px; }
+}
+
+/* ==========================================================================
+   Product cards and grids
+   ========================================================================== */
+.mart-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--gap); }
+/* related rows on a product page: four cards do not stretch across a six-card track */
+.mart-product ~ section .mart-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 220px)); }
+.mart-card { position: relative; display: flex; flex-direction: column; padding: var(--card-pad); background: var(--card); border: var(--card-line); border-radius: var(--r-card); box-shadow: var(--card-shadow); transition: transform .2s ease, box-shadow .2s ease; }
+.mart-card:hover { transform: translate(-3px, -3px) rotate(-0.6deg); box-shadow: 8px 8px 0 #1B1033; }
+.mart-card.is-out { opacity: 0.7; }
+.mart-card.is-hidden, .mart-card.is-unmatched { display: none; }
+.mart-card-img { position: relative; display: block; }
+.mart-card img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; padding: 6%; border-radius: calc(var(--r-card) - 6px); background: #FFF1C2; transition: transform .35s ease; }
+.mart-card:nth-child(3n+2) img { background: #FFE3D3; }
+.mart-card:nth-child(3n) img { background: #E9E3FF; }
+.mart-card:hover img { transform: scale(1.05) rotate(1.5deg); }
+.mart-card-alt { position: absolute; inset: 0; opacity: 0; transition: opacity .3s ease; }
+@media (hover: hover) and (pointer: fine) { .mart-card:hover .mart-card-alt.is-ready { opacity: 1; } }
+.mart-card-brand { margin: 0.6rem 0 0; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #8A1C7C; }
+/* names: two lines at most, always two lines tall, so prices and Add line up across a row */
+.mart-card-name { font-size: 1.05rem; line-height: 1.15; min-height: 2.3em; margin: 0.15rem 0 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+@media (min-width: 900px) { .mart-card-name { font-size: 1.12rem; } }
+.mart-card-name a { color: inherit; text-decoration: none; }
+.mart-card-name a:hover { text-decoration: underline; }
+/* the whole card is the tap target; Add sits above the stretched link */
+.mart-card-name a::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: var(--r-card); }
+.mart-card .mart-add { position: relative; z-index: 2; }
+.mart-card-size { margin: 0.1rem 0 0; font-size: 0.85rem; color: var(--muted); }
+.mart-card-price { margin: 0.4rem 0 0.7rem; font: var(--price-font); }
+.mart-card-price span { display: inline-block; padding: 0.05rem 0.6rem; background: #FFD23F; border: 2px solid #1B1033; border-radius: 8px; transform: rotate(-3deg); }
+.mart-card-price s { font: 500 0.85rem var(--body); color: var(--muted); margin-left: 0.3rem; }
+.mart-card-price span.mart-unit, .mart-card-price span.mart-mrp-note { padding: 0; background: none; border: 0; transform: none; }
+.mart-card-price span.mart-unit { display: block; }
+.mart-card-price span.mart-mrp-note { box-shadow: none; }
+.mart-product .mart-card-price .mart-unit { margin-top: 0.5rem; font-size: 0.9rem; }
+.mart-unit { display: block; margin: 0.15rem 0 0; font: 600 0.82rem/1.3 var(--body); color: var(--muted); }
+.mart-mrp-note { display: inline-block; margin-left: 0.45rem; font: 600 0.7rem/1.2 var(--body); color: var(--muted); vertical-align: middle; }
+.mart-veg { position: relative; display: inline-block; flex: none; width: 16px; height: 16px; border: 2px solid #1A7F45; border-radius: 3px; background: #FFFFFF; vertical-align: -2px; font-size: 0; overflow: hidden; }
+.mart-veg::after { content: ""; position: absolute; inset: 0; margin: auto; width: 8px; height: 8px; border-radius: 50%; background: #1A7F45; }
+.mart-veg.is-nonveg { border-color: #7A3E12; }
+.mart-veg.is-nonveg::after { width: 9px; height: 8px; border-radius: 0; background: #7A3E12; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+
+/* ==========================================================================
+   Shop: aisles, search, filters
+   ========================================================================== */
+.mart-aisles ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.9rem; }
+.mart-aisles a { position: relative; display: block; height: 150px; overflow: hidden; padding: 0.8rem 0.9rem; border: 3px solid #1B1033; border-radius: 20px; box-shadow: var(--card-shadow); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.mart-aisles a:hover { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 #1B1033; }
+.mart-aisles b { position: relative; z-index: 1; display: block; font-size: 1.4rem; line-height: 1; }
+.mart-aisles span { position: relative; z-index: 1; font-size: 0.85rem; font-weight: 700; opacity: 0.85; }
+.mart-aisles img { position: absolute; right: -14px; bottom: -14px; width: 104px; height: 104px; object-fit: contain; background: #FFFFFF; border: 3px solid #1B1033; border-radius: 16px; padding: 4px; rotate: -8deg; transition: rotate .3s ease, scale .3s ease; }
+.mart-aisles a:hover img { rotate: 0deg; scale: 1.08; }
+@media (max-width: 699px) {
+  /* a swipe strip that bleeds to the screen edge and starts on the gutter */
+  .mart-aisles ul { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 1rem; margin: 0 -1rem; padding: 0.2rem 1rem 0.8rem; }
+  .mart-aisles li { flex: 0 0 150px; scroll-snap-align: start; }
+  .mart-aisles a { height: 120px; }
+  .mart-aisles img { width: 80px; height: 80px; }
+}
+.mart-search { margin: 1rem 0 1.4rem; max-width: 560px; }
+.mart-search label { display: block; font-weight: 800; margin-bottom: 0.3rem; }
+.mart-search input { width: 100%; min-height: 48px; padding: 0 0.9rem; font-size: 16px; border: 3px solid #1B1033; border-radius: var(--r-btn); background: #FFFFFF; }
+#mart-search-results { list-style: none; padding: 0; margin: 0.4rem 0 0; }
+#mart-search-results li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.5rem 0.2rem; border-bottom: 1px solid #E4E0EC; }
+#mart-search-results a { font-weight: 800; min-height: 44px; display: inline-flex; align-items: center; }
+#mart-search-results span { color: var(--muted); font-size: 0.85rem; }
+#mart-search-results li.is-sold span { color: #1A7F45; font-weight: 800; }
+.mart-shop-section > h2 { margin-bottom: 0.4rem; }
+.mart-filters { display: flex; gap: 0.9rem; flex-wrap: wrap; margin: 0 0 1.4rem; }
+.mart-filters label { display: grid; gap: 0.3rem; font-weight: 800; font-size: 0.95rem; }
+.mart-filters select { min-height: 48px; min-width: 170px; padding: 0 2.6rem 0 0.9rem; border: 3px solid #1B1033; border-radius: var(--r-btn); background: #FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1.5 1.5 7 7l5.5-5.5' fill='none' stroke='%231B1033' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 0.9rem center; box-shadow: 3px 3px 0 #1B1033; font-weight: 700; color: var(--ink); -webkit-appearance: none; appearance: none; cursor: pointer; }
+.mart-none { margin: 1rem 0 2rem; padding: 1rem; background: #FFFFFF; border: 3px dashed #1B1033; border-radius: 14px; font-weight: 600; }
+
+/* ==========================================================================
+   Product page
+   ========================================================================== */
+.mart-product { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem 2.2rem; align-items: start; }
+@media (max-width: 640px) { .mart-product { grid-template-columns: 1fr; } }
+/* the gallery is the short column: it stays in view while the info scrolls */
+@media (min-width: 900px) { .mart-product > .mart-gallery, .mart-product > .mart-zoomwrap { position: sticky; top: 90px; } }
+.mart-product img { width: 100%; height: auto; border: 3px solid #1B1033; border-radius: var(--r-card); background: #FFFFFF; }
+.mart-product .mart-slides img, .mart-product > img { background: #FFF1C2; }
+.mart-gallery { min-width: 0; }
+.mart-slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 0.6rem; scroll-behavior: smooth; }
+.mart-slides:focus-visible { outline-offset: -3px; }
+.mart-slides figure { flex: 0 0 100%; margin: 0; scroll-snap-align: start; }
+.mart-slides figure, .mart-zoomwrap { overflow: hidden; border-radius: var(--r-card); }
+.mart-zoomwrap img { display: block; }
+.mart-thumbs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+.mart-thumbs a { display: block; flex: none; min-width: 44px; min-height: 44px; }
+.mart-product .mart-thumbs img { width: 56px; height: 56px; object-fit: contain; border-width: 2px; border-radius: 10px; }
+@media (max-width: 640px) {
+  /* phone: a 4:3 gallery capped at 60% of the screen, thumbs in one swipe row, so name and price show sooner */
+  .mart-product .mart-slides img { aspect-ratio: 4 / 3; max-height: 60vh; object-fit: contain; }
+  .mart-thumbs { flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x proximity; padding: 0 0 0.3rem; scrollbar-width: none; }
+  .mart-thumbs::-webkit-scrollbar { display: none; }
+  .mart-thumbs a { scroll-snap-align: start; }
+  .mart-product .mart-thumbs img { width: 48px; height: 48px; }
+}
+.mart-product h1 { margin: 0.2rem 0 0.3rem; }
+/* brand above the name: a pill link, not a whisper */
+.mart-product .mart-card-brand { margin: 0 0 0.4rem; letter-spacing: 0.04em; }
+.mart-product .mart-card-brand a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 0.85rem; background: #FFFFFF; color: #8A1C7C; border: 3px solid #1B1033; border-radius: 99px; box-shadow: 2px 2px 0 #1B1033; font-size: 0.85rem; text-decoration: none; }
+.mart-product .mart-card-brand a:hover { background: #FFD23F; color: #1B1033; }
+.mart-product .mart-card-brand img { height: 22px; width: auto; max-width: 90px; object-fit: contain; border: 0; border-radius: 0; background: none; }
+/* the sticker price */
+.mart-product .mart-card-price { margin: 0.8rem 0 1.1rem; font-size: 1.6rem; }
+.mart-product .mart-card-price span.mart-price { padding: 0.1rem 0.85rem; font-size: 2rem; line-height: 1.15; border-width: 3px; border-radius: 10px; transform: rotate(-4deg); box-shadow: 4px 4px 0 #1B1033; }
+.mart-product .mart-card-price s { font-size: 1rem; margin-left: 0.6rem; }
+.mart-highlights { list-style: none; padding: 0; display: grid; gap: 0.5rem; margin: 0.8rem 0; }
+.mart-highlights li { position: relative; margin: 0; padding: 0.5rem 0.8rem 0.5rem 2.2rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: 12px; font-weight: 600; }
+.mart-highlights li::before { content: "\2605"; position: absolute; left: 0.75rem; color: #8A1C7C; }
+.mart-countdown { display: flex; width: fit-content; align-items: center; gap: 0.4rem; margin: 0.9rem 0 0.6rem; padding: 0.35rem 0.8rem; background: #E8F6EE; color: #11592F; border: 2px solid #1A7F45; border-radius: 99px; font-weight: 800; }
+.mart-countdown::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: #1A7F45; animation: mart-pulse-dot 1.6s ease-in-out 3; }
+.mart-countdown.is-tomorrow { background: #FFF1C2; color: #1B1033; border-color: #1B1033; }
+.mart-countdown.is-tomorrow::before { background: #8A1C7C; animation: none; }
+@keyframes mart-pulse-dot { 50% { opacity: 0.3; } }
+
+/* below the fold: one measure (820px), so the right edge does not zig-zag */
+.mart-product ~ section:not(:has(.mart-grid)), .mart-product ~ .mart-credit { max-width: 820px; }
+.mart-about p { font-size: 1.08rem; }
+/* ingredients read as a card (the About block stays plain prose) */
+.mart-product ~ section:not(.mart-about):not(.mart-label) > h2 + p { margin-top: 0; padding: 1rem 1.2rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow); }
+.mart-know dl, .mart-label dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem; margin: 0; }
+.mart-know dl > div, .mart-label dl > div { padding: 0.9rem 1rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow); }
+.mart-know dt, .mart-label dt, .mart-facts dt { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #8A1C7C; }
+.mart-know dd, .mart-label dd { margin: 0.2rem 0 0; font-weight: 600; }
+.mart-credit { font-size: 0.85rem; }
+.mart-videos { display: grid; gap: 1rem; max-width: 820px; }
+.mart-video { margin: 0; width: fit-content; max-width: 100%; }
+.mart-video iframe, .mart-video video { border: 3px solid #1B1033; border-radius: var(--r-card); background: #1B1033; }
+.mart-video iframe { width: min(100%, 720px); height: auto; aspect-ratio: 16 / 9; }
+.mart-video video { width: auto; max-width: 100%; height: auto; max-height: min(72vh, 620px); }
+
+/* phone buy bar */
+.mart-buybar { display: none; }
+@media (max-width: 899px) {
+  .mart-buybar { position: fixed; z-index: 6; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; padding: 0.6rem 1rem calc(0.6rem + env(safe-area-inset-bottom)); background: #FFD23F; border-top: 3px solid #1B1033; }
+  .mart-buybar span { display: grid; min-width: 0; line-height: 1.2; }
+  .mart-buybar b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mart-buybar .mart-price { font-weight: 800; font-size: 1.15rem; }
+  .mart-buybar .mart-add { flex: none; width: auto; min-width: 120px; min-height: 48px; margin: 0 4px 0 0; --bs: #8A1C7C; }
+}
+
+/* zoom and viewer */
+.mart-zoomable { cursor: zoom-in; transition: transform .25s ease; }
+.mart-zoomable.is-zoomed { transform: scale(2); }
+.mart-lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgba(27,16,51,0.94); }
+.mart-lightbox[open] { display: grid; place-items: center; animation: mart-rise .25s ease both; }
+.mart-lightbox::backdrop { background: rgba(27,16,51,0.6); }
+.mart-lightbox img { max-width: min(92vw, 1100px); max-height: 84vh; object-fit: contain; background: #FFFFFF; border-radius: 16px; }
+.mart-lightbox button { position: absolute; width: 52px; height: 52px; border: 3px solid #1B1033; border-radius: 50%; background: #FFD23F; color: #1B1033; font: 800 1.8rem/1 var(--body); cursor: pointer; }
+.mart-lb-close { top: 1rem; right: 1rem; }
+.mart-lb-prev { left: 1rem; top: 50%; translate: 0 -50%; }
+.mart-lb-next { right: 1rem; top: 50%; translate: 0 -50%; }
+.mart-lb-count { position: absolute; bottom: 1rem; left: 50%; translate: -50% 0; color: #FFFFFF; font-weight: 800; }
+
+/* ==========================================================================
+   Tables (delivery, nutrition, guides)
+   ========================================================================== */
+.mart-table-wrap { position: relative; overflow-x: auto; border: 3px solid #1B1033; border-radius: var(--r-card); background: #FFFFFF; box-shadow: var(--card-shadow-lg); }
+.mart-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.mart-table caption { text-align: left; font-weight: 800; padding: 0.6rem 0.8rem; }
+/* inside a wrap the caption is the card's header strip */
+.mart-table-wrap > .mart-table > caption { background: #FFD23F; border-bottom: 3px solid #1B1033; padding: 0.7rem 1rem; font-size: 1.05rem; }
+.mart-table th, .mart-table td { padding: 0.6rem 0.8rem; border-bottom: 1px solid #E4E0EC; text-align: left; vertical-align: top; }
+.mart-table tbody tr:last-child > * { border-bottom: 0; }
+.mart-table thead th { background: #FFD23F; border-bottom: 3px solid #1B1033; }
+.mart-table tbody tr:nth-child(even) { background: #FFFBF0; }
+.mart-nutrition .mart-table th[scope="row"] { font-weight: 700; }
+/* until the generator wraps it: a bare nutrition table still reads as one card */
+.mart-nutrition > .mart-table { background: #FFFFFF; border: 3px solid #1B1033; box-shadow: var(--card-shadow); }
+.mart-nutrition > .mart-table caption { background: #FFD23F; border: 3px solid #1B1033; border-bottom: 0; }
+
+/* guides: a real bar chart in the ranked column; phones scroll the table */
+.mart-guide { min-width: 680px; }
+.mart-guide td:first-child { font-weight: 800; }
+.mart-guide tbody tr:first-child { background: #FFF8E7; }
+.mart-guide td { vertical-align: middle; }
+.mart-barcell { position: relative; min-width: 230px; width: 30%; }
+.mart-bar { position: absolute; left: 0.8rem; top: 50%; translate: 0 -50%; height: 14px; width: max(6px, calc(6% + var(--w) * 0.52)); background: #FFD23F; border: 2px solid #1B1033; border-radius: 99px; transform-origin: left; animation: mart-grow .9s cubic-bezier(.2,.8,.2,1) both; }
+.mart-barcell b { position: relative; display: block; text-align: right; padding-left: 0; font-variant-numeric: tabular-nums; }
+@keyframes mart-grow { from { transform: scaleX(0); } }
+.mart-top-pick { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.7rem; margin: 0 0 1.4rem; padding: 1rem 1.2rem; background: #FFD23F; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow-lg); font-size: 1.05rem; }
+main > .mart-top-pick { margin-top: var(--section); }
+main > .mart-crumbs + .mart-top-pick { margin-top: 0; }
+.mart-top-pick span { background: #1B1033; color: #FFD23F; border-radius: 99px; padding: 0.1rem 0.8rem; font-weight: 800; font-size: 0.85rem; }
+.mart-top-pick b { font-size: 1.3rem; }
+.mart-guide-cards { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.mart-guide-cards li { background: none; }
+.mart-guide-cards a { display: flex; flex-direction: column; gap: 0.35rem; height: 100%; padding: 1.2rem; border: 3px solid #1B1033; border-radius: 20px; box-shadow: var(--card-shadow-lg); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.mart-guide-cards li.mart-tone-0 a { background: #FFE3D3; color: #1B1033; }
+.mart-guide-cards li.mart-tone-1 a { background: #FFF1C2; color: #1B1033; }
+.mart-guide-cards li.mart-tone-2 a { background: #E9E3FF; color: #1B1033; }
+.mart-guide-cards a:hover { transform: translate(-3px, -3px) rotate(-0.5deg); box-shadow: 9px 9px 0 #8A1C7C; }
+.mart-guide-n { font-size: 2.4rem; font-weight: 800; line-height: 1; color: #8A1C7C; }
+.mart-guide-cards b { font-size: 1.25rem; line-height: 1.15; }
+.mart-guide-cards span:not(.mart-guide-n):not(.mart-guide-meta) { font-size: 0.92rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.mart-guide-meta { margin-top: auto; font-weight: 800; font-size: 0.85rem; }
+
+/* ==========================================================================
+   Directory: brand pages, lists, logo wall, monograms
+   ========================================================================== */
+/* brand page header: magenta band with the logo on a plate */
+.mart-brand { position: relative; display: grid; grid-template-columns: 120px 1fr; gap: 0 1rem; align-items: center; padding: 1.6rem 1.2rem; margin: 0; background: #8A1C7C; color: #FFFFFF; border: 3px solid #1B1033; border-radius: 24px; box-shadow: var(--card-shadow-lg); }
+.mart-brand > img, .mart-brand > .mart-monogram { grid-row: span 3; width: 120px; height: 96px; box-shadow: var(--card-shadow); }
+.mart-brand > img { object-fit: contain; border-radius: 14px; background: #FFFFFF; border: 3px solid #1B1033; padding: 8px; }
+.mart-brand > img.mart-logo-dark { background: #1B1033; }
+.mart-brand h1 { text-shadow: 3px 3px 0 #1B1033; margin-bottom: 0.3rem; }
+.mart-brand .mart-lead { color: #FFFFFF; margin: 0; max-width: 52ch; }
+.mart-brand:not(:has(> img, > .mart-monogram)) { display: block; }
+.mart-brand:not(:has(> img, > .mart-monogram)) .mart-lead { margin-top: 0.2rem; }
+@media (min-width: 700px) { .mart-brand { grid-template-columns: 150px 1fr; padding: 2rem; } .mart-brand > img, .mart-brand > .mart-monogram { width: 150px; height: 120px; } }
+@media (max-width: 699px) {
+  .mart-brand { display: block; }
+  .mart-brand > img, .mart-brand > .mart-monogram { margin-bottom: 0.8rem; width: 120px; height: 84px; }
+  .mart-brand > img { display: block; }
+}
+/* a brand with no logo gets its initials on a plate */
+.mart-monogram { display: grid; place-items: center; flex: none; overflow: hidden; font: 800 1.4rem/1 var(--display); letter-spacing: 0.02em; text-transform: uppercase; color: #1B1033; background: #FFD23F; border: 3px solid #1B1033; border-radius: 14px; }
+.mart-monogram.mart-tone-0 { background: #8A1C7C; color: #FFFFFF; }
+.mart-monogram.mart-tone-1 { background: #FFD23F; color: #1B1033; }
+.mart-monogram.mart-tone-2 { background: #1B1033; color: #FFD23F; }
+.mart-monogram.mart-tone-3 { background: #FFE3D3; color: #1B1033; }
+.mart-monogram.mart-tone-4 { background: #E9E3FF; color: #1B1033; }
+.mart-brand > .mart-monogram { font-size: 2.6rem; }
+.mart-brand > .mart-monogram.mart-tone-0 { background: #FFD23F; color: #1B1033; }
+
+.mart-brand-about { max-width: 70ch; }
+.mart-brand-about p { font-size: 1.08rem; }
+.mart-brand-grid { display: grid; gap: 1.5rem; align-items: start; }
+@media (min-width: 860px) { .mart-brand-grid { grid-template-columns: 1fr 380px; } .mart-brand-grid .mart-photo { position: sticky; top: 90px; margin: 0; } }
+.mart-brand-grid > div > * + * { margin-top: 1.6rem; }
+/* facts as a 2 x 2 grid beside the photo */
+.mart-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.7rem; margin: 0; }
+main > .mart-facts:not(:first-child) { margin-top: var(--section); }
+.mart-brand-grid .mart-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; }
+@media (max-width: 420px) { .mart-brand-grid .mart-facts { grid-template-columns: 1fr; } }
+.mart-facts div { background: #FFFFFF; border: 3px solid #1B1033; border-radius: 14px; padding: 0.7rem 0.9rem; box-shadow: var(--card-shadow); }
+.mart-facts dd { margin: 0.15rem 0 0; font-weight: 700; }
+.mart-photo { margin: 1.2rem 0; max-width: 420px; }
+.mart-photo img { width: 100%; height: auto; border-radius: var(--r-card); background: #FFF1C2; border: 3px solid #1B1033; box-shadow: var(--card-shadow-lg); }
+.mart-brand-grid .mart-photo img { aspect-ratio: 1; object-fit: contain; padding: 1.2rem; }
+.mart-photo figcaption { font-size: 0.9rem; margin-top: 0.5rem; }
+.mart-buy ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.mart-buy li a { display: inline-flex; align-items: center; min-height: 46px; padding: 0 1rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-btn); box-shadow: 3px 3px 0 #1B1033; font-weight: 800; text-decoration: none; }
+.mart-buy li a:hover { background: #FFD23F; }
+.mart-buy li:first-child a[href="#mart-products"] { background: #FFD23F; }
+.mart-notable { background: #FFF1C2; border: 3px solid #1B1033; border-radius: var(--r-card); padding: 1rem 1.2rem; box-shadow: 4px 4px 0 #8A1C7C; }
+.mart-notable h2 { font-size: 1.3rem; margin: 0 0 0.4rem; }
+.mart-notable ul { list-style: none; margin: 0; padding: 0; font-weight: 600; display: grid; gap: 0.4rem; }
+.mart-notable li { padding-left: 0.8rem; border-left: 4px solid #8A1C7C; line-height: 1.35; }
+.mart-sources { font-size: 0.85rem; color: #4E4566; }
+.mart-sources h2 { font-size: 1.1rem; color: #1B1033; }
+/* "coming soon to local shops": a dashed slot */
+.mart-coming { padding: 1.1rem 1.2rem; background: rgba(255,255,255,0.6); border: 3px dashed #1B1033; border-radius: var(--r-card); }
+.mart-coming > :first-child { margin-top: 0; }
+.mart-coming > :last-child { margin-bottom: 0; }
+.mart-coming h2, .mart-coming h3 { font-size: 1.3rem; }
+
+/* list rows (directory, guides, stockists): the whole row is the link */
+.mart-list { list-style: none; padding: 0; display: grid; gap: 0.6rem; }
+.mart-list li { position: relative; display: grid; gap: 0.1rem; align-content: center; min-height: 64px; padding: 0.7rem 0.9rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: 14px; box-shadow: var(--card-shadow); transition: transform .18s ease, box-shadow .18s ease; }
+.mart-list li:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #8A1C7C; }
+.mart-list a { font-weight: 800; font-size: 1.05rem; line-height: 1.25; text-decoration-thickness: 2px; text-underline-offset: 2px; }
+.mart-list li > a::after { content: ""; position: absolute; inset: 0; border-radius: 12px; }
+.mart-list span { color: var(--muted); font-size: 0.92rem; line-height: 1.4; }
+/* every row in a list with logos keeps the 64px slot: logo, monogram or a blank plate */
+.mart-list li:has(> .mart-logo-sm, > .mart-monogram),
+.mart-list:has(> li > .mart-logo-sm, > li > .mart-monogram) > li { grid-template-columns: 64px 1fr; column-gap: 0.9rem; }
+.mart-list:has(> li > .mart-logo-sm, > li > .mart-monogram) > li:not(:has(> .mart-logo-sm, > .mart-monogram))::before { content: ""; grid-row: span 2; width: 64px; height: 48px; border: 2px dashed #CFC6DD; border-radius: 10px; }
+.mart-list li > .mart-logo-sm, .mart-list li > .mart-monogram { grid-row: span 2; width: 64px; height: 48px; margin: 0; }
+.mart-list li > .mart-logo-sm { padding: 4px; object-fit: contain; border: 2px solid #1B1033; border-radius: 10px; background: #FFFFFF; }
+.mart-list li > .mart-monogram { color: #1B1033; font-size: 1.1rem; border-width: 2px; border-radius: 10px; }
+.mart-list li > .mart-monogram.mart-tone-0 { color: #FFFFFF; }
+.mart-list li > .mart-monogram.mart-tone-2 { color: #FFD23F; }
+@media (min-width: 900px) { .mart-list-2 { grid-template-columns: 1fr 1fr; } }
+.mart-logo-sm { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; background: #fff; vertical-align: middle; margin-right: 0.6rem; }
+img.mart-logo-dark { background: #1B1033; padding: 6px; border-radius: 10px; }
+.mart-list li > .mart-logo-sm.mart-logo-dark { background: #1B1033; }
+
+/* A to Z: letter jump bar, tight letter sections */
+.mart-az-jump { position: sticky; top: 64px; z-index: 4; display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0; padding: 0.6rem 0; background: var(--bg); border-bottom: 3px solid #1B1033; list-style: none; }
+.mart-az-jump ul { display: contents; }
+.mart-az-jump li { display: contents; }
+.mart-az-jump a, .mart-az-jump span { display: inline-grid; place-items: center; min-width: 40px; height: 40px; padding: 0 0.4rem; border: 3px solid #1B1033; border-radius: 10px; background: #FFFFFF; font-weight: 800; text-decoration: none; line-height: 1; }
+.mart-az-jump a:hover { background: #FFD23F; }
+.mart-az-jump span, .mart-az-jump [aria-disabled="true"] { border-color: #CFC6DD; color: #8E86A3; background: transparent; }
+@media (max-width: 640px) { .mart-az-jump { position: static; } }
+main > section:has(> h2[id^="l-"]) { margin-top: 1.6rem; }
+main > .mart-az-jump + section:has(> h2[id^="l-"]) { margin-top: 1.4rem; }
+h2[id^="l-"] { scroll-margin-top: 8rem; margin-bottom: 0.7rem; }
+
+/* chips and category pills */
+.mart-chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.mart-chips a, .mart-cats a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 0.9rem; border: 3px solid #1B1033; border-radius: var(--r-chip); font-weight: 800; text-decoration: none; box-shadow: 3px 3px 0 #1B1033; transition: transform .15s ease; }
+.mart-chips a { background: #FFFFFF; }
+.mart-chips a:hover, .mart-cats a:hover { transform: translateY(-2px); }
+.mart-chips a[aria-current="page"], .mart-chips a.is-active { background: #FFD23F; }
+.mart-cats ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.mart-cats a { background: #FFD23F; }
+.mart-cats a[aria-current="page"], .mart-cats a.is-active { background: #1B1033; color: #FFD23F; }
+
+/* brands hub: logo wall */
+.mart-logo-wall ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 0.8rem; }
+.mart-logo-wall a { position: relative; display: grid; place-items: center; height: 90px; padding: 0.6rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: 16px; box-shadow: var(--card-shadow); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.mart-logo-wall a:hover { transform: translate(-2px, -2px) rotate(-2deg); box-shadow: 6px 6px 0 #8A1C7C; }
+.mart-logo-wall img { max-width: 100%; max-height: 62px; width: auto; height: auto; object-fit: contain; }
+.mart-logo-wall a > .mart-monogram { width: 100%; height: 62px; font-size: 1.3rem; border-width: 2px; }
+.mart-instock { position: absolute; z-index: 1; top: -11px; right: -8px; padding: 0.05rem 0.5rem; background: #FFD23F; color: #1B1033; border: 2px solid #1B1033; border-radius: 99px; box-shadow: 2px 2px 0 #1B1033; font-size: 0.7rem; font-weight: 800; line-height: 1.4; white-space: nowrap; rotate: 6deg; pointer-events: none; }
+
+/* claim a listing */
+.mart-claim { padding: 1.4rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: 24px; box-shadow: 6px 6px 0 #8A1C7C; }
+.mart-claim:has(details) { padding: 0.6rem 1.2rem; box-shadow: var(--card-shadow-lg); }
+.mart-claim details > summary { cursor: pointer; min-height: 48px; display: flex; align-items: center; gap: 1rem; font-size: 1.25rem; font-weight: 800; list-style: none; }
+.mart-claim details > summary::-webkit-details-marker { display: none; }
+
+/* +/- disclosure marker, shared by the claim card and the FAQ */
+.mart-claim details > summary::after, .mart-faq > summary::after { content: "+"; flex: none; margin-left: auto; width: 36px; height: 36px; display: grid; place-items: center; border: 2px solid #1B1033; border-radius: 50%; background: #FFD23F; font-size: 1.3rem; font-weight: 800; line-height: 1; }
+.mart-claim details[open] > summary::after, .mart-faq[open] > summary::after { content: "\2212"; background: #FFFFFF; }
+
+/* ==========================================================================
+   Prose pages, steps, FAQ, seller, empty states
+   ========================================================================== */
+.mart-prose { max-width: 820px; }
+.mart-prose h2 { font-size: 1.45rem; line-height: 1.15; margin: 1.8rem 0 0.4rem; }
+.mart-prose h2:first-child { margin-top: 0; }
+.mart-prose p { margin: 0 0 0.8rem; max-width: 68ch; }
+.mart-prose ul, main > ul:not([class]) { list-style: none; padding: 0; display: grid; gap: 0.6rem; }
+@media (min-width: 900px) { .mart-prose ul { grid-template-columns: 1fr 1fr; } }
+.mart-prose ul li, main > ul:not([class]) li { position: relative; padding: 0.7rem 0.9rem 0.7rem 2.6rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: 14px; font-weight: 600; }
+.mart-prose ul li::before, main > ul:not([class]) li::before { content: "\2713"; position: absolute; left: 0.9rem; color: #1A7F45; font-weight: 800; }
+
+/* numbered steps (how it works) and ordered lists in prose: cards, bold title on its own line */
+.mart-steps, .mart-prose ol, main > ol { list-style: none; padding: 0; counter-reset: mart-step; display: grid; gap: 1rem; font-size: 1.05rem; }
+@media (min-width: 900px) { .mart-steps, .mart-prose ol, main > ol { grid-template-columns: repeat(2, 1fr); } }
+.mart-steps li, .mart-prose ol li, main > ol li { counter-increment: mart-step; position: relative; display: block; min-height: 4.4rem; margin: 0; padding: 1rem 1.1rem 1rem 4.4rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow); font-size: 1.05rem; }
+.mart-steps li::before, .mart-prose ol li::before, main > ol li::before { content: counter(mart-step); position: absolute; left: 1rem; top: 0.95rem; width: 2.5rem; height: 2.5rem; display: grid; place-items: center; border-radius: 50%; background: #8A1C7C; color: #FFFFFF; font-weight: 800; font-size: 1.2rem; border: 2px solid #1B1033; }
+.mart-steps li > b:first-child, .mart-prose ol li > b:first-child, main > ol li > b:first-child { display: block; margin-bottom: 0.15rem; font-size: 1.2rem; line-height: 1.2; }
+.mart-steps li:not(:has(> b)), .mart-prose ol li:not(:has(> b)), main > ol li:not(:has(> b)) { padding-top: 1.45rem; }
+.mart-how ol { padding-left: 1.2rem; font-size: 1.05rem; }
+
+.mart-faq { margin: 0 0 0.8rem; padding: 0.2rem 1rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: 14px; box-shadow: var(--card-shadow); }
+main > .mart-faq { max-width: 820px; }
+.mart-faq > summary { min-height: 52px; display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; font-size: 1.1rem; font-weight: 800; line-height: 1.3; cursor: pointer; list-style: none; }
+.mart-faq > summary::-webkit-details-marker { display: none; }
+.mart-faq p { margin: 0; padding: 0 3.2rem 1rem 0; }
+
+/* the seller, as a normal card with a kicker */
+.mart-seller { display: block; width: fit-content; min-width: min(100%, 320px); font-style: normal; padding: 0.9rem 1.2rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow); }
+.mart-seller::before { content: "Seller"; display: block; margin-bottom: 0.15rem; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #8A1C7C; }
+
+/* empty states that point somewhere */
+.mart-soon { padding: 1.4rem 1.2rem; background: #FFE3D3; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow-lg); }
+main > .mart-soon:not(:first-child) { margin-top: var(--section); }
+.mart-soon h2 { font-size: 1.6rem; }
+.mart-soon a { font-weight: 800; }
+.mart-empty { padding: 1.6rem; background: #E9E3FF; border: 3px solid #1B1033; border-radius: 24px; box-shadow: var(--card-shadow-lg); }
+.mart-empty h2 { margin-top: 0; }
+.mart-empty-alt { background: #FFE3D3; }
+main > .mart-empty + .mart-empty { margin-top: 1.4rem; }
+
+/* delivery facts and contact routes */
+.mart-facts-row { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.9rem; }
+.mart-facts-row li { display: grid; gap: 0.2rem; align-content: start; padding: 1rem 1.1rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow); }
+.mart-facts-row li:nth-child(1) { background: #FFD23F; }
+.mart-facts-row b { font-size: 1.5rem; line-height: 1.05; }
+.mart-routes { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.9rem; }
+.mart-routes li { display: grid; gap: 0.3rem; align-content: start; padding: 1rem 1.1rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow); }
+.mart-routes li:nth-child(2) { background: #E9E3FF; }
+.mart-routes li:nth-child(3) { background: #FFE3D3; }
+.mart-routes b { font-size: 1.15rem; }
+.mart-routes a { font-weight: 800; min-height: 44px; display: inline-flex; align-items: center; }
+.mart-also { margin: 0.6rem 0 1rem; font-weight: 700; }
+.mart-also a { display: inline-flex; min-height: 44px; align-items: center; margin-left: 0.3rem; }
+
+/* ==========================================================================
+   Forms: inputs fill the card; two columns on desktop where fields allow
+   ========================================================================== */
+.mart-form { display: grid; gap: 0.1rem 1rem; }
+.mart-form label { display: block; margin: 0.5rem 0; font-weight: 700; font-size: 0.95rem; }
+.mart-form input, .mart-form textarea, .mart-form select { display: block; width: 100%; max-width: none; min-height: 48px; margin-top: 0.3rem; padding: 0.6rem 0.8rem; font-size: 16px; font-weight: 500; border: 3px solid #1B1033; border-radius: var(--r-btn); background: #FFFFFF; color: var(--ink); }
+.mart-form textarea { min-height: 7rem; resize: vertical; }
+.mart-form button { justify-self: start; margin-top: 0.8rem; }
+@media (min-width: 700px) {
+  .mart-form { grid-template-columns: 1fr 1fr; }
+  .mart-form > label:has(textarea), .mart-form > button, .mart-form > p, .mart-form > fieldset { grid-column: 1 / -1; }
+}
+main > form.mart-form, .mart-prose form.mart-form { max-width: 760px; padding: 1.4rem 1.6rem 1.6rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: 24px; box-shadow: 6px 6px 0 #8A1C7C; }
+
+/* ==========================================================================
+   Cart drawer
+   ========================================================================== */
+.mart-cart { position: fixed; inset: 0 0 0 auto; z-index: 10; width: min(420px, 100%); padding: 1.2rem 1.2rem 2rem; overflow-y: auto; background: var(--bg); border-left: 3px solid #1B1033; box-shadow: 0 0 0 100vmax rgba(27,16,51,0.55); }
+.mart-cart-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.4rem; }
+.mart-cart-head h2 { margin: 0; font-size: 1.8rem; }
+.mart-cart label { display: block; margin: 0.6rem 0; font-weight: 700; font-size: 0.95rem; }
+.mart-cart input, .mart-cart textarea { width: 100%; min-height: 44px; padding: 0.6rem; font-size: 16px; border: 3px solid #1B1033; border-radius: var(--r-btn); background: var(--card); color: var(--ink); }
+.mart-line { display: grid; grid-template-columns: 56px 1fr auto; gap: 0.8rem; align-items: center; padding: 0.8rem 0; border-bottom: 2px dashed #E4E0EC; }
+.mart-line-img { width: 56px; height: 56px; object-fit: contain; background: #FFF1C2; border: 2px solid #1B1033; border-radius: 12px; padding: 3px; }
+.mart-line-main { min-width: 0; }
+.mart-line-name { display: block; font-weight: 700; line-height: 1.25; margin-bottom: 0.35rem; }
+.mart-line-total { text-align: right; font-weight: 800; font-size: 1.05rem; }
+.mart-qty { display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
+.mart-qty button { min-width: 40px; min-height: 40px; border: 2px solid #1B1033; border-radius: 10px; background: #FFFFFF; color: #1B1033; font: 800 1.1rem var(--body); cursor: pointer; }
+.mart-qty .mart-qty-up { background: #FFD23F; }
+.mart-qty input, .mart-cart .mart-qty input { width: 48px; min-height: 40px; padding: 0; text-align: center; border: 2px solid #1B1033; border-radius: 10px; font: 700 1rem var(--body); -moz-appearance: textfield; }
+.mart-qty input::-webkit-inner-spin-button, .mart-qty input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.mart-qty .mart-line-remove { min-width: 0; min-height: 44px; padding: 0 0.4rem; border: 0; background: none; font: 700 0.85rem var(--body); text-decoration: underline; color: #4E4566; }
+.mart-cart-total { display: flex; justify-content: space-between; align-items: baseline; margin: 1rem 0 0.4rem; padding: 0.8rem 1rem; background: #FFD23F; border: 3px solid #1B1033; border-radius: 14px; font-size: 1.1rem; font-weight: 700; }
+.mart-cart-total b { font-size: 1.5rem; }
+.mart-last-order { margin: 0.8rem 0; padding: 0.7rem 1rem; background: #FFD23F; color: #1B1033; border: 3px solid #1B1033; border-radius: 14px; box-shadow: 3px 3px 0 #1B1033; font-weight: 700; line-height: 1.35; }
+.mart-last-order b, .mart-last-order strong { font-weight: 800; }
+.mart-cart-empty { margin: 0.6rem 0; padding: 1.2rem; background: #FFFFFF; border: 3px dashed #1B1033; border-radius: 14px; font-weight: 600; }
+.mart-cart-empty > :first-child { margin-top: 0; }
+.mart-cart-empty h3 { font-size: 1.3rem; }
+.mart-cart-empty .mart-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 0.7rem; margin-top: 0.9rem; }
+.mart-cart-empty .mart-card { padding: 0.45rem; box-shadow: 3px 3px 0 #1B1033; }
+.mart-cart-empty .mart-card-name { font-size: 0.9rem; }
+.mart-cart-empty .mart-card-price { font-size: 1rem; margin: 0.3rem 0 0.5rem; }
+.mart-cart-empty .mart-add { min-height: 40px; font-size: 0.88rem; padding: 0 0.6rem; }
+
+/* "Added" note */
+#mart-toast { position: fixed; z-index: 20; left: 50%; bottom: 5.2rem; translate: -50% 0; display: flex; align-items: center; gap: 0.8rem; max-width: calc(100% - 2rem); padding: 0.6rem 0.6rem 0.6rem 1.1rem; background: #1B1033; color: #FFFFFF; border: 3px solid #FFD23F; border-radius: 16px; box-shadow: 4px 4px 0 #8A1C7C; font-weight: 700; animation: mart-rise .35s cubic-bezier(.2,.8,.2,1) both; }
+#mart-toast[hidden] { display: none; }
+#mart-toast span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#mart-cart-count.is-bump { animation: mart-bump .45s cubic-bezier(.2,1.8,.4,1); }
+@keyframes mart-bump { 40% { transform: scale(1.5); } }
+.mart-fly { position: fixed; z-index: 30; pointer-events: none; object-fit: contain; background: #FFFFFF; border: 2px solid #1B1033; border-radius: 14px; }
+
+/* ==========================================================================
+   Floating WhatsApp chat
+   Desktop: a labelled pill. Phone: a 52px round icon, hidden where the buy bar
+   already owns the bottom of the screen. The page bottom always clears it.
+   ========================================================================== */
+.mart-chat-wrap { display: contents; }
+.mart-chat { position: fixed; z-index: 7; right: 1rem; bottom: 1rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; min-height: 52px; padding: 0 1.1rem; background: #1A7F45; color: #FFFFFF; border: 3px solid #1B1033; border-radius: 99px; box-shadow: 4px 4px 0 #1B1033; font-weight: 800; text-decoration: none; transition: transform .15s ease; }
+.mart-chat:hover { transform: translate(-2px, -2px); }
+body:has(.mart-cart:not([hidden])) .mart-chat { display: none; }
+@media (max-width: 899px) {
+  .mart-chat { width: 52px; height: 52px; padding: 0; gap: 0; font-size: 0; }
+  .mart-chat > span[aria-hidden], .mart-chat > svg { font-size: 1.5rem; line-height: 1; }
+  .mart-chat > svg { width: 26px; height: 26px; fill: currentColor; }
+  .mart-chat .mart-chat-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  body .mart-foot { padding-bottom: calc(2rem + 76px); }
+  body:has(.mart-buybar) .mart-chat { display: none; }
+  body:has(.mart-buybar) .mart-foot { padding-bottom: calc(2rem + 84px + env(safe-area-inset-bottom)); }
+  body:has(.mart-buybar) #mart-toast { bottom: calc(84px + env(safe-area-inset-bottom)); }
+  #mart-toast { bottom: calc(1rem + 64px); }
+}
+
+/* ==========================================================================
+   Footer: same gutter as main, mission leads, left aligned
+   ========================================================================== */
+.mart-foot { display: flex; flex-direction: column; gap: 1.2rem; padding: 3rem max(1rem, calc(50% - 544px)) 2rem; text-align: left; font-size: 0.9rem; background: var(--foot-bg); color: var(--foot-ink); }
+.mart-foot > .mart-foot-mission { order: -1; margin: 0; max-width: 22ch; font-size: clamp(1.6rem, 4.5vw, 2.6rem); font-weight: 800; line-height: 1; color: #FFD23F; }
+.mart-foot-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.2rem; width: 100%; margin: 0; }
+.mart-foot-col h2 { font-size: 1rem; margin: 0 0 0.3rem; color: #FFD23F; }
+.mart-foot-col ul { list-style: none; margin: 0; padding: 0; }
+.mart-foot-col a { display: inline-flex; align-items: center; min-height: 44px; color: #FFFFFF; text-decoration: none; }
+.mart-foot-col a:hover { text-decoration: underline; }
+.mart-foot > p:last-child { margin: 0; padding-top: 1rem; border-top: 2px solid rgba(255,210,63,0.6); max-width: none; }
+.mart-foot > p:last-child a { display: inline-block; padding-block: 12px; margin-block: -12px; }
+
+/* ==========================================================================
+   Motion. Every animation stops under prefers-reduced-motion; the looping ones
+   (bob, float, pulses) stop by themselves after three runs. Only the ticker
+   loops, and it pauses on hover.
+   ========================================================================== */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: mart-vt-out .22s ease both; }
+::view-transition-new(root) { animation: mart-vt-in .32s cubic-bezier(.2,.8,.2,1) both; }
+::view-transition-group(*) { animation-duration: .38s; animation-timing-function: cubic-bezier(.2,.8,.2,1); }
+@keyframes mart-vt-out { to { opacity: 0; transform: translateY(-8px); } }
+@keyframes mart-vt-in { from { opacity: 0; transform: translateY(12px); } }
+
+.mart-cart:not([hidden]) { animation: mart-drawer .32s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes mart-drawer { from { transform: translateX(100%); box-shadow: 0 0 0 100vmax rgba(27,16,51,0); } }
+.mart-nav .mart-menu.is-open { animation: mart-drop .24s ease both; }
+@keyframes mart-drop { from { opacity: 0; transform: translateY(-8px); } }
+
+.mart-vhero-media { will-change: transform; transform: translateY(var(--mart-depth, 0px)); }
+
+/* scroll reveal (mart-motion.js adds .mart-rv only when motion is allowed): a short fade.
+   Cards and list rows are never hidden, whatever the script does. */
+.mart-rv { opacity: 0; transform: translateY(10px); transition: opacity .2s ease, transform .2s ease; }
+.mart-rv.mart-in { opacity: 1; transform: none; }
+.mart-card.mart-rv, .mart-list li.mart-rv { opacity: 1; transform: none; transition: transform .2s ease, box-shadow .2s ease; }
+.mart-card.mart-rv:hover { transform: translate(-3px, -3px) rotate(-0.6deg); }
+.mart-list li.mart-rv:hover { transform: translate(-2px, -2px); }
+
+/* pointer tilt (mart-motion.js sets --rx / --ry); applies to revealed cards too */
+@media (hover: hover) and (pointer: fine) {
+  .mart-card, .mart-card.mart-rv, .mart-card.mart-rv.mart-in { transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
+  .mart-card:hover, .mart-card.mart-rv:hover, .mart-card.mart-rv.mart-in:hover { transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translate(-3px, -3px); }
+}
+
+/* section headings on scroll: a short underline follows the reveal */
+main section > h2 { position: relative; }
+main section.mart-rv > h2::after, main section.mart-rv > .mart-section-head h2::after { content: ""; position: absolute; left: 0; bottom: -0.25em; width: 2.2em; height: 0.12em; border-radius: 99px; background: #FFD23F; transform: scaleX(0); transform-origin: left; transition: transform .4s .1s cubic-bezier(.2,.8,.2,1); }
+main section.mart-rv.mart-in > h2::after, main section.mart-rv.mart-in > .mart-section-head h2::after { transform: scaleX(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+  .mart-vhero h1 span, .mart-ticker div, .mart-route .now, .mart-story-hero img, .mart-phero h1, .mart-phero h1::after,
+  .mart-phero-art img, .mart-bar, .mart-countdown::before, #mart-toast, #mart-cart-count.is-bump, .mart-cart:not([hidden]),
+  .mart-nav .mart-menu.is-open, main > h1, .mart-lightbox[open] { animation: none; }
+  main > h1 { background-size: 100% 100%; }
+  .mart-rv, .mart-rv.mart-in { opacity: 1; transform: none; transition: none; }
+  .mart-phero-art, .mart-vhero-media { transform: none; }
+  .mart-card, .mart-card img, .mart-card-alt, .mart-brands a, .mart-list li, .mart-cta, .mart-add, .mart-form button, #mart-order,
+  .mart-share, .mart-notify, #mart-toast button, #mart-new-order, .mart-chat, .mart-aisles a, .mart-aisles img, .mart-guide-cards a,
+  .mart-logo-wall a, .mart-story-hero img, .mart-story-thumbs img, .mart-chips a, .mart-cats a, .mart-zoomable { transition: none; }
+  .mart-card, .mart-card:hover, .mart-card.mart-rv:hover, .mart-card:hover img, .mart-brands a:hover, .mart-list li:hover,
+  .mart-story:hover .mart-story-hero img { transform: none; }
+  main section > h2::after, main section .mart-section-head h2::after { transition: none; }
+}
+
+/* ---- audit additions: help-page marks, aisle chips, guide links, hints ---- */
+.mart-phero-mark { display: grid; place-content: center; justify-items: center; width: 190px; height: 190px; margin-left: auto; border: 3px solid #1B1033; border-radius: 50%; background: #FFD23F; color: #1B1033; box-shadow: 6px 6px 0 rgba(27,16,51,.6); rotate: -6deg; text-align: center; transform: translateY(var(--mart-depth, 0px)); }
+.mart-phero-mark b { font: 800 3.2rem/1 var(--display); }
+.mart-phero-mark span { max-width: 13ch; font-weight: 700; font-size: 0.95rem; line-height: 1.2; }
+@media (max-width: 699px) { .mart-phero-mark { width: 120px; height: 120px; margin: 0.4rem 0 0; } .mart-phero-mark b { font-size: 2rem; } .mart-phero-mark span { font-size: 0.75rem; } }
+.mart-type-chips ul { list-style: none; padding: 0; margin: 1.2rem 0 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.mart-type-chips a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 0.9rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-chip); font-weight: 800; text-decoration: none; box-shadow: 3px 3px 0 #1B1033; }
+.mart-type-chips a:hover { transform: translateY(-2px); }
+.mart-type-chips a[aria-current="page"] { background: #FFD23F; }
+.mart-all-head { margin: var(--section) 0 0.8rem; font-size: clamp(1.5rem, 3.5vw, 2rem); }
+.mart-compared { margin-top: var(--section); padding: 1.1rem 1.2rem; background: var(--lilac); border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow); }
+.mart-compared h2 { margin-top: 0; font-size: 1.3rem; }
+.mart-compared ul { margin: 0; padding-left: 1.2rem; }
+.mart-compared li + li { margin-top: 0.3rem; }
+.mart-order-link { display: inline-flex; align-items: center; min-height: 36px; padding: 0 0.7rem; background: #FFD23F; border: 2px solid #1B1033; border-radius: 10px; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.mart-terms h2 { font-size: 1.3rem; margin-top: 1.6rem; }
+.mart-hint { color: var(--muted); font-size: 0.85rem; font-weight: 500; }
+.mart-form .mart-hint { margin: 0; }
+.mart-how-send { margin: 0.2rem 0 0.4rem; color: var(--muted); font-size: 0.9rem; }
+.mart-proof { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.mart-proof li { padding: 0.25rem 0.75rem; border: 2px solid #FFD23F; border-radius: 999px; color: #FFD23F; font-weight: 700; font-size: 0.9rem; }
+.mart-cart-suggest { list-style: none; padding: 0; margin: 0.8rem 0 0; display: grid; gap: 0.5rem; }
+.mart-cart-suggest li { display: grid; grid-template-columns: 48px 1fr auto; gap: 0.6rem; align-items: center; padding: 0.4rem; background: #FFFFFF; border: 2px solid #1B1033; border-radius: 12px; }
+.mart-cart-suggest img { width: 48px; height: 48px; object-fit: contain; }
+.mart-cart-suggest span { font-weight: 700; font-size: 0.9rem; line-height: 1.2; }
+.mart-ask { margin: var(--section) 0; }
+.mart-one-brand .mart-card-brand { display: none; }
+.mart-seller { font-style: normal; line-height: 1.6; }
+.mart-line-remove { margin-top: 0.35rem; padding: 0.15rem 0.2rem; min-height: 32px; background: none; border: 0; color: var(--magenta); font-weight: 700; font-size: 0.9rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.mart-line-remove:hover { color: #1B1033; }
+
+/* ---- brand depth: chips, story, range, timeline ---- */
+.mart-brand-chips { grid-column: 2; list-style: none; padding: 0; margin: 0.8rem 0 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.mart-brand:not(:has(> img, > .mart-monogram)) .mart-brand-chips { grid-column: auto; }
+.mart-brand-chips li { padding: 0.2rem 0.75rem; background: #FFD23F; color: #1B1033; border: 2px solid #1B1033; border-radius: 999px; font-weight: 800; font-size: 0.85rem; }
+@media (max-width: 699px) { .mart-brand-chips { grid-column: 1 / -1; } }
+.mart-brand-story .mart-prose { max-width: 68ch; }
+.mart-brand-story .mart-prose p { font-size: 1.08rem; line-height: 1.65; }
+.mart-brand-story .mart-prose p:first-child { font-size: 1.22rem; font-weight: 600; }
+.mart-range ul { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.8rem; }
+.mart-range a { display: flex; flex-direction: column; gap: 0.25rem; height: 100%; padding: var(--card-pad); background: #FFFFFF; border: var(--card-line); border-radius: var(--r-card); box-shadow: var(--card-shadow); text-decoration: none; transition: transform .15s ease; }
+.mart-range a:hover { transform: translateY(-3px); }
+.mart-range img, .mart-range .mart-monogram { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: var(--cream-tint); border-radius: 12px; margin-bottom: 0.4rem; }
+.mart-range b { line-height: 1.2; }
+.mart-range-price { margin-top: auto; font: var(--price-font); font-size: 1.05rem; }
+.mart-range-price small { font: 600 0.75rem var(--body); color: var(--muted); }
+.mart-timeline ol { list-style: none; padding: 0 0 0 1.2rem; margin: 1rem 0 0; border-left: 4px solid #1B1033; display: grid; gap: 0.8rem; }
+.mart-timeline li { position: relative; display: grid; gap: 0.1rem; }
+.mart-timeline li::before { content: ""; position: absolute; left: calc(-1.2rem - 12px); top: 0.35rem; width: 16px; height: 16px; border: 3px solid #1B1033; border-radius: 50%; background: #FFD23F; }
+.mart-timeline b { font: 800 1.3rem/1 var(--display); color: var(--magenta); }
+.mart-glance th[scope="row"] { text-align: left; }
+.mart-glance td, .mart-in-guides td { white-space: nowrap; }
+.mart-hub-strip ul { list-style: none; padding: 0.4rem 0 1rem; margin: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(140px, 1fr); gap: var(--gap); overflow-x: auto; scroll-snap-type: x mandatory; }
+.mart-hub-strip li { scroll-snap-align: start; }
+.mart-hub-strip a { display: block; padding: 0.5rem; background: #FFFFFF; border: var(--card-line); border-radius: var(--r-card); box-shadow: var(--card-shadow); text-decoration: none; font-weight: 800; }
+.mart-hub-strip img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: var(--cream-tint); border-radius: 12px; }
+.mart-hub-strip span { display: block; margin-top: 0.3rem; font-size: 0.9rem; }
+.mart-aisle-facts { margin-top: 1rem; }
+.mart-wa-sample { max-width: 420px; margin: 1rem 0 0; padding: 0.9rem 1rem; background: #DCF8C6; color: #1B1033; border: 3px solid #1B1033; border-radius: 18px 18px 4px 18px; box-shadow: var(--card-shadow); font: 500 0.95rem/1.45 var(--body); white-space: pre-wrap; }
+
+/* =====================================================================
+   PHONE APP LAYOUT (under 700px): its own top bar, bottom tabs, brand
+   story circles, rails and a cart sheet, instead of the desktop header,
+   menu and footer. Desktop never sees these parts.
+   ===================================================================== */
+.mart-appbar, .mart-tabs, .mart-phone-home, .mart-circles { display: none; }
+/* brand pages: jump chips under the header (sticky under the top bar on a phone) */
+.mart-jump { margin-top: 1rem; }
+.mart-jump ul { display: flex; gap: 0.5rem; margin: 0; padding: 0; list-style: none; overflow-x: auto; scrollbar-width: none; }
+.mart-jump ul::-webkit-scrollbar { display: none; }
+.mart-jump a { display: block; flex: none; padding: 0.2rem 0.9rem; white-space: nowrap; border: 2px solid #1B1033; border-radius: 99px; background: #FFFFFF; font-weight: 800; font-size: 0.9rem; text-decoration: none; }
+.mart-jump a:hover { background: #FFD23F; }
+.mart-ico { display: block; }
+@media (max-width: 699px) {
+  html { -webkit-tap-highlight-color: transparent; }
+  body.mart { padding-bottom: calc(68px + env(safe-area-inset-bottom)); overscroll-behavior-y: none; }
+  .mart-nav, .mart-foot, .mart-chat-wrap, .mart-crumbs, .mart-skip:not(:focus) { display: none !important; }
+  main { padding-top: 0.9rem; }
+
+  /* top bar */
+  .mart-appbar { display: flex; align-items: center; gap: 0.4rem; position: sticky; top: 0; z-index: 8; min-height: 56px;
+    padding: calc(0.35rem + env(safe-area-inset-top)) 0.8rem 0.35rem; background: #FFD23F; border-bottom: 3px solid #1B1033; view-transition-name: mart-appbar; }
+  .mart-appbar-back { display: grid; place-items: center; width: 44px; height: 44px; margin-left: -0.4rem; border-radius: 12px; color: #1B1033; }
+  .mart-appbar-back:active { background: rgba(27,16,51,.12); }
+  .mart-appbar-title { margin: 0; flex: 1; min-width: 0; font: 800 1.15rem/1.15 var(--display); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mart-appbar-home { display: block; padding-bottom: 0.6rem; }
+  .mart-appbar-loc { margin: 0; font-size: 0.75rem; font-weight: 700; line-height: 1.2; }
+  .mart-appbar-loc b { display: block; font-size: 1.15rem; font-weight: 800; }
+  .mart-appbar-promise { display: flex; justify-content: space-between; gap: 0.6rem; margin: 0.45rem 0 0; padding: 0.3rem 0.7rem; background: #1B1033; color: #FFD23F; border-radius: 10px; font-weight: 800; font-size: 0.85rem; }
+
+  /* bottom tabs */
+  .mart-tabs { display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; z-index: 9; left: 0; right: 0; bottom: 0;
+    padding: 0 0 env(safe-area-inset-bottom); background: #FFFFFF; border-top: 3px solid #1B1033; view-transition-name: mart-tabs; }
+  .mart-tab { position: relative; display: grid; justify-items: center; align-content: center; gap: 1px; min-height: 60px; padding: 0; border: 0; background: none;
+    color: #4E4566; font: 800 0.7rem var(--body); text-decoration: none; cursor: pointer; }
+  .mart-tab[aria-current="page"] { color: #8A1C7C; }
+  .mart-tab[aria-current="page"]::before { content: ""; position: absolute; top: 0; width: 34px; height: 4px; border-radius: 0 0 4px 4px; background: #8A1C7C; }
+  .mart-tab:active .mart-ico { transform: scale(.88); }
+  .mart-tab-badge { position: absolute; top: 6px; left: calc(50% + 6px); min-width: 18px; height: 18px; padding: 0 5px; border-radius: 99px; background: #8A1C7C; color: #FFFFFF; font-size: 0.68rem; line-height: 18px; text-align: center; }
+
+  /* things that sat above the bottom edge now sit above the tabs */
+  .mart-buybar { bottom: calc(63px + env(safe-area-inset-bottom)); padding-bottom: 0.6rem; border-bottom: 0; }
+  #mart-toast { bottom: calc(76px + env(safe-area-inset-bottom)); }
+  body.mart:has(.mart-buybar) #mart-toast { bottom: calc(142px + env(safe-area-inset-bottom)); }
+
+  /* cart: a sheet from the bottom */
+  .mart-cart { inset: auto 0 0 0; width: 100%; max-height: calc(92vh - env(safe-area-inset-top)); padding: 0.4rem 1rem calc(1.2rem + env(safe-area-inset-bottom));
+    border-left: 0; border-top: 3px solid #1B1033; border-radius: 24px 24px 0 0; transition: transform .2s ease; animation: mart-sheet-up .28s cubic-bezier(.2,.8,.2,1) both; z-index: 12; }
+  .mart-cart-head { position: sticky; top: -0.4rem; z-index: 2; padding: 0.9rem 0 0.5rem; background: var(--bg); touch-action: none; }
+  .mart-cart-head::before { content: ""; position: absolute; top: 0.3rem; left: 50%; width: 44px; height: 5px; margin-left: -22px; border-radius: 9px; background: #C9C0D6; }
+  .mart-cart-head h2 { font-size: 1.5rem; }
+
+  /* home: the phone's own screen replaces the desktop hero and the long sections */
+  .mart-phone-home { display: block; margin: -0.9rem -1rem 0; }
+  body[data-page="index"] :is(.mart-vhero, .mart-ticker, #favourites, .mart-stories, .mart-brands:not(.mart-carried)) { display: none !important; }
+  .mart-phone-home > * + * { margin-top: 1.2rem; }
+  .mart-phone-chips ul { margin: 0; padding: 0 1rem; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .mart-phone-chips ul::-webkit-scrollbar { display: none; }
+  .mart-phone-chips li { flex: none; }
+
+  /* swipeable rails */
+  .mart-rail-section .mart-section-head { padding: 0 1rem; margin-bottom: 0.4rem; }
+  .mart-rail-section h2 { font-size: 1.35rem; margin: 0; }
+  .mart-rail { display: flex; gap: 0.7rem; overflow-x: auto; padding: 0.2rem 1rem 0.8rem; scroll-snap-type: x mandatory; scroll-padding: 0 1rem; scrollbar-width: none; }
+  .mart-rail::-webkit-scrollbar { display: none; }
+  .mart-rail > * { flex: none; width: 152px; scroll-snap-align: start; }
+  .mart-rail .mart-card { padding: 0.45rem; }
+  .mart-rail .mart-card-name { font-size: 0.92rem; }
+  .mart-rail .mart-unit { display: none; }
+  .mart-coming-card { display: flex; flex-direction: column; padding: 0.45rem; background: #FFFFFF; border: var(--card-line); border-radius: var(--r-card); box-shadow: var(--card-shadow); text-decoration: none; }
+  .mart-coming-card img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: var(--cream-tint); border-radius: 12px; }
+  .mart-coming-card b { margin-top: 0.4rem; line-height: 1.15; }
+  .mart-coming-card span { font-size: 0.8rem; color: var(--muted); }
+  .mart-coming-card em { align-self: flex-start; margin-top: 0.35rem; padding: 0 0.5rem; border: 2px solid #C9C0D6; border-radius: 99px; color: #6B6280; font-style: normal; font-weight: 800; font-size: 0.72rem; }
+
+  .mart-phone-box { margin-left: 1rem; margin-right: 1rem; padding: 1rem 1.1rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: 18px; box-shadow: var(--card-shadow); }
+  .mart-phone-box h2 { margin: 0; font-size: 1.3rem; }
+  .mart-phone-box p { margin: 0.3rem 0 0.7rem; }
+  .mart-phone-box.is-dark { background: #1B1033; color: #FFFFFF; }
+  .mart-phone-box.is-dark h2 { color: #FFD23F; }
+  .mart-phone-box.is-lilac { background: var(--lilac); }
+  .mart-phone-box .mart-cta { width: auto; }
+
+  /* brand story circles */
+  .mart-circles { display: block; margin: 0 -1rem; }
+  .mart-phone-home .mart-circles { margin: 0; }
+  .mart-circles ul { display: flex; gap: 0.8rem; margin: 0; padding: 0.3rem 1rem 0.5rem; list-style: none; overflow-x: auto; scrollbar-width: none; }
+  .mart-circles ul::-webkit-scrollbar { display: none; }
+  .mart-circle { display: grid; justify-items: center; gap: 0.25rem; width: 70px; text-decoration: none; }
+  .mart-circle-ring { display: grid; place-items: center; width: 66px; height: 66px; padding: 3px; border-radius: 50%; background: #C9C0D6; }
+  .mart-circle.is-ours .mart-circle-ring { background: conic-gradient(#FFD23F, #8A1C7C, #FFD23F); }
+  .mart-circle.is-ours.is-seen .mart-circle-ring { background: #8A1C7C; }
+  .mart-circle-ring img, .mart-circle-ring b { width: 100%; height: 100%; border-radius: 50%; border: 3px solid var(--bg); background: #FFFFFF; object-fit: contain; padding: 8px; }
+  .mart-circle-ring b { display: grid; place-items: center; padding: 0; font-size: 1.05rem; color: #1B1033; background: var(--lilac); }
+  .mart-circle-ring.is-dark img { background: #1B1033; }
+  .mart-circle-ring.is-more b { background: #FFD23F; }
+  .mart-circle-name { width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; font-weight: 700; font-size: 0.72rem; color: #1B1033; }
+  .mart-circle:active .mart-circle-ring { transform: scale(.94); }
+  main > .mart-phero + .mart-circles, .mart-phero-in + .mart-circles { margin-top: 0.6rem; }
+
+  /* brand pages: jump chips under the header, sticky below the top bar */
+  .mart-jump { position: sticky; top: 56px; z-index: 5; margin: 0.8rem -1rem 0; padding: 0.5rem 1rem; background: var(--bg); border-bottom: 2px solid rgba(27,16,51,.08); }
+  :is(#mart-products, #story, #range, #timeline, #guides) { scroll-margin-top: 112px; }
+
+  /* the page hero on a phone: the top bar already names the page, so the band gets tighter */
+  .mart-phero { padding-top: 1.1rem; padding-bottom: 1.3rem; }
+  .mart-phero h1 { font-size: 2rem; }
+
+  /* More */
+  .mart-appbar-root .mart-appbar-title { font-size: 1.5rem; padding-left: 0.2rem; }
+  .mart-more { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; gap: 0.5rem; }
+  .mart-more-row { display: flex; align-items: center; gap: 0.8rem; padding: 0.6rem 0.8rem; background: #FFFFFF; border: 2.5px solid #1B1033; border-radius: 14px; text-decoration: none; }
+  .mart-more-row:active { background: var(--cream-tint); }
+  .mart-more-row b { display: block; line-height: 1.15; }
+  .mart-more-row small { display: block; color: var(--muted); font-size: 0.8rem; line-height: 1.25; }
+  .mart-more-mark { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--lilac); font-weight: 800; }
+  .mart-more-row::after { content: "\203A"; margin-left: auto; font-size: 1.4rem; font-weight: 800; color: #8A1C7C; }
+  .mart-more-row.is-wa { background: #25D366; color: #FFFFFF; }
+  .mart-more-row.is-wa small, .mart-more-row.is-wa::after { color: #FFFFFF; }
+  .mart-more-row.is-wa .mart-more-mark { background: #FFFFFF; }
+  body[data-page="more"] .mart-phone-box { margin: 0 0 0.9rem; }
+}
+@media (min-width: 700px) {
+  body[data-page="more"] main { max-width: 640px; }
+  .mart-phone-box { margin-top: 1rem; padding: 1.2rem; border: 3px solid #1B1033; border-radius: 18px; background: #FFFFFF; }
+  .mart-phone-box.is-dark { background: #1B1033; color: #FFFFFF; }
+  .mart-phone-box.is-dark h2 { color: #FFD23F; }
+  .mart-more { list-style: none; padding: 0; display: grid; gap: 0.5rem; margin-top: 1.2rem; }
+  .mart-more-row { display: flex; gap: 0.8rem; align-items: center; padding: 0.7rem 0.9rem; border: 2.5px solid #1B1033; border-radius: 14px; background: #FFFFFF; text-decoration: none; }
+  .mart-more-row small { display: block; color: var(--muted); }
+  .mart-more-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: var(--lilac); }
+}
+@keyframes mart-sheet-up { from { transform: translateY(40%); opacity: .4; } to { transform: none; opacity: 1; } }
+
+/* brand story viewer (phone circles; also works with a mouse) */
+html.mart-sv-open { overflow: hidden; }
+.mart-story-viewer { position: fixed; inset: 0; z-index: 30; display: flex; flex-direction: column; padding: calc(0.6rem + env(safe-area-inset-top)) 0 calc(1rem + env(safe-area-inset-bottom));
+  background: #2A1A40; color: #FFFFFF; animation: mart-sv-in .25s ease both; }
+.mart-story-viewer[hidden] { display: none; }
+.mart-sv-bars { display: flex; gap: 4px; padding: 0 0.8rem; }
+.mart-sv-bars i { flex: 1; height: 3px; border-radius: 3px; background: rgba(255,255,255,.3); overflow: hidden; position: relative; }
+.mart-sv-bars i.is-done { background: #FFFFFF; }
+.mart-sv-bars i.is-now::after { content: ""; position: absolute; inset: 0; background: #FFFFFF; transform-origin: left; animation: mart-sv-fill 6s linear both; }
+.mart-story-viewer.is-paused .mart-sv-bars i.is-now::after { animation-play-state: paused; }
+.mart-sv-head { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 0.8rem; }
+.mart-sv-logo { display: grid; place-items: center; flex: none; width: 38px; height: 38px; border-radius: 50%; background: #FFFFFF; color: #1B1033; font-weight: 800; overflow: hidden; }
+.mart-sv-logo.is-dark { background: #1B1033; border: 2px solid #FFFFFF; }
+.mart-sv-logo img { width: 80%; height: 80%; object-fit: contain; }
+.mart-sv-meta { font-size: 0.8rem; opacity: .8; }
+.mart-sv-close { margin-left: auto; width: 44px; height: 44px; border: 0; background: none; color: #FFFFFF; font-size: 2rem; line-height: 1; cursor: pointer; position: relative; z-index: 3; }
+.mart-sv-photo { flex: 1; min-height: 0; margin: 0 0.8rem; display: grid; place-items: center; background: #FFF1C2; border-radius: 20px; overflow: hidden; }
+.mart-sv-photo img { width: 100%; height: 100%; object-fit: contain; }
+.mart-sv-text { margin: 0.9rem 1rem 0; font: 700 1.15rem/1.35 var(--body); min-height: 4.2em; }
+.mart-sv-prev, .mart-sv-next { position: absolute; top: 90px; bottom: 140px; width: 35%; border: 0; background: none; cursor: pointer; z-index: 2; }
+.mart-sv-prev { left: 0; } .mart-sv-next { right: 0; width: 65%; }
+.mart-sv-cta { position: relative; z-index: 3; display: flex; flex-direction: column; gap: 0.5rem; padding: 0.8rem 1rem 0; }
+.mart-sv-btn { display: block; padding: 0.7rem 1rem; border: 3px solid #FFFFFF; border-radius: 14px; background: #FFD23F; color: #1B1033; font-weight: 800; text-align: center; text-decoration: none; }
+.mart-sv-btn.is-wa { background: #25D366; color: #FFFFFF; }
+.mart-sv-btn.is-light { background: transparent; color: #FFFFFF; }
+@media (min-width: 700px) { .mart-story-viewer { inset: 2vh calc(50% - 220px); border-radius: 24px; box-shadow: 0 0 0 100vmax rgba(27,16,51,.6); } }
+@keyframes mart-sv-in { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes mart-sv-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .mart-story-viewer, .mart-cart { animation: none !important; } .mart-sv-bars i.is-now::after { animation: none; transform: none; } }
+
+/* About: numbers and the brands-to-you flow */
+.mart-numbers { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--gap); }
+.mart-numbers li { padding: 1rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow); }
+.mart-numbers b { display: block; font: 800 2.6rem/1 var(--display); color: #8A1C7C; }
+.mart-numbers span { display: block; margin-top: 0.3rem; font-weight: 700; line-height: 1.25; }
+.mart-about-why p { max-width: 62ch; font-size: 1.15rem; line-height: 1.6; }
+.mart-flow ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.6rem; }
+@media (min-width: 800px) { .mart-flow ol { grid-template-columns: 1fr 1fr 1fr; gap: 2.2rem; } }
+.mart-flow li { position: relative; padding: 1.1rem 1.2rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow); }
+.mart-flow li.is-us { background: #8A1C7C; color: #FFFFFF; }
+.mart-flow li.is-us b { color: #FFD23F; }
+.mart-flow b { display: block; font: 800 1.3rem/1.15 var(--display); }
+.mart-flow span { display: block; margin-top: 0.3rem; }
+.mart-flow li + li::before { content: "\2193"; position: absolute; left: 50%; top: -1.55rem; transform: translateX(-50%); font: 800 1.3rem/1 var(--body); color: #8A1C7C; }
+@media (min-width: 800px) { .mart-flow li + li::before { content: "\2192"; left: -1.75rem; top: 50%; transform: translateY(-50%); } }
+.mart-flow-logos { list-style: none; padding: 0; margin: 0.6rem 0 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.mart-flow-logos img { width: 84px; height: 48px; object-fit: contain; padding: 4px; background: #FFFFFF; border: 2px solid #1B1033; border-radius: 10px; }
+.mart-flow-logos img.mart-logo-dark { background: #1B1033; }
+.mart-about-us h3 { margin-top: 1.2rem; font-size: 1.15rem; }
+.mart-ask-grid { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--gap); }
+.mart-ask-card { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.6rem; background: #FFFFFF; border: var(--card-line); border-radius: var(--r-card); box-shadow: var(--card-shadow); }
+.mart-ask-card img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; background: var(--cream-tint); border-radius: 12px; }
+.mart-ask-card b { font-size: 1.1rem; line-height: 1.15; }
+.mart-ask-card > span { font-size: 0.85rem; color: var(--muted); line-height: 1.3; flex: 1; }
+.mart-ask-btn { margin-top: 0.4rem; padding: 0.45rem 0.6rem; text-align: center; background: #25D366; color: #FFFFFF; border: 2px solid #1B1033; border-radius: 12px; font-weight: 800; text-decoration: none; }
+@media (max-width: 699px) { .mart-ask-grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; } .mart-ask-card > span { display: none; } }
+
+/* home hero: a slow crossfade of photos from every brand we sell */
+.mart-vhero-slides { position: absolute; inset: 0; opacity: 1; }
+.mart-vhero-slides img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); transition: opacity 1.2s ease, transform 6s ease-out; }
+.mart-vhero-slides img:first-child, .mart-vhero-slides img.is-on { opacity: .75; }
+.mart-vhero-slides img.is-on { transform: scale(1.12); }
+.mart-vhero-slides:has(img.is-on) img:first-child:not(.is-on) { opacity: 0; }
+.mart-vhero-slides.is-paused img { transition: opacity 1.2s ease; }
+@media (prefers-reduced-motion: reduce) { .mart-vhero-slides img { transition: none; transform: none; } }

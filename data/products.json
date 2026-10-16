@@ -1,0 +1,1923 @@
+[
+ {
+  "id": "peping-spearmint-orange-shot-60ml",
+  "brand": "peping",
+  "name": "Probiotic Shot Spearmint Orange",
+  "size": "60 ml shot",
+  "category": "drinks",
+  "mrp": 27,
+  "our_price": 27,
+  "photo": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15450.png?v=1770013899",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 10,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame390.png?v=1770013899",
+    "alt": "Brand info card with the bottle"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame388.png?v=1770013899",
+    "alt": "What's inside the shot: ingredient card"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame389.png?v=1770013899",
+    "alt": "Pack of 20 shots, box and bottle"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15436.png?v=1770014416",
+    "alt": "Back label with nutrition information and ingredients"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "6 billion CFU of Bacillus coagulans per shot",
+    "source": "https://peping.in/products/shots-spearmint-orange"
+   },
+   {
+    "value": "No added sugar; sweetened with stevia",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15436.png?v=1770014416"
+   },
+   {
+    "value": "About 11 kcal per 60 ml shot",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15436.png?v=1770014416"
+   },
+   {
+    "value": "Keep in the fridge (0 °C to 8 °C)",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15436.png?v=1770014416"
+   }
+  ],
+  "description": {
+   "value": "A 60 ml probiotic shot of spearmint and orange on a juice base, with 6 billion CFU of Bacillus coagulans.",
+   "source": "https://peping.in/products/shots-spearmint-orange"
+  },
+  "about": [
+   {
+    "value": "The taste is orange first, with fresh spearmint on top. The base also has coconut water and a little lemon, sweetened with stevia.",
+    "source": "https://peping.in/products/shots-spearmint-orange"
+   },
+   {
+    "value": "Each 60 ml bottle is one serving, opened and drunk straight away. Shake it first; some settling is natural.",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15436.png?v=1770014416"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "1 to 2 bottles a day (the label's suggested amount), best before breakfast.",
+    "source": "https://peping.in/products/shots-spearmint-orange"
+   },
+   {
+    "label": "Note",
+    "value": "The label says: not for medicinal use, drink right after opening, and do not drink it if the bottle is puffed or bloated.",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15436.png?v=1770014416"
+   }
+  ],
+  "ingredients": "Purified Water, Orange Juice Concentrate, Coconut Water Concentrate, Lemon Juice Concentrate, Bacillus coagulans (Probiotic, 6 Billion CFUs), Liquid Spear Mint Extract, Permitted Sodium Benzoate (Preservative), Stevia",
+  "nutrition": {
+   "energy_kcal": 11.32,
+   "protein_g": 0.02,
+   "carbs_g": 2.83,
+   "sugar_g": 2.83,
+   "added_sugar_g": 0,
+   "fat_g": 0,
+   "sodium_mg": 8.39
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15436.png?v=1770014416",
+  "nutrition_basis": "60 ml shot",
+  "label": {
+   "country_of_origin": "India",
+   "importer": null,
+   "manufacturer": {
+    "name": "Peping Commerce Pvt. Ltd.",
+    "address": "Property No. 66/2 and 66/3P, Site No 7, Begur Hobli, Vittasandra Palya Village, Bengaluru South Taluk, Bengaluru Urban, Karnataka 560068, India",
+    "role": "manufactured",
+    "fssai_lic": "11224999000195"
+   },
+   "marketer": {
+    "name": "Peping Commerce Pvt. Ltd.",
+    "address": "62/1, New No. 7, 1st Cross, 2nd Main Road, Ganganagar, Bengaluru (Urban) 560032, Karnataka, India",
+    "fssai_lic": "11222999000634"
+   },
+   "fssai_lic": "11222999000634",
+   "veg": true,
+   "allergens": {
+    "contains": [],
+    "may_contain": []
+   },
+   "net_qty": {
+    "value": 60,
+    "unit": "ml",
+    "count": 1
+   },
+   "storage": "Store in a refrigerator at 0 °C to 8 °C. Shake well before use; settling is natural.",
+   "consumer_care": {
+    "phone": "+91 99026 73384",
+    "email": "support@peping.in"
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15436.png?v=1770014416"
+  }
+ },
+ {
+  "id": "peping-ginger-pineapple-shot-60ml",
+  "brand": "peping",
+  "name": "Probiotic Shot Ginger Pineapple",
+  "size": "60 ml shot",
+  "category": "drinks",
+  "mrp": 27,
+  "our_price": 27,
+  "photo": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group15449.png?v=1770013950",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 20,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame_386.png?v=1770014007",
+    "alt": "Brand info card with the bottle"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame_384.png?v=1770014007",
+    "alt": "What's inside the shot: ingredient card"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame_385.png?v=1770014007",
+    "alt": "Pack of 20 shots, box and bottle"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15434.png?v=1770014368",
+    "alt": "Back label with nutrition information and ingredients"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "6 billion CFU of Bacillus coagulans per shot",
+    "source": "https://peping.in/products/shots-ginger-pineapple"
+   },
+   {
+    "value": "No added sugar; sweetened with stevia",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15434.png?v=1770014368"
+   },
+   {
+    "value": "About 11 kcal per 60 ml shot",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15434.png?v=1770014368"
+   },
+   {
+    "value": "Keep in the fridge (0 °C to 8 °C)",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15434.png?v=1770014368"
+   }
+  ],
+  "description": {
+   "value": "A 60 ml probiotic shot of ginger and pineapple on a juice base, with 6 billion CFU of Bacillus coagulans.",
+   "source": "https://peping.in/products/shots-ginger-pineapple"
+  },
+  "about": [
+   {
+    "value": "Ginger leads with a sharp kick, softened by a mild pineapple sweetness. Coconut water and lemon round out the base, sweetened with stevia.",
+    "source": "https://peping.in/products/shots-ginger-pineapple"
+   },
+   {
+    "value": "Each 60 ml bottle is one serving, opened and drunk straight away. Shake it first; some settling is natural.",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15434.png?v=1770014368"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "1 to 2 bottles a day (the label's suggested amount), best before breakfast.",
+    "source": "https://peping.in/products/shots-ginger-pineapple"
+   },
+   {
+    "label": "Note",
+    "value": "The label says: not for medicinal use, drink right after opening, and do not drink it if the bottle is puffed or bloated.",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15434.png?v=1770014368"
+   }
+  ],
+  "ingredients": "Purified Water, Ginger Juice, Pineapple Juice Concentrate, Coconut Water Concentrate, Lemon Juice Concentrate, Bacillus coagulans (Probiotic, 6 Billion CFUs), Stevia, Permitted Sodium Benzoate (Preservative)",
+  "nutrition": {
+   "energy_kcal": 10.76,
+   "protein_g": 0.3,
+   "carbs_g": 2.69,
+   "sugar_g": 2.69,
+   "added_sugar_g": 0,
+   "fat_g": 0,
+   "sodium_mg": 7.78
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15434.png?v=1770014368",
+  "nutrition_basis": "60 ml shot",
+  "label": {
+   "country_of_origin": "India",
+   "importer": null,
+   "manufacturer": {
+    "name": "Peping Commerce Pvt. Ltd.",
+    "address": "Property No. 66/2 and 66/3P, Site No 7, Begur Hobli, Vittasandra Palya Village, Bengaluru South Taluk, Bengaluru Urban, Karnataka 560068, India",
+    "role": "manufactured",
+    "fssai_lic": "11224999000195"
+   },
+   "marketer": {
+    "name": "Peping Commerce Pvt. Ltd.",
+    "address": "62/1, New No. 7, 1st Cross, 2nd Main Road, Ganganagar, Bengaluru (Urban) 560032, Karnataka, India",
+    "fssai_lic": "11222999000634"
+   },
+   "fssai_lic": "11222999000634",
+   "veg": true,
+   "allergens": {
+    "contains": [],
+    "may_contain": []
+   },
+   "net_qty": {
+    "value": 60,
+    "unit": "ml",
+    "count": 1
+   },
+   "storage": "Store in a refrigerator at 0 °C to 8 °C. Shake well before use; settling is natural.",
+   "consumer_care": {
+    "phone": "+91 99026 73384",
+    "email": "support@peping.in"
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15434.png?v=1770014368"
+  }
+ },
+ {
+  "id": "peping-fennel-coconut-shot-60ml",
+  "brand": "peping",
+  "name": "Probiotic Shot Fennel Coconut",
+  "size": "60 ml shot",
+  "category": "drinks",
+  "mrp": 27,
+  "our_price": 27,
+  "photo": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group15451.png?v=1770014062",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 30,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame_394.png?v=1770014135",
+    "alt": "Brand info card with the bottle"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame_392.png?v=1770014135",
+    "alt": "What's inside the shot: ingredient card"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame_393.png?v=1770014135",
+    "alt": "Pack of 20 shots, box and bottle"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15438.png?v=1770014333",
+    "alt": "Back label with nutrition information and ingredients"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "6 billion CFU of Bacillus coagulans per shot",
+    "source": "https://peping.in/products/shots-fennel-coconut"
+   },
+   {
+    "value": "No added sugar; sweetened with stevia",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15438.png?v=1770014333"
+   },
+   {
+    "value": "About 8 kcal per 60 ml shot",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15438.png?v=1770014333"
+   },
+   {
+    "value": "Keep in the fridge (0 °C to 8 °C)",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15438.png?v=1770014333"
+   }
+  ],
+  "description": {
+   "value": "A 60 ml probiotic shot of fennel in coconut water, with 6 billion CFU of Bacillus coagulans.",
+   "source": "https://peping.in/products/shots-fennel-coconut"
+  },
+  "about": [
+   {
+    "value": "The taste is a light mix of fennel and coconut water with a touch of lemon, sweetened with stevia.",
+    "source": "https://peping.in/products/shots-fennel-coconut"
+   },
+   {
+    "value": "Each 60 ml bottle is one serving, opened and drunk straight away. Shake it first; some settling is natural.",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15438.png?v=1770014333"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "1 to 2 bottles a day (the label's suggested amount), best before breakfast.",
+    "source": "https://peping.in/products/shots-fennel-coconut"
+   },
+   {
+    "label": "Note",
+    "value": "The label says: not for medicinal use, drink right after opening, and do not drink it if the bottle is puffed or bloated.",
+    "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15438.png?v=1770014333"
+   }
+  ],
+  "nutrition": {
+   "energy_kcal": 7.68,
+   "protein_g": 0.03,
+   "carbs_g": 1.92,
+   "sugar_g": 1.92,
+   "added_sugar_g": 0,
+   "fat_g": 0,
+   "sodium_mg": 10.15
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15438.png?v=1770014333",
+  "nutrition_basis": "60 ml shot",
+  "ingredients": "Purified Water, Coconut Water Concentrate, Fennel Liquid Extract, Bacillus coagulans (Probiotic, 6 Billion CFUs), Lemon Juice Concentrate, Permitted Sodium Benzoate (Preservative), Stevia",
+  "label": {
+   "country_of_origin": "India",
+   "importer": null,
+   "manufacturer": {
+    "name": "Peping Commerce Pvt. Ltd.",
+    "address": "Property No. 66/2 and 66/3P, Site No 7, Begur Hobli, Vittasandra Palya Village, Bengaluru South Taluk, Bengaluru Urban, Karnataka 560068, India",
+    "role": "manufactured",
+    "fssai_lic": "11224999000195"
+   },
+   "marketer": {
+    "name": "Peping Commerce Pvt. Ltd.",
+    "address": "62/1, New No. 7, 1st Cross, 2nd Main Road, Ganganagar, Bengaluru (Urban) 560032, Karnataka, India",
+    "fssai_lic": "11222999000634"
+   },
+   "fssai_lic": "11222999000634",
+   "veg": true,
+   "allergens": {
+    "contains": [],
+    "may_contain": []
+   },
+   "net_qty": {
+    "value": 60,
+    "unit": "ml",
+    "count": 1
+   },
+   "storage": "Store in a refrigerator at 0 °C to 8 °C. Shake well before use; settling is natural.",
+   "consumer_care": {
+    "phone": "+91 99026 73384",
+    "email": "support@peping.in"
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15438.png?v=1770014333"
+  }
+ },
+ {
+  "id": "peping-lemon-breeze-fizz-250ml",
+  "brand": "peping",
+  "name": "Prebiotic Fizz Lemon Breeze",
+  "size": "250 ml can",
+  "category": "drinks",
+  "mrp": 70,
+  "our_price": 70,
+  "photo": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group15448.png?v=1770015447",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 40,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame372.png?v=1770015447",
+    "alt": "Brand card, 30 kcal with cans on ice"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame373.png?v=1770015447",
+    "alt": "Just 2g added sugar card"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame374.png?v=1770015447",
+    "alt": "4g prebiotic fibre card"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15429.png?v=1770015804",
+    "alt": "Brand claims card with can"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "About 30 kcal per 250 ml can",
+    "source": "https://peping.in/products/fizz-lemon-breeze"
+   },
+   {
+    "value": "2.12 g added sugar per can",
+    "source": "https://peping.in/products/fizz-lemon-breeze"
+   },
+   {
+    "value": "3.8 g fibre per can, from a prebiotic fibre blend",
+    "source": "https://peping.in/products/fizz-lemon-breeze"
+   },
+   {
+    "value": "No preservatives",
+    "source": "https://peping.in/products/fizz-lemon-breeze"
+   }
+  ],
+  "description": {
+   "value": "A sparkling lemon and ginger drink in a 250 ml can, with coconut water, lemon juice and a prebiotic fibre blend.",
+   "source": "https://peping.in/products/fizz-lemon-breeze"
+  },
+  "about": [
+   {
+    "value": "Fizzy, with lemon up front and ginger behind it, on a base of carbonated water and coconut water.",
+    "source": "https://peping.in/products/fizz-lemon-breeze"
+   },
+   {
+    "value": "Sweetened with a little sugar and stevia. The fibre blend is FOS, chicory root inulin, marshmallow root, kudzu and slippery elm.",
+    "source": "https://peping.in/products/fizz-lemon-breeze"
+   }
+  ],
+  "details": [
+   {
+    "label": "Note",
+    "value": "Storage, shelf life and maker details: see the can. Peping's product page does not show the can's back label.",
+    "source": "https://peping.in/products/fizz-lemon-breeze"
+   }
+  ],
+  "ingredients": "Carbonated Water, Ginger Juice, Coconut Water Concentrate, FOS (fructooligosaccharides), Sugar (2.12g), PEPSMART (Chicory Root Inulin, Marshmallow Root Extract, Kudzu Extract, Slippery Elm Extract), Clear Lemon Juice Concentrate, Stevia, Nature Identical Flavoring Substance (Fresh Ginger)",
+  "nutrition": {
+   "energy_kcal": 29.92,
+   "protein_g": 0,
+   "carbs_g": 9.38,
+   "sugar_g": 5.58,
+   "added_sugar_g": 2.12,
+   "fibre_g": 3.8,
+   "sodium_mg": 5.25
+  },
+  "nutrition_source": "https://peping.in/products/fizz-lemon-breeze",
+  "nutrition_basis": "250 ml can",
+  "label": {
+   "veg": true,
+   "net_qty": {
+    "value": 250,
+    "unit": "ml",
+    "count": 1
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group15448.png?v=1770015447"
+  }
+ },
+ {
+  "id": "peping-watermelon-zing-fizz-250ml",
+  "brand": "peping",
+  "name": "Prebiotic Fizz Watermelon Zing",
+  "size": "250 ml can",
+  "category": "drinks",
+  "mrp": 70,
+  "our_price": 70,
+  "photo": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15446.png?v=1770017637",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 50,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame376.png?v=1770017637",
+    "alt": "Brand card, 33 kcal"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame377.png?v=1770017637",
+    "alt": "Just 2g added sugar card"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame378.png?v=1770017637",
+    "alt": "4g prebiotic fibre card"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame375.png?v=1770017637",
+    "alt": "Brand claims card with cans"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "About 33 kcal per 250 ml can",
+    "source": "https://peping.in/products/fizz-watermelon-zing"
+   },
+   {
+    "value": "2.12 g added sugar per can",
+    "source": "https://peping.in/products/fizz-watermelon-zing"
+   },
+   {
+    "value": "3.8 g fibre per can, from a prebiotic fibre blend",
+    "source": "https://peping.in/products/fizz-watermelon-zing"
+   }
+  ],
+  "description": {
+   "value": "A sparkling watermelon drink in a 250 ml can, with coconut water and a prebiotic fibre blend.",
+   "source": "https://peping.in/products/fizz-watermelon-zing"
+  },
+  "about": [
+   {
+    "value": "Light watermelon with a tangy edge from lemon, on a base of carbonated water and coconut water.",
+    "source": "https://peping.in/products/fizz-watermelon-zing"
+   },
+   {
+    "value": "Sweetened with a little sugar and stevia. The fibre blend is FOS, chicory root inulin, marshmallow root, kudzu and slippery elm.",
+    "source": "https://peping.in/products/fizz-watermelon-zing"
+   }
+  ],
+  "details": [
+   {
+    "label": "Note",
+    "value": "Storage, shelf life and maker details: see the can. Peping's product page does not show the can's back label.",
+    "source": "https://peping.in/products/fizz-watermelon-zing"
+   }
+  ],
+  "ingredients": "Carbonated Water, Coconut Water Concentrate, FOS (fructooligosaccharides), Sugar (2.12g), PEPSMART (Chicory Root Inulin, Marshmallow Root Extract, Kudzu Extract, Slippery Elm Extract), Clear Watermelon Juice Concentrate, Clear Lemon Juice Concentrate, Nature Identical Flavoring Substance (Watermelon, Lemon), Stevia",
+  "nutrition": {
+   "energy_kcal": 32.8,
+   "protein_g": 0,
+   "carbs_g": 10.17,
+   "sugar_g": 6.3,
+   "added_sugar_g": 2.12,
+   "fibre_g": 3.8,
+   "sodium_mg": 5.25
+  },
+  "nutrition_source": "https://peping.in/products/fizz-watermelon-zing",
+  "nutrition_basis": "250 ml can",
+  "label": {
+   "veg": true,
+   "net_qty": {
+    "value": 250,
+    "unit": "ml",
+    "count": 1
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15446.png?v=1770017637"
+  }
+ },
+ {
+  "id": "peping-strawberry-cream-fizz-250ml",
+  "brand": "peping",
+  "name": "Prebiotic Fizz Strawberry Cream",
+  "size": "250 ml can",
+  "category": "drinks",
+  "mrp": 70,
+  "our_price": 70,
+  "photo": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15447.png?v=1770017594",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 60,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame382.png?v=1770017594",
+    "alt": "5g fibre card with can"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame379.png?v=1770017594",
+    "alt": "Brand card, 33 kcal"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame381.png?v=1770017594",
+    "alt": "Just 2g added sugar card"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Frame380.png?v=1770017594",
+    "alt": "Brand claims card with can and strawberries"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "About 33 kcal per 250 ml can",
+    "source": "https://peping.in/products/fizz-strawberry-cream"
+   },
+   {
+    "value": "2 g added sugar per can",
+    "source": "https://peping.in/products/fizz-strawberry-cream"
+   },
+   {
+    "value": "5 g fibre per can, from a prebiotic fibre blend",
+    "source": "https://peping.in/products/fizz-strawberry-cream"
+   }
+  ],
+  "description": {
+   "value": "A sparkling strawberry drink with a hint of cream, in a 250 ml can, with a prebiotic fibre blend.",
+   "source": "https://peping.in/products/fizz-strawberry-cream"
+  },
+  "about": [
+   {
+    "value": "Strawberry juice with strawberry and vanilla flavouring and a little lemon, for a strawberries and cream taste.",
+    "source": "https://peping.in/products/fizz-strawberry-cream"
+   },
+   {
+    "value": "Sweetened with a little sugar and stevia. The fibre blend is FOS, chicory root inulin, marshmallow root, kudzu and nopal cactus extract.",
+    "source": "https://peping.in/products/fizz-strawberry-cream"
+   }
+  ],
+  "details": [
+   {
+    "label": "Note",
+    "value": "Storage, shelf life and maker details: see the can. Peping's product page does not show the can's back label.",
+    "source": "https://peping.in/products/fizz-strawberry-cream"
+   }
+  ],
+  "ingredients": "Carbonated Water, FOS (fructooligosaccharides), Sugar (2g), PEPSMART (Chicory Root Inulin, Marshmallow Root Extract, Kudzu Extract, Nopal Cactus Extract), Strawberry Juice Concentrate, Nature Identical Flavoring Substance (Strawberry, Vanilla), Clear Lemon Juice Concentrate, Stevia",
+  "nutrition": {
+   "energy_kcal": 33.4,
+   "protein_g": 0,
+   "carbs_g": 10.84,
+   "sugar_g": 5.84,
+   "added_sugar_g": 2,
+   "fibre_g": 5,
+   "sodium_mg": 5.25
+  },
+  "nutrition_source": "https://peping.in/products/fizz-strawberry-cream",
+  "nutrition_basis": "250 ml can",
+  "label": {
+   "veg": true,
+   "net_qty": {
+    "value": 250,
+    "unit": "ml",
+    "count": 1
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0616/7176/8108/files/Group_15447.png?v=1770017594"
+  }
+ },
+ {
+  "id": "nuvie-peanut-caramel-protein-chocolate-45g",
+  "brand": "nuvie",
+  "name": "Peanut Caramel Protein Chocolate",
+  "size": "45 g bar",
+  "category": "bars",
+  "mrp": 80,
+  "our_price": 80,
+  "photo": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/1_84544dc5-e8a6-4625-a55d-fa594eda77af.png?v=1780564484",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 10,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/5_eb8a7bcc-3b2a-4c04-b219-83087d4e8484.png?v=1780564483",
+    "alt": "Bar wrapper with the bar"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/NewNutriTable.png?v=1780637158",
+    "alt": "Nutrition information and ingredients panel"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "10 g protein per 45 g bar",
+    "source": "https://www.nuvie.co.in/products/peanut-caramel-protein-chocolate"
+   },
+   {
+    "value": "No added sugar; sweetened with maltitol",
+    "source": "https://www.nuvie.co.in/products/peanut-caramel-protein-chocolate"
+   },
+   {
+    "value": "No preservatives",
+    "source": "https://www.nuvie.co.in/products/peanut-caramel-protein-chocolate"
+   },
+   {
+    "value": "Made with roasted peanuts and peanut butter",
+    "source": "https://www.nuvie.co.in/products/peanut-caramel-protein-chocolate"
+   }
+  ],
+  "description": {
+   "value": "A peanut caramel protein chocolate bar. Each bar is 45 g.",
+   "source": "https://www.nuvie.co.in/products/peanut-caramel-protein-chocolate"
+  },
+  "about": [
+   {
+    "value": "A soft, chewy protein nougat centre with caramel and crunchy peanut pieces, coated in chocolate.",
+    "source": "https://www.nuvie.co.in/products/peanut-caramel-protein-chocolate"
+   },
+   {
+    "value": "The protein comes from yeast protein, milk solids and soy crisps.",
+    "source": "https://www.nuvie.co.in/products/peanut-caramel-protein-chocolate"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "At room temperature, or chilled briefly for a firmer bite.",
+    "source": "https://www.nuvie.co.in/products/peanut-caramel-protein-chocolate"
+   },
+   {
+    "label": "Note",
+    "value": "Contains maltitol. Polyols may have a laxative effect.",
+    "source": "https://www.nuvie.co.in/products/peanut-caramel-protein-chocolate"
+   }
+  ],
+  "ingredients": "Protein Blend (24%) [Yeast Protein, Milk Solids, Soy Protein Crispies], Sweetener (Maltitol), Chocolate Compound, No Added Sugar [Sweetener (Maltitol), Edible Vegetable Fat (Hydrogenated), Cocoa Solids, Milk Solids, Emulsifier (Soy Lecithin, INS (476))], Caramel, No Added Sugar [Sweetener (Maltitol), Cream, Unsalted Butter, Humectant (Glycerine), Salt, Emulsifier (Soy Lecithin), Antioxidant (Rosemary Extract), Colour (INS 150c)], Peanut Butter, Roasted Peanuts, Humectant (Glycerine), Cocoa Solids, Fructo-oligosaccharides (Prebiotic Fiber), Rice Crispies, Sunflower Oil, Salt, Emulsifier (Soy Lecithin), Stabilizer (Guar Gum), Antioxidant (Rosemary Extract), Contains Added Nature-Identical Flavouring Substances.",
+  "nutrition": {
+   "energy_kcal": 446.0,
+   "protein_g": 23.6,
+   "carbs_g": 43.2,
+   "sugar_g": 2.8,
+   "added_sugar_g": 0.0,
+   "fat_g": 20.0,
+   "sat_fat_g": 6.0,
+   "sodium_mg": 254.3,
+   "fibre_g": 4.5
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/NewNutriTable.png?v=1780637158",
+  "nutrition_basis": "100 g (one bar is 45 g)",
+  "label": {
+   "veg": true,
+   "allergens": {
+    "contains": [
+     "milk",
+     "nuts",
+     "soy"
+    ],
+    "may_contain": [
+     "nuts",
+     "cereals containing gluten"
+    ]
+   },
+   "net_qty": {
+    "value": 45,
+    "unit": "g",
+    "count": 1
+   },
+   "shelf_life": "Until the best-before date printed on the pack",
+   "storage": "Below 25 °C in a cool, dry place away from sunlight. No fridge needed. Eat straight away once opened.",
+   "source": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/NewNutriTable.png?v=1780637158"
+  }
+ },
+ {
+  "id": "nuvie-protein-iced-latte-250ml",
+  "brand": "nuvie",
+  "name": "Protein Iced Latte",
+  "size": "250 ml",
+  "category": "drinks",
+  "mrp": 110,
+  "our_price": 110,
+  "photo": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/ActualBottle_Main-TLPC.png?v=1783237136",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 20,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Coffee_RTB_02.png?v=1782291867",
+    "alt": "Coffee upgraded claims card with bottle"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Coffee_NV_02_bc31fc53-4514-4f34-b644-2b7d53ef1d74.png?v=1782291827",
+    "alt": "Nutritional information panel"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Coffee_LifestyleLarge.jpg?v=1782291866",
+    "alt": "Bottle next to a glass of iced coffee"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Coffee_versus02.png?v=1782291867",
+    "alt": "Comparison card: Nuvie vs regular cold coffee"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "20 g protein per 250 ml bottle",
+    "source": "https://www.nuvie.co.in/products/protein-iced-latte"
+   },
+   {
+    "value": "60 mg caffeine, about one espresso shot",
+    "source": "https://www.nuvie.co.in/products/protein-iced-latte"
+   },
+   {
+    "value": "Lactose free (lactase enzyme added)",
+    "source": "https://www.nuvie.co.in/products/protein-iced-latte"
+   },
+   {
+    "value": "No added sugar; sweetened with sucralose",
+    "source": "https://www.nuvie.co.in/products/protein-iced-latte"
+   }
+  ],
+  "description": {
+   "value": "A ready-to-drink cold coffee with protein, in a 250 ml bottle.",
+   "source": "https://www.nuvie.co.in/products/protein-iced-latte"
+  },
+  "about": [
+   {
+    "value": "The brand says it tastes much like regular cold coffee. It is made with toned milk, milk solids and coffee powder.",
+    "source": "https://www.nuvie.co.in/products/protein-iced-latte"
+   },
+   {
+    "value": "It is heat treated in the sealed bottle (retort processing), so it keeps without a fridge until you open it.",
+    "source": "https://www.nuvie.co.in/products/protein-iced-latte"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "Best served chilled. Shake before opening and drink within 24 hours of opening.",
+    "source": "https://www.nuvie.co.in/products/protein-iced-latte"
+   },
+   {
+    "label": "Not suitable for",
+    "value": "pregnant women and children (contains caffeine)",
+    "source": "https://www.nuvie.co.in/products/protein-iced-latte"
+   },
+   {
+    "label": "Note",
+    "value": "Sold here as single bottles. Nuvie's own site sells packs of 6, 12 or 24. Nuvie's page gives no allergen line; milk is the main ingredient.",
+    "source": "https://www.nuvie.co.in/products/protein-iced-latte"
+   }
+  ],
+  "ingredients": "Toned Milk (60%), Filtered Water, Milk Solids, Lactase Enzyme, Fructose Oligo Saccharides (2%), Coffee Powder (0.35%), Natural & Nature Identical Flavours (Coffee), Acidity Regulators [INS 340(ii), INS 452(ii), INS 339(ii)], Edible Common Salt, Caffeine, Stabilizer (INS 418), Sucralose (INS 955).",
+  "nutrition": {
+   "energy_kcal": 159,
+   "protein_g": 20,
+   "carbs_g": 11.47,
+   "sugar_g": 8.34,
+   "added_sugar_g": 0,
+   "fat_g": 3.83,
+   "sat_fat_g": 3.5,
+   "sodium_mg": 162,
+   "fibre_g": 4.5
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Coffee_NV_02_bc31fc53-4514-4f34-b644-2b7d53ef1d74.png?v=1782291827",
+  "nutrition_basis": "250 ml bottle",
+  "label": {
+   "veg": true,
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "may_contain": []
+   },
+   "net_qty": {
+    "value": 250,
+    "unit": "ml",
+    "count": 1
+   },
+   "shelf_life": "Until the date printed on the bottle",
+   "storage": "Before opening, keep in a cool, dry place; no fridge needed. After opening, keep in the fridge and finish within 24 hours.",
+   "source": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Coffee_NV_02_bc31fc53-4514-4f34-b644-2b7d53ef1d74.png?v=1782291827"
+  }
+ },
+ {
+  "id": "nuvie-chocolate-protein-shake-250ml",
+  "brand": "nuvie",
+  "name": "Chocolate Protein Shake",
+  "size": "250 ml",
+  "category": "drinks",
+  "mrp": 110,
+  "our_price": 110,
+  "photo": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Choco_BC_Beige_174e43a8-0157-42dd-bc4c-c8bc79e02881.png?v=1779376353",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 30,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Choco_LifestyleLarge_f983deb3-6c13-42b5-adb3-fc2fa01d9587.jpg?v=1779376353",
+    "alt": "Chocolate shake bottle with a glass of chocolate milkshake"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/KP_RTB_02_d39ac239-eede-4084-a8af-51b1d785888a.png?v=1779376353",
+    "alt": "Claims card: 20g protein, no added sugar, lactose free"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/choco-lifestylecorrectsize_a782bbe1-3e89-42a9-a4b5-b87e8c03143a.jpg?v=1779376353",
+    "alt": "Bottle and glass on a table"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Choco_Back_White_1a01f385-a130-43a0-84ac-3e3c1497dd9c.png?v=1779376353",
+    "alt": "Bottle, back label"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Choco_NV_02-1_c527e2c6-4822-426a-85a9-ff0fcb3dc866.png?v=1779376353",
+    "alt": "Nutritional information panel"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "20 g protein per 250 ml bottle",
+    "source": "https://www.nuvie.co.in/products/chocolate-protein-shake"
+   },
+   {
+    "value": "No added sugar; sweetened with sucralose",
+    "source": "https://www.nuvie.co.in/products/chocolate-protein-shake"
+   },
+   {
+    "value": "Lactose free (lactase enzyme added)",
+    "source": "https://www.nuvie.co.in/products/chocolate-protein-shake"
+   },
+   {
+    "value": "No preservatives",
+    "source": "https://www.nuvie.co.in/products/chocolate-protein-shake"
+   }
+  ],
+  "description": {
+   "value": "A ready-to-drink chocolate protein milkshake in a 250 ml bottle.",
+   "source": "https://www.nuvie.co.in/products/chocolate-protein-shake"
+  },
+  "about": [
+   {
+    "value": "Tastes like a classic chocolate milkshake. It is made with ultra filtered toned milk, a little cream and cocoa powder.",
+    "source": "https://www.nuvie.co.in/products/chocolate-protein-shake"
+   },
+   {
+    "value": "It is heat treated in the sealed bottle (retort processing), so it keeps without a fridge until you open it.",
+    "source": "https://www.nuvie.co.in/products/chocolate-protein-shake"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "Best served chilled. Shake before opening and drink within 24 hours of opening.",
+    "source": "https://www.nuvie.co.in/products/chocolate-protein-shake"
+   },
+   {
+    "label": "Note",
+    "value": "Sold here as single bottles. Nuvie's own site sells packs of 6, 12 or 24.",
+    "source": "https://www.nuvie.co.in/products/chocolate-protein-shake"
+   }
+  ],
+  "ingredients": "Ultra Filtered Toned Milk (65%), Filtered Water, Fructose Oligo Saccharides (2%), Cream, Alkalized Cocoa Powder, Nature Identical Flavours (Chocolate), Lactase Enzyme (beta-galactosidase), Acidity Regulators [INS 340, INS 452(ii), INS 339(ii)], Stabilizer (INS 418), Edible Common Salt, Sucralose (INS 955).",
+  "nutrition": {
+   "energy_kcal": 184.93,
+   "protein_g": 20,
+   "carbs_g": 13.94,
+   "sugar_g": 8.5,
+   "added_sugar_g": 0,
+   "fat_g": 5.03,
+   "sat_fat_g": 3,
+   "sodium_mg": 131.8,
+   "fibre_g": 4.5
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Choco_NV_02-1_c527e2c6-4822-426a-85a9-ff0fcb3dc866.png?v=1779376353",
+  "nutrition_basis": "250 ml bottle",
+  "label": {
+   "veg": true,
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "may_contain": [
+     "nuts",
+     "cereals containing gluten"
+    ]
+   },
+   "net_qty": {
+    "value": 250,
+    "unit": "ml",
+    "count": 1
+   },
+   "shelf_life": "Use by the date printed on the top or neck of the bottle",
+   "storage": "Before opening, keep in a cool, dry place; no fridge needed. After opening, keep in the fridge and finish within 24 hours.",
+   "source": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Choco_Back_White_1a01f385-a130-43a0-84ac-3e3c1497dd9c.png?v=1779376353"
+  }
+ },
+ {
+  "id": "nuvie-vanilla-protein-shake-250ml",
+  "brand": "nuvie",
+  "name": "Vanilla Protein Shake",
+  "size": "250 ml",
+  "category": "drinks",
+  "mrp": 110,
+  "our_price": 110,
+  "photo": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Vanilla_BC_Beige.png?v=1779375923",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 40,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Vanilla_LifestyleLarge.jpg?v=1779375924",
+    "alt": "Vanilla shake bottle with a glass of vanilla milkshake"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Vanilla_RTB_02_774ecbae-c7b0-4a8a-bbeb-bdb9d11ba3c9.png?v=1779376022",
+    "alt": "Claims card: 20g protein, no added sugar, lactose free"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Vanilla_versus02.png?v=1779375923",
+    "alt": "Comparison card: Nuvie vs regular milkshake"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Vanilla_Back_White.png?v=1779375923",
+    "alt": "Bottle, back label"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Vanilla_NV_02.png?v=1779375923",
+    "alt": "Nutritional information panel"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "20 g protein per 250 ml bottle",
+    "source": "https://www.nuvie.co.in/products/vanilla-protein-shake"
+   },
+   {
+    "value": "No added sugar; sweetened with sucralose",
+    "source": "https://www.nuvie.co.in/products/vanilla-protein-shake"
+   },
+   {
+    "value": "Lactose free (lactase enzyme added)",
+    "source": "https://www.nuvie.co.in/products/vanilla-protein-shake"
+   },
+   {
+    "value": "No preservatives",
+    "source": "https://www.nuvie.co.in/products/vanilla-protein-shake"
+   }
+  ],
+  "description": {
+   "value": "A ready-to-drink vanilla protein milkshake in a 250 ml bottle.",
+   "source": "https://www.nuvie.co.in/products/vanilla-protein-shake"
+  },
+  "about": [
+   {
+    "value": "Tastes like a classic vanilla milkshake. It is made with ultra filtered toned milk and a little cream.",
+    "source": "https://www.nuvie.co.in/products/vanilla-protein-shake"
+   },
+   {
+    "value": "It is heat treated in the sealed bottle (retort processing), so it keeps without a fridge until you open it.",
+    "source": "https://www.nuvie.co.in/products/vanilla-protein-shake"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "Best served chilled. Shake before opening and drink within 24 hours of opening.",
+    "source": "https://www.nuvie.co.in/products/vanilla-protein-shake"
+   },
+   {
+    "label": "Note",
+    "value": "Sold here as single bottles. Nuvie's own site sells packs of 6, 12 or 24.",
+    "source": "https://www.nuvie.co.in/products/vanilla-protein-shake"
+   }
+  ],
+  "ingredients": "Ultra Filtered Toned Milk (66%), Filtered Water, Fructose Oligo Saccharides (2%), Cream, Nature Identical Flavours (Vanilla), Lactase Enzyme (beta-galactosidase), Acidity Regulators [INS 340, INS 452(ii), INS 339(ii)], Stabilizer (INS 418), Edible Common Salt, Sucralose (INS 955).",
+  "nutrition": {
+   "energy_kcal": 179.9,
+   "protein_g": 20,
+   "carbs_g": 13.25,
+   "sugar_g": 8.5,
+   "added_sugar_g": 0,
+   "fat_g": 4.9,
+   "sat_fat_g": 3,
+   "sodium_mg": 131.8,
+   "fibre_g": 4.5
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Vanilla_NV_02.png?v=1779375923",
+  "nutrition_basis": "250 ml bottle",
+  "label": {
+   "veg": true,
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "may_contain": [
+     "nuts",
+     "cereals containing gluten"
+    ]
+   },
+   "net_qty": {
+    "value": 250,
+    "unit": "ml",
+    "count": 1
+   },
+   "shelf_life": "Use by the date printed on the top or neck of the bottle",
+   "storage": "Before opening, keep in a cool, dry place; no fridge needed. After opening, keep in the fridge and finish within 24 hours.",
+   "source": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/Vanilla_Back_White.png?v=1779375923"
+  }
+ },
+ {
+  "id": "nuvie-kesar-pista-protein-shake-250ml",
+  "brand": "nuvie",
+  "name": "Kesar Pista Protein Shake",
+  "size": "250 ml",
+  "category": "drinks",
+  "mrp": 110,
+  "our_price": 110,
+  "photo": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/KP_BC_Beige_fcd29787-b28b-4c62-9245-1a198259d9e8.png?v=1779376170",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 50,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/KP_Lifestyle_b3fd21b3-16e9-462d-9aaa-d21a60f16c6e.jpg?v=1779376170",
+    "alt": "Kesar Pista shake bottle with a glass"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/KP_RTB_02_332b0208-2212-45dd-8375-4eff253d79cc.png?v=1779376170",
+    "alt": "Claims card: 20g protein, no added sugar, lactose free"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/KP_versus02_3dd80c5c-f345-40cb-9102-2479d0d01399.png?v=1779376170",
+    "alt": "Comparison card: Nuvie vs regular milkshake"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/KP_NV_02-1_6e620dbf-fe23-4c25-8889-028e25f737f2.png?v=1779376170",
+    "alt": "Nutritional information panel"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/KP_Back_White_bc9cd68b-fffa-499e-ba8d-67717df44d96.png?v=1779376170",
+    "alt": "Bottle, back label"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "20 g protein per 250 ml bottle",
+    "source": "https://www.nuvie.co.in/products/kesar-pista-protein-shake"
+   },
+   {
+    "value": "No added sugar; sweetened with sucralose",
+    "source": "https://www.nuvie.co.in/products/kesar-pista-protein-shake"
+   },
+   {
+    "value": "Lactose free (lactase enzyme added)",
+    "source": "https://www.nuvie.co.in/products/kesar-pista-protein-shake"
+   },
+   {
+    "value": "No preservatives",
+    "source": "https://www.nuvie.co.in/products/kesar-pista-protein-shake"
+   }
+  ],
+  "description": {
+   "value": "A ready-to-drink kesar pista (saffron and pistachio) protein milkshake in a 250 ml bottle.",
+   "source": "https://www.nuvie.co.in/products/kesar-pista-protein-shake"
+  },
+  "about": [
+   {
+    "value": "The brand likens the taste to kesar pista kulfi. It is made with ultra filtered toned milk and a little cream.",
+    "source": "https://www.nuvie.co.in/products/kesar-pista-protein-shake"
+   },
+   {
+    "value": "It is heat treated in the sealed bottle (retort processing), so it keeps without a fridge until you open it.",
+    "source": "https://www.nuvie.co.in/products/kesar-pista-protein-shake"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "Best served chilled. Shake before opening and drink within 24 hours of opening.",
+    "source": "https://www.nuvie.co.in/products/kesar-pista-protein-shake"
+   },
+   {
+    "label": "Note",
+    "value": "Sold here as single bottles. Nuvie's own site sells packs of 6, 12 or 24.",
+    "source": "https://www.nuvie.co.in/products/kesar-pista-protein-shake"
+   }
+  ],
+  "ingredients": "Ultra Filtered Toned Milk (66%), Filtered Water, Fructose Oligo Saccharides (2%), Cream, Natural and Nature Identical Flavours (Kesar Pista), Lactase Enzyme (beta-galactosidase), Acidity Regulators [INS 340, INS 452(ii), INS 339(ii)], Stabilizer (INS 418), Edible Common Salt, Sucralose (INS 955).",
+  "nutrition": {
+   "energy_kcal": 170.08,
+   "protein_g": 20,
+   "carbs_g": 12.6,
+   "sugar_g": 7.9,
+   "added_sugar_g": 0,
+   "fat_g": 4.4,
+   "sat_fat_g": 2.7,
+   "sodium_mg": 122.5,
+   "fibre_g": 4.5
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/KP_NV_02-1_6e620dbf-fe23-4c25-8889-028e25f737f2.png?v=1779376170",
+  "nutrition_basis": "250 ml bottle",
+  "label": {
+   "veg": true,
+   "allergens": {
+    "contains": [
+     "milk"
+    ],
+    "may_contain": [
+     "nuts",
+     "cereals containing gluten"
+    ]
+   },
+   "net_qty": {
+    "value": 250,
+    "unit": "ml",
+    "count": 1
+   },
+   "shelf_life": "Use by the date printed on the top or neck of the bottle",
+   "storage": "Before opening, keep in a cool, dry place; no fridge needed. After opening, keep in the fridge and finish within 24 hours.",
+   "source": "https://cdn.shopify.com/s/files/1/0655/2069/7518/files/KP_Back_White_bc9cd68b-fffa-499e-ba8d-67717df44d96.png?v=1779376170"
+  }
+ },
+ {
+  "id": "farmley-date-bites-200g",
+  "brand": "farmley",
+  "name": "Date Bites",
+  "size": "200 g",
+  "category": "snacks",
+  "mrp": 425,
+  "our_price": 425,
+  "photo": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/1_e11c3ecc-6a1b-44d0-8e3b-a8ab97fe8d6d.jpg?v=1784712997",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 10,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/2_87158004-e731-49c0-9cbf-2fee70e47992.jpg?v=1784712998",
+    "alt": "6 ingredients card with dates and nuts"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/classic_DB_KV.png?v=1769665648",
+    "alt": "Date Bites jar with dates and nuts"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/3_5cebb46c-0b0b-4a83-8c56-ec60f555daf6.jpg?v=1784712998",
+    "alt": "Date bites close up, no refined sugar callout"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/5_cbf77d91-d18b-4f36-a69f-2ad43769ba0e.jpg?v=1784712997",
+    "alt": "Jar with ingredients around it"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/6_a37c886c-ed08-4aeb-b3e2-15d9c653541f.jpg?v=1784712993",
+    "alt": "Back label with nutrition facts"
+   }
+  ],
+  "videos": [
+   {
+    "kind": "file",
+    "url": "https://cdn.shopify.com/videos/c/vp/0374f794a5f947da860ccc94d85008c7/0374f794a5f947da860ccc94d85008c7.HD-720p-2.1Mbps-95188192.mp4",
+    "poster": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/preview_images/0374f794a5f947da860ccc94d85008c7.thumbnail.0000000000.jpg?v=1790076918",
+    "title": "Date Bites product video",
+    "source": "https://www.farmley.com/products/date-bites"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "Six ingredients: dates, almonds, cashews, pistachios, ghee and honey",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/6_a37c886c-ed08-4aeb-b3e2-15d9c653541f.jpg?v=1784712993"
+   },
+   {
+    "value": "No refined sugar",
+    "source": "https://www.farmley.com/products/date-bites"
+   },
+   {
+    "value": "10 individually packed bites of 20 g",
+    "source": "https://www.farmley.com/products/date-bites"
+   }
+  ],
+  "description": {
+   "value": "Bite-sized sweets made from dates and nuts, 10 to a 200 g jar.",
+   "source": "https://www.farmley.com/products/date-bites"
+  },
+  "about": [
+   {
+    "value": "Soft and chewy, made mostly of dates and nuts, held together with ghee and a little honey (0.5% on the label).",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/6_a37c886c-ed08-4aeb-b3e2-15d9c653541f.jpg?v=1784712993"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "As a dessert, a quick snack, or a gift.",
+    "source": "https://www.farmley.com/products/date-bites"
+   }
+  ],
+  "ingredients": "Dates, Almonds, Cashew Nuts, Pistachios, Ghee, Honey (0.5%)",
+  "nutrition": {
+   "energy_kcal": 428.4,
+   "protein_g": 11.6,
+   "carbs_g": 65.1,
+   "sugar_g": 31.3,
+   "added_sugar_g": 0.0,
+   "fat_g": 15.6,
+   "sat_fat_g": 2.3,
+   "sodium_mg": 5.4,
+   "fibre_g": 9.6
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/6_a37c886c-ed08-4aeb-b3e2-15d9c653541f.jpg?v=1784712993",
+  "nutrition_basis": "100 g (a serving is 20 g)",
+  "label": {
+   "country_of_origin": "India",
+   "importer": null,
+   "manufacturer": {
+    "name": "Connedit Business Solutions Pvt. Ltd.",
+    "address": "Killa No. 69, Piou Manyari, HSIIDC Industrial Estate Kundli, Sub-Tehsil Rai, Kundli, Sonipat, Haryana 131028, India",
+    "role": "manufactured"
+   },
+   "marketer": null,
+   "fssai_lic": "10825999001048",
+   "veg": true,
+   "allergens": {
+    "contains": [
+     "nuts",
+     "milk"
+    ],
+    "may_contain": [
+     "other nuts",
+     "dried fruits"
+    ]
+   },
+   "net_qty": {
+    "value": 20,
+    "unit": "g",
+    "count": 10
+   },
+   "shelf_life": "6 months",
+   "consumer_care": {
+    "phone": "+91 98999 55931",
+    "email": "wecare@farmley.com"
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/6_a37c886c-ed08-4aeb-b3e2-15d9c653541f.jpg?v=1784712993"
+  }
+ },
+ {
+  "id": "farmley-trail-mix-200g",
+  "brand": "farmley",
+  "name": "7-in-1 Trail Mix",
+  "size": "200 g",
+  "category": "dry-fruits",
+  "mrp": 335,
+  "our_price": 335,
+  "photo": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280372_4_2.jpg?v=1787810763",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 20,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280372_5_1_cf55194b-9648-4ed4-8990-f7dbaa549b5a.jpg?v=1787810763",
+    "alt": "Mix of seven nuts, seeds and berries card"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280372_8_1_193a17da-1e91-4960-9482-f1a6afb26f26.jpg?v=1787810763",
+    "alt": "Trail mix in a bowl with the pouch"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280372_6_1_2a6ca3ad-01b3-4cd5-b068-63b0d1e0cac6.jpg?v=1787810763",
+    "alt": "7 ingredients, zero fillers card"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280372_10_1_994c8793-223d-42dd-a8ba-ec8d142fc288.jpg?v=1787810762",
+    "alt": "Pouch back with nutrition facts"
+   }
+  ],
+  "videos": [
+   {
+    "kind": "file",
+    "url": "https://cdn.shopify.com/videos/c/vp/1860b03557ee4355a55f2f615fb0a03a/1860b03557ee4355a55f2f615fb0a03a.HD-720p-1.6Mbps-95201715.mp4",
+    "poster": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/preview_images/1860b03557ee4355a55f2f615fb0a03a.thumbnail.0000000000.jpg?v=1790083815",
+    "title": "7-in-1 Trail Mix product video",
+    "source": "https://www.farmley.com/products/7-in-1-trail-mix-200-g"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "Seven nuts, seeds and dried berries: almonds, cashews, pumpkin seeds, sunflower seeds, black currants, blueberries and cranberries",
+    "source": "https://www.farmley.com/products/7-in-1-trail-mix-200-g"
+   },
+   {
+    "value": "Lightly sweetened and salted (sugar and rock salt on the label)",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280372_10_1_994c8793-223d-42dd-a8ba-ec8d142fc288.jpg?v=1787810762"
+   },
+   {
+    "value": "Resealable pouch",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280372_2_1_1.jpg?v=1787810763"
+   }
+  ],
+  "description": {
+   "value": "A mix of seven nuts, seeds and dried berries in a 200 g pouch.",
+   "source": "https://www.farmley.com/products/7-in-1-trail-mix-200-g"
+  },
+  "about": [
+   {
+    "value": "Nuts and seeds mixed with sweet and tart dried berries, made for snacking on the go.",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280372_2_1_1.jpg?v=1787810763"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "Straight from the pack, over yoghurt, or in recipes.",
+    "source": "https://www.farmley.com/products/7-in-1-trail-mix-200-g"
+   },
+   {
+    "label": "Note",
+    "value": "The ingredients, nutrition and label details here are from the 160 g pack's label shown on Farmley's page. We have not seen the 200 g pack's label yet.",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280372_10_1_994c8793-223d-42dd-a8ba-ec8d142fc288.jpg?v=1787810762"
+   }
+  ],
+  "ingredients": "Dried Cranberries, Black Currants, Almonds, Cashew Nuts, Pumpkin Seeds, Sunflower Seeds, Dried Blueberries, Olive Oil, Sugar, Rock Salt, Sunflower Oil",
+  "nutrition": {
+   "energy_kcal": 436.3,
+   "protein_g": 10.3,
+   "carbs_g": 60.8,
+   "sugar_g": 37.4,
+   "added_sugar_g": 9.5,
+   "fat_g": 16.8,
+   "sat_fat_g": 2.4,
+   "sodium_mg": 4.1,
+   "fibre_g": 7.1
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280372_10_1_994c8793-223d-42dd-a8ba-ec8d142fc288.jpg?v=1787810762",
+  "nutrition_basis": "100 g (from the label of the 160 g pack shown on the brand page)",
+  "label": {
+   "country_of_origin": "India",
+   "importer": null,
+   "manufacturer": {
+    "name": "Connedit Business Solutions Pvt. Ltd.",
+    "address": "Khasra No. 17/2/2 and 3, 51/1/2 Kaji Palasiya, Indore, Madhya Pradesh 452001, India",
+    "role": "manufactured"
+   },
+   "marketer": null,
+   "fssai_lic": "11421850000414",
+   "veg": true,
+   "allergens": {
+    "contains": [
+     "tree nuts"
+    ],
+    "may_contain": [
+     "other nuts",
+     "dried fruits"
+    ]
+   },
+   "net_qty": {
+    "value": 200,
+    "unit": "g",
+    "count": 1
+   },
+   "shelf_life": "9 months",
+   "storage": "Store in a cool, dry and clean place, away from direct sunlight and heat. Keep the pack closed.",
+   "consumer_care": {
+    "phone": "+91 98999 55931",
+    "email": "wecare@farmley.com"
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280372_10_1_994c8793-223d-42dd-a8ba-ec8d142fc288.jpg?v=1787810762"
+  }
+ },
+ {
+  "id": "farmley-berry-mix-200g",
+  "brand": "farmley",
+  "name": "8-in-1 Berry Mix",
+  "size": "200 g",
+  "category": "dry-fruits",
+  "mrp": 349,
+  "our_price": 349,
+  "photo": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/jul25_Berry_mix_200g_standee_pouch_KV.png?v=1769601805",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 30,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280371_5.png?v=1769601805",
+    "alt": "Berry Mix pouch with pancakes"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280371_03.png?v=1769601805",
+    "alt": "Berry Mix pouch with pancakes and berries"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280371_07.png?v=1769601805",
+    "alt": "Pouch back with nutrition facts"
+   }
+  ],
+  "videos": [
+   {
+    "kind": "file",
+    "url": "https://cdn.shopify.com/videos/c/vp/d412354e43604985a6f54e9106099880/d412354e43604985a6f54e9106099880.HD-720p-1.6Mbps-95202163.mp4",
+    "poster": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/preview_images/d412354e43604985a6f54e9106099880.thumbnail.0000000000.jpg?v=1790084103",
+    "title": "Berry Mix product video",
+    "source": "https://www.farmley.com/products/8-in-1-berry-mix"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "Eight dried fruits: black raisins, black currants, cranberries, blueberries, strawberries, mango, peach and papaya",
+    "source": "https://www.farmley.com/products/8-in-1-berry-mix"
+   },
+   {
+    "value": "Sweetened with sugar: 21.3 g added sugar per 100 g",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280371_07.png?v=1769601805"
+   },
+   {
+    "value": "Contains sulphite preservatives (INS 220, INS 223)",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280371_07.png?v=1769601805"
+   }
+  ],
+  "description": {
+   "value": "A mix of eight dried berries and fruits in a 200 g pouch.",
+   "source": "https://www.farmley.com/products/8-in-1-berry-mix"
+  },
+  "about": [
+   {
+    "value": "Dried berries and pieces of mango, peach and papaya, sweetened with sugar and coated with a little sunflower oil.",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280371_07.png?v=1769601805"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "Straight from the pack, or in cereal, salads or baked goods.",
+    "source": "https://www.farmley.com/products/8-in-1-berry-mix"
+   },
+   {
+    "label": "Allergen note",
+    "value": "The pack's allergen line says it contains tree nuts, though there are no nuts in the ingredients; it is packed in a unit that also handles nuts. INS 220 and INS 223 in the ingredients are sulphites.",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280371_07.png?v=1769601805"
+   }
+  ],
+  "ingredients": "Dried Cranberry, Dried Blackcurrants, Black Raisins, Dried Mangoes, Dried Strawberries, Dried Peach, Dried Papaya, Dried Blue Berries, Sugar, Sunflower Oil, Preservatives (INS 220, INS 223)",
+  "nutrition": {
+   "energy_kcal": 327.3,
+   "protein_g": 0.9,
+   "carbs_g": 80.1,
+   "sugar_g": 51.9,
+   "added_sugar_g": 21.3,
+   "fat_g": 0.4,
+   "sat_fat_g": 0.2,
+   "sodium_mg": 62.2,
+   "fibre_g": 5.7
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280371_07.png?v=1769601805",
+  "nutrition_basis": "100 g (a serving is 20 g)",
+  "label": {
+   "country_of_origin": "India",
+   "importer": null,
+   "manufacturer": {
+    "name": "Connedit Business Solutions Pvt. Ltd.",
+    "address": "Khasra No. 17/2/2 and 3, 51/1/2 Kaji Palasiya, Indore, Madhya Pradesh 452001, India",
+    "role": "manufactured"
+   },
+   "marketer": null,
+   "fssai_lic": "11421850000414",
+   "veg": true,
+   "allergens": {
+    "contains": [
+     "tree nuts",
+     "sulphites"
+    ],
+    "may_contain": [
+     "other nuts",
+     "dried fruits"
+    ]
+   },
+   "net_qty": {
+    "value": 200,
+    "unit": "g",
+    "count": 1
+   },
+   "shelf_life": "9 months",
+   "consumer_care": {
+    "phone": "+91 98999 55931",
+    "email": "wecare@farmley.com"
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/40280371_07.png?v=1769601805"
+  }
+ },
+ {
+  "id": "farmley-turkish-apricots-200g",
+  "brand": "farmley",
+  "name": "Dried Turkish Apricots",
+  "size": "200 g",
+  "category": "dry-fruits",
+  "mrp": 699,
+  "our_price": 699,
+  "photo": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/01_4_3fae11b1-b574-460a-ac42-ed49453e0192.png?v=1765440603",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 40,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/03_3_02438cf5-a491-48e8-b9ef-261bdfaf3efe.png?v=1765440603",
+    "alt": "Apricots served with tea"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/Oldvsnew-20_1_e95fe282-f10e-4f8a-8840-9ad6793c1706.png?v=1765440603",
+    "alt": "Old and new packaging side by side"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/04_4_7300a998-5813-49d4-9351-457c65ee39a3.png?v=1765440603",
+    "alt": "Pouch with apricots and baked goods"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/05_4_710d235d-7331-4d9d-89bb-550437262833.png?v=1765440603",
+    "alt": "Pouch back"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/06_2_45bef7c1-09ee-4046-812b-dff207ca0f5e.png?v=1765440603",
+    "alt": "Nutrition facts panel"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "Single ingredient: dried apricots",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/05_4_710d235d-7331-4d9d-89bb-550437262833.png?v=1765440603"
+   },
+   {
+    "value": "No added colour",
+    "source": "https://www.farmley.com/products/turkish-apricots-dried"
+   },
+   {
+    "value": "0 g added sugar per 100 g",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/05_4_710d235d-7331-4d9d-89bb-550437262833.png?v=1765440603"
+   }
+  ],
+  "description": {
+   "value": "Dried apricots with no added colour, for snacking or cooking.",
+   "source": "https://www.farmley.com/products/turkish-apricots-dried"
+  },
+  "about": [
+   {
+    "value": "Sweet and tangy in flavour. The newer pack is labelled Seedless Apricots.",
+    "source": "https://www.farmley.com/products/turkish-apricots-dried"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "Straight from the pack, chopped over oats or salads, or in jam and desserts.",
+    "source": "https://www.farmley.com/products/turkish-apricots-dried"
+   },
+   {
+    "label": "Note",
+    "value": "Country of origin: Farmley's product page says Turkey. The back label shown on the same page says Product of India and names no importer. We are checking the pack we stock.",
+    "source": "https://www.farmley.com/products/turkish-apricots-dried"
+   },
+   {
+    "label": "Allergen note",
+    "value": "The label says it contains tree nuts, though the only ingredient is dried apricots. It is packed in a unit that also handles nuts.",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/05_4_710d235d-7331-4d9d-89bb-550437262833.png?v=1765440603"
+   }
+  ],
+  "ingredients": "Turkish Dried Apricot",
+  "nutrition": {
+   "energy_kcal": 242.8,
+   "protein_g": 2.9,
+   "carbs_g": 48.6,
+   "sugar_g": 35.5,
+   "added_sugar_g": 0.0,
+   "fat_g": 1.7,
+   "sat_fat_g": 1.0,
+   "sodium_mg": 1.5,
+   "fibre_g": 10.8
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/06_2_45bef7c1-09ee-4046-812b-dff207ca0f5e.png?v=1765440603",
+  "nutrition_basis": "100 g (a serving is 20 g)",
+  "label": {
+   "importer": null,
+   "manufacturer": {
+    "name": "Connedit Business Solutions Pvt. Ltd.",
+    "address": "Khasra No. 17/2/2 and 3, 51/1/2 Kaji Palasiya, Indore, Madhya Pradesh 452001, India",
+    "role": "manufactured"
+   },
+   "marketer": null,
+   "fssai_lic": "11421850000414",
+   "veg": true,
+   "allergens": {
+    "contains": [
+     "tree nuts"
+    ],
+    "may_contain": [
+     "other nuts",
+     "dried fruits"
+    ]
+   },
+   "net_qty": {
+    "value": 200,
+    "unit": "g",
+    "count": 1
+   },
+   "shelf_life": "9 months",
+   "storage": "Store in a cool, dry and clean place, away from direct sunlight and heat. Keep the pack closed. The pack has an oxygen absorber sachet inside: do not eat it.",
+   "consumer_care": {
+    "phone": "+91 98999 55931",
+    "email": "wecare@farmley.com"
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/05_4_710d235d-7331-4d9d-89bb-550437262833.png?v=1765440603"
+  }
+ },
+ {
+  "id": "farmley-whole-cranberry-200g",
+  "brand": "farmley",
+  "name": "Whole Dried Cranberries",
+  "size": "200 g",
+  "category": "dry-fruits",
+  "mrp": 250,
+  "our_price": 250,
+  "photo": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/01Medium.png?v=1761730185",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 50,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/03Medium.png?v=1761730228",
+    "alt": "Dried cranberries in a bowl with the pouch"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/04Medium.png?v=1761730228",
+    "alt": "Back label with nutrition facts"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/05Medium.png?v=1761730228",
+    "alt": "Pouch back"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/06_Small_eab367cc-fd83-45fe-9b58-edd91fe00b16.png?v=1761730228",
+    "alt": "Old and new packaging side by side"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "Whole dried cranberries, sweetened with sugar",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/05Medium.png?v=1761730228"
+   },
+   {
+    "value": "21.6 g added sugar per 100 g",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/05Medium.png?v=1761730228"
+   }
+  ],
+  "description": {
+   "value": "Whole dried cranberries, sweetened with sugar, in a 200 g pouch.",
+   "source": "https://www.farmley.com/products/whole-cranberry-dried"
+  },
+  "about": [
+   {
+    "value": "Packed in a 200 g pouch. The pack design is changing, so you may receive either the older California Cranberry pack or the newer American Cranberries pack.",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/06_Small_eab367cc-fd83-45fe-9b58-edd91fe00b16.png?v=1761730228"
+   }
+  ],
+  "details": [
+   {
+    "label": "Note",
+    "value": "Country of origin: Farmley's product page says USA. The back label shown on the same page says Product of India and names no importer. We are checking the pack we stock.",
+    "source": "https://www.farmley.com/products/whole-cranberry-dried"
+   },
+   {
+    "label": "Allergen note",
+    "value": "The label says it contains tree nuts, though the ingredients are cranberries, sugar and sunflower oil. It is packed in a unit that also handles nuts.",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/05Medium.png?v=1761730228"
+   }
+  ],
+  "ingredients": "Dried Cranberry, Natural Refined Sugar and Sunflower Oil",
+  "nutrition": {
+   "energy_kcal": 367.7,
+   "protein_g": 0.5,
+   "carbs_g": 86.2,
+   "sugar_g": 56.7,
+   "added_sugar_g": 21.6,
+   "fat_g": 1.9,
+   "sat_fat_g": 0.2,
+   "sodium_mg": 2.0,
+   "fibre_g": 1.6
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/04Medium.png?v=1761730228",
+  "nutrition_basis": "100 g (a serving is 20 g)",
+  "label": {
+   "importer": null,
+   "manufacturer": {
+    "name": "Connedit Business Solutions Pvt. Ltd.",
+    "address": "Khasra No. 17/2/2 and 3, 51/1/2 Kaji Palasiya, Indore, Madhya Pradesh 452001, India",
+    "role": "manufactured"
+   },
+   "marketer": null,
+   "fssai_lic": "11421850000414",
+   "veg": true,
+   "allergens": {
+    "contains": [
+     "tree nuts"
+    ],
+    "may_contain": [
+     "other nuts",
+     "dried fruits"
+    ]
+   },
+   "net_qty": {
+    "value": 200,
+    "unit": "g",
+    "count": 1
+   },
+   "shelf_life": "9 months",
+   "storage": "Store in a cool, dry and clean place, away from direct sunlight and heat. Keep the pack closed.",
+   "consumer_care": {
+    "phone": "+91 98999 55931",
+    "email": "wecare@farmley.com"
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/05Medium.png?v=1761730228"
+  }
+ },
+ {
+  "id": "farmley-chia-seeds-200g",
+  "brand": "farmley",
+  "name": "Chia Seeds",
+  "size": "200 g",
+  "category": "dry-fruits",
+  "mrp": 229,
+  "our_price": 229,
+  "photo": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/Chia_seeds_f14ab8af-e4de-4c4e-9486-6d63f8cbe9db.png?v=1769601956",
+  "in_stock": true,
+  "towns": [
+   "paonta-sahib"
+  ],
+  "sort": 60,
+  "photos": [
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/Chiaseedsunflowerseed-22.png?v=1769601956",
+    "alt": "Chia Seeds pouch"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/Chiaseedsunflowerseed-25.png?v=1769601956",
+    "alt": "Pouch with chia dishes"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/Chiaseedsunflowerseed-23.png?v=1769601956",
+    "alt": "Pouch, front on white"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/Chiaseedsunflowerseed-28.png?v=1769601956",
+    "alt": "Old and new packaging side by side"
+   },
+   {
+    "url": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/bopchiaseeds-24_1.png?v=1769601956",
+    "alt": "Nutrition facts panel"
+   }
+  ],
+  "highlights": [
+   {
+    "value": "Single ingredient: chia seeds",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/bopchiaseeds-24_1.png?v=1769601956"
+   },
+   {
+    "value": "No preservatives",
+    "source": "https://www.farmley.com/products/chia-seeds"
+   },
+   {
+    "value": "16.9 g protein and 34 g fibre per 100 g",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/bopchiaseeds-24_1.png?v=1769601956"
+   }
+  ],
+  "description": {
+   "value": "Plain chia seeds in a 200 g pouch, for smoothies, desserts, bowls or chia pudding.",
+   "source": "https://www.farmley.com/products/chia-seeds"
+  },
+  "about": [
+   {
+    "value": "Plain seeds with nothing added. Soaked in milk or water, they make chia pudding.",
+    "source": "https://www.farmley.com/products/chia-seeds"
+   }
+  ],
+  "details": [
+   {
+    "label": "How to enjoy",
+    "value": "Over smoothies, in desserts and meal bowls, or as chia pudding.",
+    "source": "https://www.farmley.com/products/chia-seeds"
+   },
+   {
+    "label": "Allergen note",
+    "value": "The label says it contains tree nuts, though the only ingredient is chia seeds. It is packed in a unit that also handles nuts.",
+    "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/bopchiaseeds-24_1.png?v=1769601956"
+   }
+  ],
+  "ingredients": "Chia Seeds",
+  "nutrition": {
+   "energy_kcal": 574.0,
+   "protein_g": 16.9,
+   "carbs_g": 38.8,
+   "sugar_g": 0,
+   "added_sugar_g": 0.0,
+   "fat_g": 31.5,
+   "sat_fat_g": 3.9,
+   "sodium_mg": 19.3,
+   "fibre_g": 34.0
+  },
+  "nutrition_source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/bopchiaseeds-24_1.png?v=1769601956",
+  "nutrition_basis": "100 g (a serving is 20 g)",
+  "label": {
+   "country_of_origin": "India",
+   "importer": null,
+   "manufacturer": {
+    "name": "Connedit Business Solutions Pvt. Ltd.",
+    "address": "Khasra No. 17/2/2 and 3, 51/1/2 Kaji Palasiya, Indore, Madhya Pradesh 452001, India",
+    "role": "manufactured"
+   },
+   "marketer": null,
+   "fssai_lic": "11421850000414",
+   "veg": true,
+   "allergens": {
+    "contains": [
+     "tree nuts"
+    ],
+    "may_contain": [
+     "other nuts",
+     "dried fruits"
+    ]
+   },
+   "net_qty": {
+    "value": 200,
+    "unit": "g",
+    "count": 1
+   },
+   "shelf_life": "12 months",
+   "consumer_care": {
+    "phone": "+91 98999 55931",
+    "email": "wecare@farmley.com"
+   },
+   "source": "https://cdn.shopify.com/s/files/1/0597/7754/8453/files/bopchiaseeds-24_1.png?v=1769601956"
+  }
+ }
+]

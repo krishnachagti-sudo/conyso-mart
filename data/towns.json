@@ -1,0 +1,19 @@
+[
+ {
+  "id": "paonta-sahib",
+  "name": "Paonta Sahib",
+  "code": "PS",
+  "state": "Himachal Pradesh",
+  "whatsapp": "917087042424",
+  "cutoff": "18:00",
+  "timezone": "Asia/Kolkata",
+  "delivery_area": "Paonta Sahib town and up to 8 km around",
+  "show_our_price": false,
+  "live": true,
+  "seller": {
+   "name": "Conyso",
+   "address": "Paonta Sahib, Himachal Pradesh",
+   "gstin": ""
+  }
+ }
+]

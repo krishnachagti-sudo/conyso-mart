@@ -1,0 +1,81 @@
+[
+ {
+  "id": "peping",
+  "name": "Peping",
+  "logo": "https://peping.in/cdn/shop/files/PEPING_cfb7d1f8-a514-41e6-ab47-fa1990f70a48.png?v=1763204865",
+  "story": "Peping makes prebiotic fizzy drinks in cans and probiotic shots. The company is based in Bengaluru.",
+  "instagram": "pepingofficial",
+  "website": "https://peping.in",
+  "towns": [
+   "paonta-sahib"
+  ],
+  "featured": true,
+  "about": [
+   {
+    "value": "Peping is a Bengaluru drinks company, run by Peping Commerce Pvt. Ltd., that makes probiotic shots and prebiotic fizzy drinks.",
+    "source": "https://peping.in/products/fizz-lemon-breeze"
+   },
+   {
+    "value": "It says its products are designed with a team of healthcare and nutrition professionals.",
+    "source": "https://peping.in/pages/about"
+   },
+   {
+    "value": "It describes its range as lower-sugar versions of everyday drinks.",
+    "source": "https://peping.in/products/fizz-lemon-breeze"
+   }
+  ]
+ },
+ {
+  "id": "nuvie",
+  "name": "Nuvie",
+  "logo": "https://www.nuvie.co.in/cdn/shop/files/Group.png?v=1775632271",
+  "story": "Nuvie makes protein shakes and protein coffee that are lactose-free with no added sugar, and protein chocolate bars with no added sugar.",
+  "instagram": "grabnuvie",
+  "website": "https://www.nuvie.co.in",
+  "towns": [
+   "paonta-sahib"
+  ],
+  "featured": true,
+  "logo_bg": "dark",
+  "about": [
+   {
+    "value": "Nuvie is a brand of Nugain Wellness Pvt. Ltd., based in Bengaluru, making ready-to-drink protein shakes and protein bars.",
+    "source": "https://www.nuvie.co.in/pages/contact-us"
+   },
+   {
+    "value": "The founders, both from a health and fitness background, say they started it to make food that tastes good and fits easily into daily life.",
+    "source": "https://www.nuvie.co.in/pages/our-story"
+   },
+   {
+    "value": "The brand says it makes its products for everyone, not only gym-goers, and plans to rework more everyday foods.",
+    "source": "https://www.nuvie.co.in/pages/our-story"
+   }
+  ]
+ },
+ {
+  "id": "farmley",
+  "name": "Farmley",
+  "logo": "https://www.farmley.com/cdn/shop/files/logo_Artboard_1-09.png?v=1767960348",
+  "story": "Farmley makes dry fruit mixes, date bites, roasted makhana, seeds and berries.",
+  "instagram": "",
+  "website": "https://farmley.com",
+  "towns": [
+   "paonta-sahib"
+  ],
+  "featured": true,
+  "about": [
+   {
+    "value": "Farmley is a snack brand of Connedit Business Solutions Private Limited, making dry fruit mixes, date bites, roasted makhana, seeds and berries.",
+    "source": "https://www.farmley.com/pages/about-us"
+   },
+   {
+    "value": "It says it focuses on flavour, careful sourcing and clear labelling.",
+    "source": "https://www.farmley.com/pages/about-us"
+   },
+   {
+    "value": "Its products are processed and packed at facilities in Indore, Madhya Pradesh and Kundli, Sonipat, Haryana.",
+    "source": "https://www.farmley.com/products/chia-seeds"
+   }
+  ]
+ }
+]
