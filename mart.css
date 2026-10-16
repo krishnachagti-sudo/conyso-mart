@@ -1520,3 +1520,11 @@ details.mart-sources > summary, .mart-sources details > summary { display: inlin
 .has-buybar-js .mart-buybar:not(.is-shown) { display: none !important; }
 .has-buybar-js .mart-buybar.is-shown { transform: none; visibility: visible; animation: mart-bar-in .25s ease both; }
 @keyframes mart-bar-in { from { transform: translateY(100%); } }
+
+/* quick answers (for people first; answer engines read the same text) */
+.mart-qa { margin-top: var(--section); }
+.mart-qa-item { padding: 0.9rem 0; border-top: 2px solid rgba(27,16,51,.12); max-width: 72ch; }
+.mart-qa-item:first-of-type { border-top: 0; padding-top: 0.3rem; }
+.mart-qa h3 { margin: 0 0 0.3rem; font-size: 1.12rem; line-height: 1.25; }
+.mart-qa p { margin: 0; }
+.mart-brand-summary { margin: 1.2rem 0 0; max-width: 64ch; font-size: 1.15rem; font-weight: 600; line-height: 1.5; }

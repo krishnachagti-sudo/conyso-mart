@@ -118,6 +118,11 @@
       root.fetch("search-index.json").then(function (r) { return r.json(); })
         .then(function (x) { index = x; show(); }).catch(function () {});
     });
+    // a search from outside (Google's sitelinks search box, a shared link): shop.html?q=makhana
+    try {
+      var q0 = new root.URLSearchParams(root.location.search).get("q");
+      if (q0) { box.value = q0.slice(0, 80); box.dispatchEvent(new root.Event("input")); }
+    } catch (e) {}
   }
   var api = { filter: filter };
   if (typeof module !== "undefined" && module.exports) { module.exports = api; return; }

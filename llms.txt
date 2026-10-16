@@ -1,0 +1,88 @@
+# Conyso Mart
+
+> A distributor that brings new Indian food brands to small towns, starting with Paonta Sahib (Sirmaur district, Himachal Pradesh). It delivers them free the same day if you order by 6 pm on WhatsApp, and you pay cash or UPI on delivery. It is part of Conyso (conyso.com).
+
+Facts on these pages come from the brands' own websites and pack labels, each with its source. Prices are the printed MRP, incl. of all taxes.
+
+## Shop
+
+- [All products](https://krishnachagti-sudo.github.io/conyso-mart/shop.html): every product delivered in Paonta Sahib
+- [Bars](https://krishnachagti-sudo.github.io/conyso-mart/category-bars.html)
+- [Drinks](https://krishnachagti-sudo.github.io/conyso-mart/category-drinks.html)
+- [Dry fruits and mixes](https://krishnachagti-sudo.github.io/conyso-mart/category-dry-fruits.html)
+- [Snacks](https://krishnachagti-sudo.github.io/conyso-mart/category-snacks.html)
+
+## Brands we deliver
+
+- [Farmley](https://krishnachagti-sudo.github.io/conyso-mart/brand-farmley.html): 6 products
+- [Nuvie](https://krishnachagti-sudo.github.io/conyso-mart/brand-nuvie.html): 5 products
+- [Peping](https://krishnachagti-sudo.github.io/conyso-mart/brand-peping.html): 6 products
+
+## Brand directory (42 Indian food brands, sourced)
+
+- [All brands](https://krishnachagti-sudo.github.io/conyso-mart/brands.html)
+- [A to Z](https://krishnachagti-sudo.github.io/conyso-mart/brands-a-z.html)
+- [Anveshan](https://krishnachagti-sudo.github.io/conyso-mart/brand-anveshan.html): Ghee, wood-pressed oils, atta and other staples.
+- [Beyond Snack](https://krishnachagti-sudo.github.io/conyso-mart/brand-beyond-snack.html): Kerala banana chips in a range of flavours.
+- [Bhuira Jams](https://krishnachagti-sudo.github.io/conyso-mart/brand-bhuira-jams.html): Handmade fruit preserves, jams, jellies, marmalades and chutneys from Himachal Pradesh.
+- [Bombay Banta](https://krishnachagti-sudo.github.io/conyso-mart/brand-bombay-banta.html): Indian-flavoured sodas such as masala soda, kala khatta and shikanji.
+- [BRB](https://krishnachagti-sudo.github.io/conyso-mart/brand-brb.html): Popped (neither fried nor baked) chips, baked toasties and peanut-butter wafers.
+- [EAT Better Co](https://krishnachagti-sudo.github.io/conyso-mart/brand-eat-better-co.html): Snacks including sweets and laddoos, namkeens, and seed and nut mixes.
+- [Farmley](https://krishnachagti-sudo.github.io/conyso-mart/brand-farmley.html): Flavoured dry fruits and nuts, roasted makhana, date bites and snack mixes.
+- [GO DESi](https://krishnachagti-sudo.github.io/conyso-mart/brand-go-desi.html): Desi snacks and sweets such as jaggery candy pops, fruit bars, chips and regional sweets.
+- [Healthy Master](https://krishnachagti-sudo.github.io/conyso-mart/brand-healthy-master.html): Non-fried snacks such as ragi, oats, beetroot and high-protein chips, plus dry fruits and nuts.
+- [Hector Beverages (Paper Boat)](https://krishnachagti-sudo.github.io/conyso-mart/brand-hector-beverages.html): Paper Boat traditional Indian drinks, Zero Sugar sparkling water, chikki and dry fruit trail mixes.
+- [Indian Snack House](https://krishnachagti-sudo.github.io/conyso-mart/brand-indian-snack-house.html): Regional South Indian sweets and savoury snacks such as halwas, palkova, murukku, banana chips and jaggery sweets, plus gift boxes.
+- [Indusland Foods](https://krishnachagti-sudo.github.io/conyso-mart/brand-indusland-foods.html): Seeds (chia, flax, sunflower, pumpkin), jaggery balls and plain and flavoured roasted makhana.
+- [Jade Forest](https://krishnachagti-sudo.github.io/conyso-mart/brand-jade-forest.html): Low-sugar non-alcoholic drinks and mixers such as tonic waters, ginger ale and ready-to-drink beverages.
+- [Let's Try](https://krishnachagti-sudo.github.io/conyso-mart/brand-lets-try.html): Indian snacks such as namkeens, chips, ladoos, chikki and cookies made without palm oil or maida.
+- [MasterChow](https://krishnachagti-sudo.github.io/conyso-mart/brand-masterchow.html): Ready-to-cook Asian food: cooking sauces, noodles, chilli oils and pantry staples.
+- [Millet Amma](https://krishnachagti-sudo.github.io/conyso-mart/brand-millet-amma.html): Millet-based foods including batters, mixes, grains, flours, pizza base, lavash and cookies.
+- [Minchy's](https://krishnachagti-sudo.github.io/conyso-mart/brand-minchys.html): Himalayan pickles, chutneys, jams, juices, squashes, honey and vinegars.
+- [MOM (Meal of the Moment) and Gimi Gimi](https://krishnachagti-sudo.github.io/conyso-mart/brand-mom-gimi-gimi.html): Instant meals and snacks such as roasted makhana under MOM, and Korean-style noodles under Gimi Gimi.
+- [NoCap Foods](https://krishnachagti-sudo.github.io/conyso-mart/brand-nocap-foods.html): Palm-oil-free chips and namkeen made with oats, millets, moong dal and vegetables such as beetroot, carrot and spinach.
+- [Nutty Gritties](https://krishnachagti-sudo.github.io/conyso-mart/brand-nutty-gritties.html): Dry fruits, roasted nuts, and nut, seed and berry mixes.
+- [Nuvie](https://krishnachagti-sudo.github.io/conyso-mart/brand-nuvie.html): Ready-to-drink protein milkshakes and protein bars.
+- [Open Secret](https://krishnachagti-sudo.github.io/conyso-mart/brand-open-secret.html): Snacks including nutty cookies, baked vegetable chips, dry fruits and nuts, namkeen, cereals and gift hampers.
+- [Oroos](https://krishnachagti-sudo.github.io/conyso-mart/brand-oroos.html): Packaged sweets and confectionery, priced for mass-market buyers across India.
+- [Peping](https://krishnachagti-sudo.github.io/conyso-mart/brand-peping.html): Prebiotic fizzy drinks and probiotic shots.
+- [ProV](https://krishnachagti-sudo.github.io/conyso-mart/brand-prov-foods.html): Dry fruits, nuts, seeds and flavoured makhana in snack packs.
+- [Rockit](https://krishnachagti-sudo.github.io/conyso-mart/brand-rockit.html): Low-priced energy drinks, starting with a berry-flavoured Rockit Energy.
+- [Sattviko](https://krishnachagti-sudo.github.io/conyso-mart/brand-sattviko.html): Flavoured makhana snacks, millet puffs, instant meals, trail mixes and nuts.
+- [SFA Beverages](https://krishnachagti-sudo.github.io/conyso-mart/brand-sfa-beverages.html): Fruit drinks sold under brands such as Fruit4U and Mango Smile.
+- [Slurrp Farm](https://krishnachagti-sudo.github.io/conyso-mart/brand-slurrp-farm.html): Millet-based snacks and foods for children.
+- [Snackible](https://krishnachagti-sudo.github.io/conyso-mart/brand-snackible.html): Everyday snacks such as chips, popped chips, millet snacks, cookies, dips and spreads.
+- [SOBER](https://krishnachagti-sudo.github.io/conyso-mart/brand-soberr-beverages.html): Distilled non-alcoholic spirits (whiskey, rum, gin and pink gin alternatives), plus non-alcoholic canned cocktails and flavoured waters.
+- [Supply6](https://krishnachagti-sudo.github.io/conyso-mart/brand-supply6.html): Daily nutrition products such as all-in-one nutrient sachets, hydration salts, fibre mixes, plant protein and meal mixes.
+- [Sweet Karam Coffee](https://krishnachagti-sudo.github.io/conyso-mart/brand-sweet-karam-coffee.html): South Indian sweets and snacks, filter coffee, condiments and ghee.
+- [TagZ Foods](https://krishnachagti-sudo.github.io/conyso-mart/brand-tagz-foods.html): Popped potato chips, dips and centre-filled cookies.
+- [The Whole Truth](https://krishnachagti-sudo.github.io/conyso-mart/brand-the-whole-truth.html): Packaged foods including protein bars, protein powders, energy bars, muesli and nut butters.
+- [To Be Honest (TBH)](https://krishnachagti-sudo.github.io/conyso-mart/brand-tbh.html): Crunchy snacks made from real vegetables and fruit, such as sweet potato, chickpea, jackfruit and banana crunchies.
+- [Troo Good](https://krishnachagti-sudo.github.io/conyso-mart/brand-troo-good.html): Millet snacks, chiefly millet chikkis and millet bars.
+- [True Elements](https://krishnachagti-sudo.github.io/conyso-mart/brand-true-elements.html): Breakfast and snack foods such as oats, muesli, granola, seeds, seed mixes, trail mixes and dry fruits.
+- [Upperi](https://krishnachagti-sudo.github.io/conyso-mart/brand-upperi.html): Kerala banana and tapioca chips made with Nendran bananas and fried in rice bran oil.
+- [WellBe](https://krishnachagti-sudo.github.io/conyso-mart/brand-wellbe-foods.html): Snacks with no added preservatives (chips, chivda, makhana, traditional snacks) plus kitchen staples such as cold-pressed oils, organic grains, flours and spices.
+- [WickedGud](https://krishnachagti-sudo.github.io/conyso-mart/brand-wickedgud.html): Noodles and pasta made from whole wheat, lentils, oats, chickpeas and other grains, with no maida.
+- [ZOFF Foods](https://krishnachagti-sudo.github.io/conyso-mart/brand-zoff-foods.html): Whole, powdered and blended spices, plus dry fruits and whole food products.
+
+## Buying guides
+
+- [Diwali and festive gift boxes from Indian food brands: price per item](https://krishnachagti-sudo.github.io/conyso-mart/guide-gift-boxes-indian-food-startups.html)
+- [Snack packs under ₹100 from new Indian brands](https://krishnachagti-sudo.github.io/conyso-mart/guide-healthy-snack-packs-under-100.html)
+- [Indian chikki compared per 100 g](https://krishnachagti-sudo.github.io/conyso-mart/guide-indian-chikki-compared-per-100g.html)
+- [Tiffin snacks from Indian brands: sugar, sodium and price](https://krishnachagti-sudo.github.io/conyso-mart/guide-kids-snacks-indian-startups.html)
+- [Makhana, chips and puffs per 100 g](https://krishnachagti-sudo.github.io/conyso-mart/guide-makhana-chips-and-puffs-per-100g.html)
+- [Makhana snack packs compared by price per 100 g](https://krishnachagti-sudo.github.io/conyso-mart/guide-makhana-packs-compared.html)
+- [Millet snacks compared: fibre, sodium and protein](https://krishnachagti-sudo.github.io/conyso-mart/guide-millet-snacks-compared.html)
+- [Peanut chikki packs compared by price per 100 g](https://krishnachagti-sudo.github.io/conyso-mart/guide-peanut-chikki-prices-compared.html)
+- [Pumpkin seed packs compared by price per 100 g](https://krishnachagti-sudo.github.io/conyso-mart/guide-pumpkin-seed-packs-compared.html)
+- [Trail mixes and dry fruit mixes](https://krishnachagti-sudo.github.io/conyso-mart/guide-trail-mixes-and-dry-fruit-mixes.html)
+
+## Help
+
+- [Delivery](https://krishnachagti-sudo.github.io/conyso-mart/delivery.html)
+- [Questions and answers](https://krishnachagti-sudo.github.io/conyso-mart/faq.html)
+- [Returns](https://krishnachagti-sudo.github.io/conyso-mart/returns.html)
+- [About](https://krishnachagti-sudo.github.io/conyso-mart/about.html)
+- [For brands](https://krishnachagti-sudo.github.io/conyso-mart/for-brands.html): distribution in Paonta Sahib
+- [For retailers](https://krishnachagti-sudo.github.io/conyso-mart/for-retailers.html): stock these brands in your shop
