@@ -12,8 +12,10 @@
   "live": true,
   "seller": {
    "name": "Conyso",
-   "address": "Paonta Sahib, Himachal Pradesh",
-   "gstin": ""
+   "address": "Ward No. 12, The Downtown, Lower Ground Floor, Paonta Sahib-Purwala-Bharli Road, Bangran, Paonta Sahib, Himachal Pradesh 173025",
+   "gstin": "",
+   "street": "Ward No. 12, The Downtown, Lower Ground Floor, Paonta Sahib-Purwala-Bharli Road, Bangran",
+   "postal_code": "173025"
   }
  }
 ]
