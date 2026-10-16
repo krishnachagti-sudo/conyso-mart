@@ -169,13 +169,14 @@ main > h1 + * { margin-top: 1.2rem; }
 .mart-vhero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,16,51,0) 18%, rgba(27,16,51,0.55) 48%, rgba(27,16,51,0.88) 78%, rgba(27,16,51,0.95) 100%); }
 .mart-vhero-in { position: relative; z-index: 1; width: 100%; padding: 2.2rem 0 4.8rem; }
 .mart-vhero h1 { font-size: clamp(2.6rem, 8.5vw, 6rem); line-height: 0.92; margin: 0 0 1rem; text-shadow: 4px 4px 0 #1B1033; max-width: 16ch; }
-.mart-vhero h1 span { display: block; animation: mart-rise .9s cubic-bezier(.2,.8,.2,1) both; }
+.mart-vhero h1 span { display: block; animation: mart-slide-up .9s cubic-bezier(.2,.8,.2,1) both; }  /* never hidden: only slides */
 .mart-vhero h1 span + span { color: #FFD23F; animation-delay: .15s; }
 .mart-vhero p { font-size: 1.15rem; max-width: 38ch; }
 .mart-vhero-soon { min-height: 0; background: #8A1C7C; }
 .mart-vhero-soon .mart-vhero-in { padding-top: 3rem; padding-bottom: 3rem; }
 @media (min-width: 900px) { .mart-vhero-in { padding: 3rem 0 5rem; } .mart-vhero p { font-size: 1.25rem; } }
 @keyframes mart-rise { from { opacity: 0; transform: translateY(40px); } }
+@keyframes mart-slide-up { from { transform: translateY(24px); } }
 .mart-vhero-pause { position: absolute; z-index: 2; left: max(1rem, calc(50% - 544px)); bottom: 1rem; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 3px solid #FFFFFF; border-radius: 50%; background: #1B1033; color: #FFFFFF; font: 800 1rem/1 var(--body); cursor: pointer; box-shadow: 3px 3px 0 #8A1C7C; }
 .mart-vhero-pause:hover { background: #8A1C7C; }
 .mart-vhero-pause svg { width: 18px; height: 18px; fill: currentColor; }
@@ -1084,3 +1085,438 @@ html.mart-sv-open { overflow: hidden; }
 .mart-vhero-slides:has(img.is-on) img:first-child:not(.is-on) { opacity: 0; }
 .mart-vhero-slides.is-paused img { transition: opacity 1.2s ease; }
 @media (prefers-reduced-motion: reduce) { .mart-vhero-slides img { transition: none; transform: none; } }
+
+/* =====================================================================
+   VISUAL POLISH (2026-10-16 review of every page, phone and desktop)
+   ===================================================================== */
+
+/* -- type: one heading system, steady wraps, readable links -- */
+h1, h2, h3, .mart-card-name, .mart-guide-cards b, .mart-mission h2 { text-wrap: balance; }
+p, li, dd, figcaption, .mart-note { text-wrap: pretty; }
+.mart-nowrap { white-space: nowrap; }
+main :is(p, li, dd, td, figcaption, .mart-note) a:not([class]) { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; text-decoration-color: #8A1C7C; }
+main :is(p, li, dd, td, figcaption, .mart-note) a:not([class]):hover { text-decoration-color: #1B1033; }
+.mart-prose h2, .mart-terms h2 { font-size: clamp(1.45rem, 3vw, 1.85rem); line-height: 1.1; margin: 2rem 0 0.7rem; }
+.mart-prose h3, .mart-about-us h3 { font-size: 1.15rem; margin: 1.4rem 0 0.4rem; }
+/* the yellow accent sits under every section heading, not only the ones that animated in */
+main section > h2, main section > .mart-section-head h2, .mart-prose h2, main > h2 { position: relative; padding-bottom: 0.3rem; }
+main :is(section > h2, section > .mart-section-head h2, .mart-prose h2, main > h2)::after { content: ""; position: absolute; left: 0; bottom: -0.1em; width: 2.2em; max-width: 90px; height: 0.12em; min-height: 3px; border-radius: 99px; background: #FFD23F; transform: none; }
+main :is(.mart-mission, .mart-forbrands, .mart-phone-box, .mart-notable, .mart-coming, .mart-empty, .mart-claim, .mart-sources, .mart-compared, .mart-flow, .mart-numbers, .mart-cart-empty, .mart-way, .mart-ask) h2::after,
+main .mart-sr::after, main h2.mart-sr::after { content: none; }
+main :is(section > h2, .mart-prose h2, main > h2) + * { margin-top: 0.9rem; }
+.mart-phero h1::after { width: 2.4em; height: 0.12em; }
+.mart-section-head { align-items: baseline; gap: 0.8rem; }
+.mart-section-head a { white-space: nowrap; font-weight: 800; }
+
+/* -- logos: one box, the mark filling it; one fallback style -- */
+.mart-logo-wall img { width: 100%; height: 56px; max-height: none; object-fit: contain; }
+.mart-list li > .mart-logo-sm { object-fit: contain; padding: 5px; }
+.mart-list li > .mart-logo-sm.mart-logo-dark { background: #1B1033; }
+.mart-monogram, .mart-monogram.mart-tone-0, .mart-monogram.mart-tone-1, .mart-monogram.mart-tone-2, .mart-monogram.mart-tone-3, .mart-monogram.mart-tone-4,
+.mart-list li > .mart-monogram.mart-tone-0, .mart-list li > .mart-monogram.mart-tone-2 { background: #FFD23F; color: #1B1033; }
+.mart-logo-wall a > .mart-monogram { width: 70%; height: 56px; border-radius: 12px; }
+.mart-ticker img { height: 34px; max-height: none; width: auto; max-width: 150px; }
+
+/* -- brand rows: titles at the top, no browser underlines -- */
+.mart-list li { align-content: start; }
+.mart-list li > a { text-decoration: none; font-weight: 800; }
+.mart-list li:hover > a { text-decoration: underline; text-decoration-thickness: 2px; }
+
+/* -- product cards: one photo treatment, names that fit, room above Add -- */
+.mart-card-img { background: #FFF1C2; border-radius: calc(var(--r-card) - 6px); overflow: hidden; }
+.mart-card:nth-child(3n+2) .mart-card-img { background: #FFE3D3; }
+.mart-card:nth-child(3n) .mart-card-img { background: #E9E3FF; }
+.mart-card img, .mart-card:nth-child(3n+2) img, .mart-card:nth-child(3n) img { background: transparent; mix-blend-mode: multiply; }
+.mart-card[data-brand="peping"] .mart-card-img img { object-fit: cover; object-position: 18% 50%; padding: 0; }
+.mart-card-name { -webkit-line-clamp: 3; min-height: 3.45em; font-size: 1rem; }
+@media (min-width: 900px) { .mart-card-name { font-size: 1.05rem; } }
+.mart-card .mart-unit { margin: 0.3rem 0 0.7rem; }
+.mart-card-price { margin-top: auto; }
+
+/* -- tables: a cue that they scroll sideways on a phone; numbers stay whole -- */
+.mart-table-wrap { background: linear-gradient(90deg, #FFFFFF 30%, rgba(255,255,255,0)) left / 24px 100% no-repeat local,
+  linear-gradient(270deg, #FFFFFF 30%, rgba(255,255,255,0)) right / 24px 100% no-repeat local,
+  radial-gradient(farthest-side at 0 50%, rgba(27,16,51,.22), transparent) left / 12px 100% no-repeat scroll,
+  radial-gradient(farthest-side at 100% 50%, rgba(27,16,51,.22), transparent) right / 12px 100% no-repeat scroll, #FFFFFF; }
+.mart-table td { font-variant-numeric: tabular-nums; }
+.mart-glance td, .mart-in-guides td, .mart-guide td:nth-child(2) { white-space: nowrap; }
+.mart-guide td:nth-child(3) { min-width: 150px; }
+.mart-barcell { min-width: 200px; }
+.mart-barcell b { display: inline-block; position: relative; padding-left: 0.6rem; text-align: left; margin-left: calc(6% + var(--w) * 0.52 + 1rem); }
+.mart-site-link { color: var(--muted); font-weight: 700; font-size: 0.85rem; white-space: nowrap; }
+.mart-top-pick em { font-style: normal; white-space: nowrap; }
+.mart-top-pick strong { font-size: 1.15rem; }
+
+/* -- "Sources" disclosures: a chip, not the browser's triangle -- */
+details.mart-sources > summary, .mart-sources details > summary { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 40px; padding: 0.2rem 0.9rem; list-style: none; cursor: pointer;
+  background: #FFFFFF; border: 2px solid #1B1033; border-radius: 99px; font-weight: 800; font-size: 0.9rem; color: #1B1033; }
+details.mart-sources > summary::-webkit-details-marker, .mart-sources details > summary::-webkit-details-marker { display: none; }
+details.mart-sources > summary::after, .mart-sources details > summary::after { content: "\25BE"; font-size: 0.9em; transition: transform .2s ease; }
+details.mart-sources[open] > summary::after, .mart-sources details[open] > summary::after { transform: rotate(180deg); }
+.mart-sources ol { margin-top: 0.8rem; }
+
+/* -- "Compared in our guides": a plain card with arrow markers -- */
+.mart-compared { background: #FFFFFF; }
+.mart-compared ul { list-style: none; padding: 0; display: grid; gap: 0.45rem; }
+.mart-compared li { position: relative; padding-left: 1.4rem; }
+.mart-compared li::before { content: "\2192"; position: absolute; left: 0; color: #8A1C7C; font-weight: 800; }
+.mart-compared a { font-weight: 700; }
+
+/* -- forms: one card style, one column, quiet textarea -- */
+main > form.mart-form, .mart-prose form.mart-form, .mart-form { box-shadow: var(--card-shadow-lg); }
+.mart-claim { box-shadow: var(--card-shadow-lg); }
+.mart-form, main > form.mart-form { grid-template-columns: 1fr !important; max-width: 640px; }
+.mart-form textarea { resize: none; }
+.mart-form input:focus-visible, .mart-form textarea:focus-visible { outline: 3px solid #FFD23F; outline-offset: 1px; }
+main p:has(+ form.mart-form) { margin-bottom: 0.6rem; }
+main p + form.mart-form { margin-top: 0.4rem; }
+
+/* -- FAQ: the open toggle keeps its yellow; the list and the ask box share a width -- */
+.mart-faq[open] > summary::after { background: #FFD23F; }
+body[data-page="faq"] main > :is(details, .mart-empty) { max-width: 820px; }
+
+/* -- small cards on info pages: titles bold, sentences regular -- */
+.mart-facts-row li span, .mart-trust span, .mart-routes span { font-weight: 500; color: #1B1033; }
+.mart-trust span { opacity: 0.85; }
+.mart-seller { width: auto; min-width: 0; }
+.mart-seller::before { content: none; }
+@media (max-width: 699px) { .mart-seller { width: 100%; } }
+.mart-routes li:nth-child(2), .mart-routes li:nth-child(3) { background: #FFFFFF; }
+.mart-routes li { border-top-width: 8px; }
+.mart-routes li:nth-child(1) { border-top-color: #FFD23F; }
+.mart-routes li:nth-child(2) { border-top-color: #8A1C7C; }
+.mart-routes li:nth-child(3) { border-top-color: #1B1033; }
+
+/* -- the round mark in help-page heroes -- */
+.mart-phero-mark span { font-size: 0.9rem; max-width: 12ch; text-wrap: balance; }
+.mart-tone-0 .mart-phero-mark, .mart-tone-2 .mart-phero-mark { box-shadow: 6px 6px 0 #FFD23F; }
+.mart-tone-1 .mart-phero-mark { box-shadow: 6px 6px 0 #8A1C7C; }
+
+/* -- the WhatsApp example on How it works -- */
+.mart-wa-figure { margin: 1.4rem 0 0; }
+.mart-wa-figure figcaption { font-weight: 700; margin-bottom: 0.5rem; }
+.mart-wa-sample { position: relative; margin: 0; padding: 2.4rem 1rem 0.9rem; font-family: var(--body); }
+.mart-wa-sample::before { content: "Conyso Mart"; position: absolute; top: 0; left: 0; right: 0; padding: 0.35rem 1rem; background: #1A7F45; color: #FFFFFF; font-weight: 800; font-size: 0.85rem; border-radius: 15px 15px 0 0; }
+
+/* -- home -- */
+.mart-way h3, .mart-coming.mart-way h3 { font-size: 1.9rem; }
+.mart-coming.mart-way li::before { content: "\2713"; color: #6B6280; }
+.mart-route .now { animation: none; box-shadow: none; }
+.mart-route i { opacity: 1; color: #FFFFFF; font-weight: 800; }
+@media (min-width: 900px) {
+  .mart-mission { display: grid; grid-template-columns: 1.3fr 1fr; column-gap: 3rem; align-items: center; }
+  .mart-mission h2 { grid-column: 1; }
+  .mart-mission p:not(.mart-route) { grid-column: 1; }
+  .mart-mission .mart-route { grid-column: 2; grid-row: 1 / span 2; flex-direction: column; align-items: flex-start; font-size: 1.3rem; }
+  .mart-mission .mart-route span { padding: 0.5rem 1.2rem; }
+}
+.mart-mission h2 { margin-bottom: 1.1rem; }
+.mart-next { padding: 1.4rem 0 0; }
+.mart-next h2 { max-width: 26ch; }
+.mart-next p:last-child { max-width: 60ch; }
+.mart-forbrands { align-items: center; }
+.mart-forbrands .mart-proof li { font-size: 0.95rem; }
+@media (min-width: 900px) { .mart-forbrands > :last-child { justify-self: end; } }
+.mart-story-hero img { width: 78%; height: 78%; max-width: none; object-fit: contain; }
+@media (min-width: 900px) { .mart-story-hero { height: 240px; } .mart-story-hero img { height: 82%; } }
+.mart-aisles b { padding-right: 70px; font-size: 1.25rem; }
+@media (min-width: 900px) { .mart-aisles ul { grid-template-columns: repeat(4, 1fr); } }
+.mart-ticker { margin-bottom: 0; }
+
+/* -- shop and aisle pages -- */
+.mart-note a[href="shop.html"]:only-child { display: inline-flex; align-items: center; min-height: 44px; margin-top: 0.6rem; padding: 0 1.2rem;
+  background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-btn); box-shadow: 3px 3px 0 #1B1033; font-weight: 800; text-decoration: none; }
+.mart-coming p a { display: inline-flex; margin: 0.2rem 0.3rem 0 0; padding: 0.15rem 0.8rem; background: #FFFFFF; border: 2px solid #1B1033; border-radius: 99px; font-weight: 800; text-decoration: none; }
+.mart-guide-cards { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+@media (min-width: 900px) { .mart-guide-cards { grid-template-columns: 1fr 1fr; } }
+
+/* -- product pages -- */
+.mart-product ~ section:not(:has(.mart-grid)), .mart-product ~ .mart-credit { max-width: none; }
+.mart-product ~ section p, .mart-product ~ section .mart-prose { max-width: 72ch; }
+.mart-product ~ section .mart-grid, .mart-product ~ section .mart-one-brand { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+.mart-know dl, .mart-label dl { gap: 0; padding: 0.2rem 1.1rem; background: #FFFFFF; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: var(--card-shadow);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); column-gap: 2rem; align-items: start; }
+.mart-know dl > div, .mart-label dl > div { padding: 0.7rem 0; background: none; border: 0; border-bottom: 1px solid rgba(27,16,51,.14); border-radius: 0; box-shadow: none; }
+.mart-product ~ section > .mart-note, .mart-product ~ .mart-credit, .mart-product ~ section > p.mart-note { margin-top: 1rem; }
+.mart-mrp-note { font-size: 0.8rem; }
+.mart-product .mart-card-price .mart-unit { margin: 0.7rem 0 0.2rem; }
+.mart-product .mart-card-brand a { min-height: 30px; padding: 0 0.7rem; font-size: 0.85rem; }
+.mart-product video { accent-color: #8A1C7C; background: #1B1033; }
+.has-buybar-js .mart-buybar { transform: translateY(130%); transition: transform .25s ease; }
+.has-buybar-js .mart-buybar.is-shown { transform: none; }
+@media (max-width: 699px) {
+  .mart-product .mart-slides img { aspect-ratio: 1; max-height: none; }
+  .mart-product .mart-add { width: 100%; }
+  .mart-buybar { padding-top: 0.45rem; padding-bottom: 0.45rem; }
+  .mart-buybar .mart-add { min-height: 44px; }
+  .mart-product ~ section .mart-grid, .mart-product ~ section .mart-one-brand { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+}
+
+/* -- brand pages -- */
+.mart-brand-grid .mart-facts, .mart-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 420px) { .mart-brand-grid .mart-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.mart-facts div:has(dd:only-of-type) { min-width: 0; }
+.mart-buy { margin-top: 1.6rem; }
+@media (max-width: 699px) { .mart-buy ul { flex-direction: column; } .mart-buy li a { width: 100%; justify-content: space-between; } .mart-buy li a::after { content: "\2192"; } }
+.mart-range ul { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+@media (min-width: 900px) { .mart-range ul { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); } }
+.mart-range b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.3em; }
+.mart-range img { mix-blend-mode: multiply; }
+.mart-claim details > summary { font-size: 1.15rem; }
+.mart-claim details > summary::after { width: 40px; height: 40px; }
+
+/* -- About -- */
+.mart-numbers { margin-top: 0.4rem; }
+main > .mart-phero + .mart-numbers { margin-top: 1.6rem; }
+.mart-flow ol { align-items: start; }
+.mart-flow > ol > li + li::before { content: "\2193"; position: absolute; left: 50%; top: -1.55rem; transform: translateX(-50%); font: 800 1.3rem/1 var(--body); color: #8A1C7C; }
+.mart-flow li + li::before { content: none; }
+.mart-flow > ol > li + li::before { content: "\2193"; }
+@media (min-width: 800px) { .mart-flow > ol > li + li::before { content: "\2192"; left: -1.75rem; top: 50%; transform: translateY(-50%); } }
+.mart-flow-logos { flex-wrap: nowrap; }
+.mart-flow-logos li { flex: 1; min-width: 0; }
+.mart-flow-logos img { width: 100%; }
+.mart-timeline ol { border-left: 0; padding-left: 1.6rem; }
+.mart-timeline li::after { content: ""; position: absolute; left: calc(-1.6rem + 2px); top: 1.2rem; bottom: -0.8rem; width: 4px; background: #1B1033; }
+.mart-timeline li:last-child::after { content: none; }
+.mart-timeline li::before { left: calc(-1.6rem - 4px); }
+.mart-timeline span { font-size: 1rem; }
+
+/* -- Bring a brand -- */
+.mart-ask-card { gap: 0.35rem; }
+.mart-ask-card img, .mart-ask-mono { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; padding: 8%; background: #FFF1C2; border-radius: 12px; mix-blend-mode: normal; }
+.mart-ask-mono { display: grid; place-items: center; font-size: 2.4rem; border: 0; }
+.mart-ask-name { font-weight: 800; font-size: 1.1rem; line-height: 1.15; color: #1B1033; text-decoration: none; }
+.mart-ask-name:hover { text-decoration: underline; }
+.mart-ask-card > span { font-size: 0.92rem; line-height: 1.4; }
+.mart-ask-btn { margin-top: auto; display: block; padding: 0.55rem 0.6rem; background: #FFD23F; color: #1B1033; border: 3px solid #1B1033; border-radius: var(--r-btn); box-shadow: 3px 3px 0 #1B1033; font-weight: 800; }
+.mart-ask-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #1B1033; }
+
+/* -- dark and tinted boxes keep the card language -- */
+.mart-phone-box { border: 3px solid #1B1033; box-shadow: var(--card-shadow); }
+.mart-phone-box.is-dark { box-shadow: 5px 5px 0 #8A1C7C; }
+.mart-phone-box .mart-cta-yellow, .mart-forbrands .mart-cta:not(.mart-cta-light) { border: 3px solid #1B1033; box-shadow: 4px 4px 0 #8A1C7C; }
+.mart-phone-box p { max-width: none; }
+
+/* -- More (also readable on a desktop) -- */
+.mart-more-mark { color: #8A1C7C; background: #FFF1C2; }
+.mart-more-row.is-wa .mart-more-mark { color: #1A7F45; }
+.mart-more-row { border-width: 3px; box-shadow: 3px 3px 0 #1B1033; }
+@media (min-width: 700px) { body[data-page="more"] main { max-width: 900px; } .mart-more { grid-template-columns: 1fr 1fr; } }
+
+/* -- footer: tighter, larger links -- */
+.mart-foot-col a { min-height: 34px; font-size: 1rem; }
+@media (min-width: 900px) { .mart-foot-cols { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* -- phone fit and finish -- */
+@media (max-width: 699px) {
+  main { padding-bottom: 1.4rem; }
+  .mart-phero { padding-top: 1.5rem; }
+  .mart-phero-in { position: relative; }
+  .mart-phero-art { margin: 0.6rem auto 0; width: max-content; max-width: 100%; }
+  .mart-phero-mark { position: absolute; right: 0; top: -0.4rem; width: 104px; height: 104px; margin: 0; }
+  .mart-phero-mark b { font-size: 1.7rem; }
+  .mart-phero-mark span { font-size: 0.68rem; }
+  .mart-phero:has(.mart-phero-mark) h1 { padding-right: 110px; }
+  .mart-phero:has(.mart-phero-mark) .mart-phero-in > div:first-child > p { padding-right: 0; }
+  .mart-aisle-facts { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .mart-aisle-facts li { padding: 0.7rem 0.8rem; }
+  .mart-aisle-facts b { font-size: 1.15rem; }
+  .mart-type-chips ul { flex-wrap: nowrap; overflow-x: auto; margin-right: -1rem; padding-right: 1rem; scrollbar-width: none; }
+  .mart-type-chips ul::-webkit-scrollbar { display: none; }
+  .mart-type-chips li { flex: none; }
+  .mart-az-jump { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); }
+  .mart-hub-strip { margin-top: 1.2rem; }
+  main > section.mart-coming { margin-top: 1.2rem; }
+  .mart-wa-figure { margin-left: 0; margin-right: 0; }
+}
+
+/* =====================================================================
+   VISUAL POLISH, ROUND 2
+   ===================================================================== */
+/* readable guide cards on every tint */
+.mart-guide-cards a, .mart-guide-cards a :is(b, span) { color: #1B1033; }
+.mart-guide-cards .mart-guide-n { color: #8A1C7C; }
+
+/* one heading size for page sections, legal pages included */
+main h2, .mart-prose h2, .mart-terms h2, .mart-all-head { font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.08; }
+.mart-mission h2 { font-size: clamp(2rem, 6vw, 3.6rem); }
+.mart-forbrands h2 { font-size: clamp(2rem, 5vw, 3rem); }
+:is(.mart-phone-box, .mart-empty, .mart-coming, .mart-notable, .mart-claim, .mart-compared, .mart-way) h2 { font-size: clamp(1.3rem, 2.6vw, 1.6rem); }
+main :is(.mart-mission, .mart-forbrands) h2::after { content: none; }
+
+/* forms: only a standalone form is a card; a form inside a card is not */
+.mart-form { box-shadow: none; }
+main > form.mart-form, .mart-prose > form.mart-form { box-shadow: var(--card-shadow-lg); }
+.mart-claim .mart-form, .mart-phone-box .mart-form { background: none; border: 0; padding: 0; box-shadow: none; max-width: none; }
+main p:has(> .mart-cta) + p { margin-top: 1.1rem; }
+
+/* broken photos: a plain tinted tile, never the browser's icon */
+img.is-broken { visibility: hidden; }
+
+/* product photos: whole-bleed for brands whose shots carry their own backdrop */
+.mart-card[data-brand="peping"] .mart-card-img img, .mart-card[data-brand="nuvie"] .mart-card-img img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; padding: 0; }
+.mart-card[data-brand="nuvie"] .mart-card-img img { object-position: 50% 50%; }
+.mart-coming-card img, .mart-ask-card img, .mart-hub-strip img { mix-blend-mode: multiply; }
+
+/* monograms: one filled tile, no box inside a box */
+.mart-list li > .mart-monogram, .mart-list li > .mart-monogram.mart-logo-sm { background: #FFD23F; color: #1B1033; border: 2px solid #1B1033; }
+.mart-logo-wall a > .mart-monogram { width: 100%; height: 100%; min-height: 56px; border: 0; border-radius: 12px; font-size: 1.6rem; }
+.mart-ask-card > span:not(.mart-monogram) { font-size: 0.92rem; line-height: 1.4; flex: 1; }
+.mart-ask-card > .mart-ask-mono { font-size: 2.6rem; flex: none; }
+@media (max-width: 699px) { .mart-ask-card > span { display: block; } .mart-ask-card > span:not(.mart-monogram) { display: none; } }
+.mart-list li span { text-wrap: wrap; }
+
+/* tables */
+.mart-guide th { min-width: 76px; }
+.mart-in-guides td:first-child { white-space: normal; min-width: 140px; }
+.mart-glance th[scope="row"] a { font-weight: 700; text-decoration-thickness: 1px; }
+.mart-glance th[scope="row"] { min-width: 150px; }
+.mart-nutrition .mart-table-wrap { max-width: 520px; }
+.mart-nutrition td { text-align: right; white-space: nowrap; }
+main > .mart-table-wrap + .mart-note, .mart-guide + .mart-note, main > .mart-note + details.mart-sources { margin-top: 1rem; }
+
+/* product page details */
+.mart-know dl, .mart-label dl { row-gap: 0; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.mart-know dl > div, .mart-label dl > div { border-bottom: 0; padding: 0.7rem 0; }
+.mart-label > .mart-note { display: block; margin-top: 1rem; }
+.mart-credit { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.5rem; font-size: 0.92rem; }
+.mart-product .mart-card-price .mart-unit { margin-bottom: 0.9rem; font-size: 0.95rem; }
+
+/* "Sources" chip: the date sits right after "checked" */
+details.mart-sources > summary, .mart-sources details > summary { gap: 0; }
+details.mart-sources > summary::after, .mart-sources details > summary::after { margin-left: 0.5rem; }
+
+/* cards on info pages */
+.mart-routes li:nth-child(3) { border-top-color: #E9E3FF; }
+.mart-notable { box-shadow: var(--card-shadow); }
+.mart-facts-row b { display: block; margin-bottom: 0.3rem; }
+@media (min-width: 700px) { .mart-seller { max-width: 440px; } }
+.mart-prose > ul, .mart-prose > .mart-facts-row { max-width: none; }
+
+/* timelines get room */
+.mart-timeline ol { gap: 1.2rem; }
+.mart-timeline b { font-size: 1.2rem; margin-bottom: 0.15rem; }
+
+/* About flow: boxes the same height, logos larger */
+.mart-flow ol { align-items: stretch; }
+.mart-flow-logos img { height: 56px; }
+
+/* home */
+.mart-vhero::after { background: linear-gradient(90deg, rgba(27,16,51,.82) 0%, rgba(27,16,51,.5) 45%, rgba(27,16,51,.1) 75%), linear-gradient(180deg, rgba(27,16,51,0) 40%, rgba(27,16,51,.85) 100%); }
+.mart-vhero h1 { text-shadow: 3px 3px 0 #1B1033; }
+@media (max-width: 699px) { .mart-route { flex-direction: column; align-items: flex-start; } }
+.mart-route i::before { content: "\2193  "; }
+@media (min-width: 900px) { .mart-route i::before { content: "\2193  "; } }
+.mart-next p a { white-space: nowrap; }
+.mart-way { padding: 1.5rem; }
+.mart-coming.mart-way { border-width: 3px; padding: 1.5rem; }
+@media (min-width: 760px) { .mart-story { align-items: stretch; } .mart-story-hero { height: auto; min-height: 100%; align-self: stretch; } }
+.mart-aisles b { min-height: 2.2em; }
+
+/* shop and lists */
+.mart-filters { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+.mart-filters select { width: 100%; }
+main > .mart-grid + .mart-note, main > div.mart-grid + p.mart-note { margin-top: 1.6rem; }
+.mart-range b { -webkit-line-clamp: 3; min-height: 3.45em; }
+.mart-faq > summary { text-wrap: pretty; }
+.mart-buy { margin-top: 2.4rem; }
+
+/* phones: the hero mark keeps clear of the words; the photo stack fits; boxes use the page gutter */
+@media (max-width: 699px) {
+  .mart-phero-mark { width: 84px; height: 84px; top: 0; }
+  .mart-phero-mark b { font-size: 1.35rem; }
+  .mart-phero-mark span { font-size: 0.58rem; max-width: 9ch; }
+  .mart-phero:has(.mart-phero-mark) .mart-phero-in > div:first-child { padding-right: 92px; }
+  .mart-phero:has(.mart-phero-mark) h1 { padding-right: 0; }
+  .mart-phero-art { width: 250px; height: 104px; }
+  main > .mart-phone-box, main > section.mart-phone-box { margin-left: 0; margin-right: 0; }
+  .has-buybar-js .mart-buybar { visibility: hidden; transition: transform .25s ease, visibility 0s .25s; }
+  .has-buybar-js .mart-buybar.is-shown { visibility: visible; transition: transform .25s ease; }
+}
+@media (min-width: 700px) {
+  .has-buybar-js .mart-buybar { visibility: hidden; }
+  .has-buybar-js .mart-buybar.is-shown { visibility: visible; }
+}
+
+/* desktop: the Chat button is a round icon that keeps off the content */
+@media (min-width: 900px) {
+  .mart-chat { width: 58px; height: 58px; padding: 0; justify-content: center; border-radius: 50%; font-size: 0; }
+  .mart-chat span { font-size: 1.5rem; }
+}
+/* More uses the site's width on a desktop */
+@media (min-width: 700px) { body[data-page="more"] main { max-width: 1120px; } }
+/* guide bars: the bar, then its number, in one row */
+.mart-barcell b { margin-left: 0; padding-left: 0; }
+.mart-barcell { display: flex; align-items: center; gap: 0.6rem; }
+td.mart-barcell { display: table-cell; }
+.mart-barcell .mart-bar { position: static; translate: none; display: inline-block; vertical-align: middle; width: calc(4px + var(--w) * 0.8); max-width: 160px; margin-right: 0.6rem; }
+.mart-barcell b { display: inline; vertical-align: middle; }
+
+/* =====================================================================
+   VISUAL POLISH, ROUND 3
+   ===================================================================== */
+/* product photos: one treatment, filling the well edge to edge */
+.mart-card-img img, .mart-card[data-brand] .mart-card-img img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; padding: 0; }
+.mart-card-img .mart-card-alt { height: 100%; }
+.mart-coming-card img, .mart-ask-card img { object-fit: cover; padding: 0; mix-blend-mode: normal; }
+.mart-ask-card > .mart-ask-mono, .mart-coming-card > .mart-ask-mono { display: grid; place-items: center; aspect-ratio: 1; width: 100%; border-radius: 12px; }
+@media (max-width: 699px) { .mart-product .mart-slides img { object-fit: cover; } }
+
+/* the round mark on phones is a circle, never the photo stack's shape */
+@media (max-width: 699px) {
+  .mart-phero-art.mart-phero-mark { width: 84px; height: 84px; margin: 0; }
+  .mart-phero-art:not(.mart-phero-mark):not(:has(img:nth-child(2))) { width: 90px; }
+  .mart-phero-art:not(.mart-phero-mark):has(img:nth-child(2)):not(:has(img:nth-child(3))) { width: 170px; }
+}
+
+
+/* buy bar: name on one line, size and price on the next */
+.mart-buybar span { display: grid; grid-template-columns: auto auto; justify-content: start; column-gap: 0.5rem; align-items: baseline; }
+.mart-buybar span b { grid-column: 1 / -1; }
+.mart-buybar small { font-size: 0.85rem; }
+
+/* cards with a coloured top band keep their ink outline */
+.mart-routes li { border-top-width: 3px; border-top-color: #1B1033 !important; box-shadow: inset 0 6px 0 var(--band, #FFD23F), var(--card-shadow); padding-top: 1.3rem; }
+.mart-routes li:nth-child(2) { --band: #8A1C7C; }
+.mart-routes li:nth-child(3) { --band: #1B1033; }
+
+/* timelines: one continuous rail */
+.mart-timeline li::after { top: 0.85rem; bottom: calc(-1.2rem - 0.85rem); }
+
+/* home */
+.mart-way h3, .mart-coming.mart-way h3 { font-size: clamp(1.3rem, 2.6vw, 1.6rem); }
+.mart-route i::before { content: "\2193\00a0"; }
+@media (min-width: 900px) { .mart-mission .mart-route { align-self: center; } .mart-forbrands { grid-template-columns: 2fr 1fr; } }
+.mart-story-body > img { height: 36px; width: auto; max-width: 140px; }
+
+/* dashed "soon" boxes don't carry a hard shadow */
+.mart-coming { box-shadow: none; }
+
+/* lists that were whole bold sentences in boxes */
+.mart-prose ul li, main > ul:not([class]) li, .mart-highlights li { font-weight: 500; box-shadow: var(--card-shadow); }
+.mart-prose ul { max-width: none; }
+@media (min-width: 900px) { .mart-prose ul { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.mart-prose ul li { height: 100%; }
+
+/* small things */
+.mart-aisles span { display: block; padding-right: 70px; }
+.mart-credit a { color: #1B1033; font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; text-decoration-color: #8A1C7C; }
+.mart-card-size { font-size: 0.92rem; }
+.mart-product .mart-card-size { font-size: 1rem; }
+h2[id^="l-"]::after { width: 1.2em !important; }
+.mart-guide th:first-child, .mart-guide td:first-child { width: 2.5ch; min-width: 0; }
+.mart-guide td:nth-child(3) { min-width: 12rem; }
+.mart-barcell .mart-bar { width: calc(var(--w) * 0.75); max-width: none; }
+.mart-product ~ section :is(.mart-table-wrap, video), .mart-nutrition .mart-table-wrap { max-width: 640px; }
+main p:has(> .mart-cta) + p { margin: 1.4rem 0 0.5rem; }
+.mart-claim .mart-form { max-width: 640px; }
+.mart-hub-strip span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+details.mart-sources > summary, .mart-sources details > summary { display: inline-block; line-height: 1.3; padding: 0.55rem 1rem; }
+.mart-flow .mart-flow-logos li { padding: 0; border: 0; box-shadow: none; background: none; }
+.mart-flow .mart-flow-logos li::before { content: none; }
+.mart-flow-logos img { height: 52px; padding: 6px; }
+/* buy bar: simply absent until the page's own Add has scrolled away, then it slides up */
+.has-buybar-js .mart-buybar:not(.is-shown) { display: none !important; }
+.has-buybar-js .mart-buybar.is-shown { transform: none; visibility: visible; animation: mart-bar-in .25s ease both; }
+@keyframes mart-bar-in { from { transform: translateY(100%); } }

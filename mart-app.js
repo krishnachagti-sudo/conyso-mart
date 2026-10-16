@@ -222,7 +222,50 @@
     });
   }
 
-  function start() { countdown(); back(); circles(); sheet(); }
+  // a brand's photo that fails to load (moved, blocked) never leaves a broken box:
+  // a captioned figure goes away, any other photo becomes a plain tinted tile
+  doc.addEventListener("error", function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== "IMG" || img.classList.contains("is-broken")) { return; }
+    img.classList.add("is-broken");
+    var fig = img.closest("figure");
+    if (fig && fig.querySelectorAll("img:not(.is-broken)").length === 0) { fig.hidden = true; return; }
+    // a card's photo: the brand's initials take its place, like a brand with no photo at all
+    var card = img.closest(".mart-ask-card, .mart-coming-card, .mart-range li, .mart-hub-strip li");
+    var name = card && card.querySelector(".mart-ask-name, b, span");
+    if (name) {
+      var mono = doc.createElement("span");
+      mono.className = "mart-monogram mart-ask-mono";
+      mono.setAttribute("aria-hidden", "true");
+      mono.textContent = name.textContent.split(/[^A-Za-z0-9]+/).filter(Boolean).slice(0, 2).map(function (w) { return w[0]; }).join("").toUpperCase();
+      img.replaceWith(mono);
+    }
+  }, true);
+
+  // product pages: the buy bar comes up only once the page's own Add button has scrolled away
+  function buybar() {
+    var bar = doc.querySelector(".mart-buybar"), add = doc.querySelector(".mart-product .mart-add");
+    if (!bar || !add || !("IntersectionObserver" in root)) { return; }
+    doc.documentElement.classList.add("has-buybar-js");
+    new IntersectionObserver(function (en) {
+      bar.classList.toggle("is-shown", !en[0].isIntersecting && en[0].boundingClientRect.top < 0);
+    }).observe(add);
+  }
+
+  function broken() {  // photos that failed before this script ran
+    Array.prototype.forEach.call(doc.images, function (img) {
+      if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) { img.dispatchEvent(new Event("error")); }
+    });
+  }
+
+  // the type chips on an aisle page scroll so the current one is in view
+  function chips() {
+    var cur = doc.querySelector(".mart-type-chips [aria-current]");
+    var row = cur && cur.closest("ul");
+    if (row && row.scrollWidth > row.clientWidth) { row.scrollLeft = cur.offsetLeft - (row.clientWidth - cur.offsetWidth) / 2; }
+  }
+
+  function start() { countdown(); back(); circles(); sheet(); buybar(); broken(); chips(); }
   offline();
   if (doc.readyState === "loading") { doc.addEventListener("DOMContentLoaded", start); } else { start(); }
 })(this);
