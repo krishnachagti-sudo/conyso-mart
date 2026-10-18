@@ -1503,6 +1503,9 @@ td.mart-barcell { display: table-cell; }
 /* product photos: one treatment, filling the well edge to edge */
 .mart-card-img img, .mart-card[data-brand] .mart-card-img img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; padding: 0; }
 .mart-card-img .mart-card-alt { height: 100%; }
+/* the hover photo covers the first one: blended (multiply, like the first) the two photos showed through each other */
+.mart-card .mart-card-img .mart-card-alt { mix-blend-mode: normal; background: #FFFFFF; }
+@media (hover: hover) and (pointer: fine) { .mart-card:hover .mart-card-img:has(.mart-card-alt.is-ready) img:not(.mart-card-alt) { opacity: 0; transition: opacity 0s .3s; } }
 .mart-coming-card img, .mart-ask-card img { object-fit: cover; padding: 0; mix-blend-mode: normal; }
 .mart-ask-card > .mart-ask-mono, .mart-coming-card > .mart-ask-mono { display: grid; place-items: center; aspect-ratio: 1; width: 100%; border-radius: 12px; }
 @media (max-width: 699px) { .mart-product .mart-slides img { object-fit: cover; } }
