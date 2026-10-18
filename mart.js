@@ -67,21 +67,57 @@
       if (close) { close(true); }
     });
 
-    var menuBtn = doc.querySelector(".mart-menu-btn"), menu = $("mart-menu");
-    function setMenu(open, fromHistory) {
-      if (!menu || !menuBtn) { return; }
-      if (open === menu.classList.contains("is-open")) { return; }
-      menu.classList.toggle("is-open", open);
+    // The laptop's top bar (2026-10-18, after the Poshan nav): past about 80 px it lifts into a floating rounded bar
+    // (html.mart-float), and Menu opens the panel (#mart-panel) that grows out of it. Escape, a click outside, Back or a
+    // link inside shuts it; Tab stays inside the bar while it is open. Phones never see this bar (mart-app.js has the dock).
+    var bar = doc.querySelector(".mart-nav"), menuBtn = doc.querySelector(".mart-menu-btn"), panel = $("mart-panel"),
+      html = doc.documentElement, menuLabel = menuBtn && menuBtn.querySelector(".mart-ml"), menuOpen = false, floatBusy = false;
+    var desk = root.matchMedia ? root.matchMedia("(min-width: 700px)") : { matches: true };
+    function setFloat() {
+      floatBusy = false;
+      if (bar && !menuOpen) { html.classList.toggle("mart-float", desk.matches && (root.pageYOffset || 0) > 80); }
+    }
+    root.addEventListener("scroll", function () {
+      if (!floatBusy) { floatBusy = true; (root.requestAnimationFrame || setTimeout)(setFloat); }
+    }, { passive: true });
+    setFloat();
+    function setMenu(open, fromHistory, back) {
+      if (!panel || !menuBtn || open === menuOpen) { return; }
+      menuOpen = open;
+      html.classList.toggle("mart-nav-open", open);
       menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-      if (open) { pushLayer(menuClose); } else if (!fromHistory) { popLayer(menuClose); }
+      if (menuLabel) { menuLabel.textContent = open ? "Close" : "Menu"; }
+      if (open) {
+        pushLayer(menuClose);
+        var first = panel.querySelector("a[href]");
+        setTimeout(function () { if (menuOpen && first) { first.focus({ preventScroll: true }); } }, 60);
+      } else {
+        if (!fromHistory) { popLayer(menuClose); }
+        if (back) { menuBtn.focus({ preventScroll: true }); }
+        setFloat();
+      }
     }
     function menuClose(fromHistory) { setMenu(false, fromHistory); }
-    if (menuBtn && menu) {
-      menuBtn.addEventListener("click", function () { setMenu(!menu.classList.contains("is-open")); });
+    if (menuBtn && panel && bar) {
+      html.classList.add("mart-js");
+      menuBtn.addEventListener("click", function () { setMenu(!menuOpen, false, true); });
       doc.addEventListener("click", function (e) {
-        if (menu.classList.contains("is-open") && !menu.contains(e.target) && !menuBtn.contains(e.target)) { setMenu(false); }
+        if (menuOpen && (!bar.contains(e.target) || (e.target.closest && e.target.closest(".mart-cart-btn")))) { setMenu(false); }
       });
-      doc.addEventListener("keydown", function (e) { if (e.key === "Escape") { setMenu(false); } });
+      // a link inside leaves the page (or scrolls this one): shut without going Back
+      panel.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("a[href]")) { setMenu(false, true); } });
+      doc.addEventListener("keydown", function (e) {
+        if (!menuOpen) { return; }
+        if (e.key === "Escape") { e.preventDefault(); setMenu(false, false, true); return; }
+        if (e.key !== "Tab") { return; }
+        var f = [].slice.call(bar.querySelectorAll("a[href], button")).filter(function (el) { return el.offsetWidth || el.offsetHeight; });
+        if (!f.length) { return; }
+        var a = doc.activeElement;
+        if (e.shiftKey && (a === f[0] || !bar.contains(a))) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && (a === f[f.length - 1] || !bar.contains(a))) { e.preventDefault(); f[0].focus(); }
+      });
+      var change = function () { if (!desk.matches) { setMenu(false); } setFloat(); };
+      if (desk.addEventListener) { desk.addEventListener("change", change); } else if (desk.addListener) { desk.addListener(change); }
     }
 
     var buildEl = $("mart-build-data");

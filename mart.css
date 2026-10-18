@@ -13,7 +13,7 @@
   --ink: #1B1033; --muted: #4E4566; --bg: #FFF8E7; --card: #FFFFFF; --line: #1B1033;
   --yellow: #FFD23F; --magenta: #8A1C7C; --green: #1A7F45; --cream-tint: #FFF1C2; --peach: #FFE3D3; --lilac: #E9E3FF;
   --nav-bg: #FFD23F; --nav-ink: #1B1033; --nav-line: 3px solid #1B1033; --logo-font: 800 1.5rem "Baloo 2", sans-serif;
-  --btn: #1B1033; --btn-ink: #FFD23F; --r-btn: 12px; --r-chip: 12px; --r-card: 18px;
+  --btn: #1B1033; --btn-ink: #FFD23F; --r-btn: 99px; --r-chip: 99px; --r-card: 18px; --r-lg: 24px; --r-pill: 999px; --ease: cubic-bezier(.22,.8,.24,1);
   --hero-bg: #8A1C7C; --hero-ink: #FFFFFF; --hero-pad: 2.6rem 1.2rem 3rem;
   /* one card spec: 3px ink outline, 18px radius, 4px hard shadow; big blocks get 6px */
   --card-line: 3px solid #1B1033; --card-pad: 0.7rem; --sh: 4px 4px 0; --card-shadow: 4px 4px 0 #1B1033; --card-shadow-lg: 6px 6px 0 #1B1033;
@@ -54,15 +54,56 @@ h1, h2, .mart-card-name, .mart-line-name, .mart-note a, .mart-sources a, .mart-c
 @media (min-width: 900px) { .mart-menu a { font-size: 1rem; } }
 .mart-cart-btn { min-height: 44px; padding: 0 1rem; border: 0; border-radius: var(--r-btn); background: var(--btn); color: var(--btn-ink); font: 700 0.92rem var(--body); cursor: pointer; white-space: nowrap; }
 .mart-cart-btn span { display: inline-grid; place-items: center; min-width: 1.5rem; height: 1.5rem; margin-left: 0.35rem; border-radius: 99px; background: var(--btn-ink); color: var(--btn); font-size: 0.8rem; }
-.mart-menu-btn { display: none; min-height: 44px; padding: 0 0.9rem; border: 3px solid #1B1033; border-radius: var(--r-btn); background: #FFFFFF; color: #1B1033; font: 800 0.92rem var(--body); cursor: pointer; }
-@media (max-width: 640px) {
-  .mart-nav { flex-wrap: wrap; }
-  .mart-menu-btn { display: inline-flex; align-items: center; margin-left: auto; }
-  .mart-nav .mart-menu { display: none; order: 5; width: 100%; flex-direction: column; padding: 0.4rem 0 0.2rem; border-top: 2px solid #1B1033; margin-top: 0.4rem; }
-  .mart-nav .mart-menu.is-open { display: flex; }
-  .mart-menu a[aria-current="page"] { align-self: flex-start; }
-  .mart-logo { margin-right: 0; }
+/* Menu and the floating bar (2026-10-18, the Poshan nav in Mart's own bold look; mart_layout._panel, mart.js).
+   At the top of the page the bar is full width; past about 80 px it lifts into a floating pill with an ink outline and a
+   hard shadow, and Menu opens a panel that grows out of it. Without JavaScript the Menu button never shows. */
+.mart-menu-btn { display: none; align-items: center; gap: 9px; min-height: 44px; padding: 0 1rem 0 0.9rem; border: 3px solid #1B1033; border-radius: var(--r-pill); background: #FFFFFF; color: #1B1033; font: 800 0.92rem var(--body); cursor: pointer; }
+.mart-menu-btn:hover { background: #FFF1C2; }
+.mart-js .mart-menu-btn { display: inline-flex; }
+.mart-mi { position: relative; width: 16px; height: 10px; }
+.mart-mi::before, .mart-mi::after { content: ""; position: absolute; left: 0; right: 0; height: 3px; border-radius: 2px; background: currentColor; transition: transform .3s var(--ease), top .3s var(--ease); }
+.mart-mi::before { top: 0; } .mart-mi::after { top: 7px; }
+.mart-nav-open .mart-mi::before { top: 3.5px; transform: rotate(45deg); }
+.mart-nav-open .mart-mi::after { top: 3.5px; transform: rotate(-45deg); }
+.mart-ml { min-width: 2.6rem; text-align: left; }
+.mart-cart-btn { border-radius: var(--r-pill); }
+.mart-panel { display: none; }
+@media (min-width: 700px) {
+  .mart-nav { width: 100%; margin: 0 auto; padding: 0.6rem max(1rem, calc((100% - 1160px) / 2));
+    transition: top .45s var(--ease), width .45s var(--ease), border-radius .45s var(--ease), padding .45s var(--ease), box-shadow .3s; }
+  .mart-float .mart-nav { top: 14px; width: min(calc(100% - 40px), 1120px); padding: 0.4rem 0.5rem 0.4rem 1.5rem; border: 3px solid #1B1033; border-radius: var(--r-pill); box-shadow: 5px 5px 0 #1B1033; }
+  .mart-float .mart-logo small { display: none; }
+  .mart-nav-open .mart-nav { border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: none; }
+  .mart-float.mart-nav-open .mart-nav { border-bottom-color: #1B1033; }
+  .mart-nav-open .mart-panel { display: block; position: absolute; left: -3px; right: -3px; top: calc(100% + 3px); max-height: calc(100vh - 110px); overflow-y: auto;
+    padding: 1.6rem max(1.5rem, calc((100% - 1160px) / 2)) 1.8rem; background: #FFF8E7; border: 3px solid #1B1033; border-radius: 0 0 var(--r-lg) var(--r-lg); box-shadow: 5px 5px 0 #1B1033;
+    animation: mart-panel-grow .32s var(--ease) both; }
+  .mart-float.mart-nav-open .mart-panel { top: 100%; }
+  html.mart-nav-open:not(.mart-float) .mart-panel { left: 0; right: 0; border-width: 0 0 3px; border-radius: 0 0 var(--r-lg) var(--r-lg); }
+  .mart-panel-grid { display: grid; grid-template-columns: 1fr repeat(4, minmax(0, 1fr)) minmax(230px, 1.5fr); gap: 1.4rem; }
+  .mart-panel-h { margin: 0 0 0.5rem; color: #8A1C7C; font-weight: 800; font-size: 0.85rem; }
+  .mart-panel ul { margin: 0; padding: 0; list-style: none; }
+  .mart-panel li a { display: block; padding: 0.18rem 0; color: #1B1033; font: 800 1.08rem/1.35 var(--display); text-decoration: none; }
+  .mart-panel-main li a { font-size: 1.45rem; }
+  .mart-panel li a:hover, .mart-panel li a:focus-visible { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px; }
+  .mart-panel-side { align-self: start; padding: 1.1rem; background: #FFD23F; border: 3px solid #1B1033; border-radius: var(--r-card); box-shadow: 4px 4px 0 #1B1033; }
+  .mart-panel-line { margin: 0 0 0.9rem; font-weight: 700; line-height: 1.4; }
+  .mart-panel-shop, .mart-panel-wa { white-space: nowrap; display: flex; align-items: center; justify-content: center; min-height: 48px; margin-top: 0.5rem; padding: 0 1rem; border: 3px solid #1B1033; border-radius: var(--r-pill); font-weight: 800; text-align: center; text-decoration: none; }
+  .mart-panel-shop { background: #1B1033; color: #FFD23F; }
+  .mart-panel-wa { background: #1A7F45; color: #FFFFFF; }
+  .mart-panel-shop:hover, .mart-panel-wa:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 #1B1033; }
+  .mart-float .mart-az-jump { top: 92px; }
 }
+@media (min-width: 700px) and (max-width: 1099px) {
+  .mart-panel-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.2rem 1rem; }
+  .mart-panel-main li a { font-size: 1.25rem; }
+  .mart-panel-side { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 0.8rem; }
+  .mart-panel-line { flex: 1 1 260px; margin: 0; }
+  .mart-panel-shop, .mart-panel-wa { margin-top: 0; }
+}
+/* the inline links need the room; under it Menu holds them */
+@media (min-width: 700px) and (max-width: 999px) { .mart-js .mart-nav .mart-menu { display: none; } }
+@keyframes mart-panel-grow { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
 #mart-stale { margin: 0; padding: 0.6rem 1rem; background: #FFF4CC; color: #5C4600; font-size: 0.9rem; }
 
 /* ==========================================================================
@@ -436,11 +477,14 @@ main > .mart-phero:first-child { margin-top: -1.5rem; }
 .mart-know dt, .mart-label dt, .mart-facts dt { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #8A1C7C; }
 .mart-know dd, .mart-label dd { margin: 0.2rem 0 0; font-weight: 600; }
 .mart-credit { font-size: 0.85rem; }
-.mart-videos { display: grid; gap: 1rem; max-width: 820px; }
+.mart-videos { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; max-width: 820px; }
+.mart-video { min-width: 0; }
 .mart-video { margin: 0; width: fit-content; max-width: 100%; }
 .mart-video iframe, .mart-video video { border: 3px solid #1B1033; border-radius: var(--r-card); background: #1B1033; }
 .mart-video iframe { width: min(100%, 720px); height: auto; aspect-ratio: 16 / 9; }
 .mart-video video { width: auto; max-width: 100%; height: auto; max-height: min(72vh, 620px); }
+/* on a phone the video fills the column: with width auto, a video that has not loaded its size widened the whole page */
+@media (max-width: 699px) { .mart-video { width: 100%; } .mart-video video { display: block; width: 100%; max-height: 72vh; object-fit: contain; } }
 
 /* phone buy bar */
 .mart-buybar { display: none; }
@@ -1528,3 +1572,45 @@ details.mart-sources > summary, .mart-sources details > summary { display: inlin
 .mart-qa h3 { margin: 0 0 0.3rem; font-size: 1.12rem; line-height: 1.25; }
 .mart-qa p { margin: 0; }
 .mart-brand-summary { margin: 1.2rem 0 0; max-width: 64ch; font-size: 1.15rem; font-weight: 600; line-height: 1.5; }
+
+/* =====================================================================
+   PHONE: floating top card and floating dock (2026-10-18, the Poshan nav in
+   Mart's bold look). The top bar floats as a rounded card; the tabs float as a
+   dock with Cart raised in the middle (mart_layout.TABS); the product buy bar
+   floats above the dock. Ink outlines and hard shadows, no blur.
+   ===================================================================== */
+@media (max-width: 699px) {
+  body.mart { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+  .mart-appbar { top: 8px; margin: 8px 10px 0; padding: 0.35rem 0.8rem; border: 3px solid #1B1033; border-radius: 20px; box-shadow: 4px 4px 0 #1B1033; }
+  .mart-appbar-home { padding-bottom: 0.6rem; }
+  .mart-appbar-promise { border-radius: var(--r-pill); padding: 0.3rem 0.9rem; }
+  body.mart { padding-top: env(safe-area-inset-top); }
+  .mart-tabs { left: 12px; right: 16px; bottom: calc(12px + env(safe-area-inset-bottom)); padding: 2px; border: 3px solid #1B1033; border-radius: var(--r-lg); box-shadow: 4px 4px 0 #1B1033; }
+  .mart-tab { min-height: 58px; }
+  .mart-tab[aria-current="page"]::before { display: none; }
+  .mart-tab[aria-current="page"] .mart-ico { box-sizing: content-box; padding: 1px 12px; background: #FFD23F; border: 2px solid #1B1033; border-radius: var(--r-pill); }
+  .mart-tab-raised { color: #1B1033; align-content: end; padding-bottom: 7px; }
+  .mart-tab-raised::before { content: ""; position: absolute; top: -26px; left: 50%; width: 58px; height: 58px; margin-left: -29px; box-sizing: border-box;
+    border: 3px solid #1B1033; border-radius: 50%; background: #8A1C7C; box-shadow: 3px 3px 0 #1B1033; transition: transform .18s var(--ease), box-shadow .18s var(--ease); }
+  .mart-tab-raised .mart-ico { position: absolute; z-index: 1; top: -9px; left: 50%; width: 26px; height: 26px; margin-left: -13px; color: #FFFFFF; }
+  .mart-tab-raised:active::before { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #1B1033; }
+  .mart-tab-raised:active .mart-ico { transform: translate(2px, 2px); }
+  .mart-tab-raised .mart-tab-badge { z-index: 2; top: -30px; left: calc(50% + 12px); background: #FFD23F; color: #1B1033; border: 2px solid #1B1033; line-height: 14px; }
+  .has-buybar-js .mart-buybar:not(.is-shown) { transform: translateY(calc(100% + 120px)); }
+  .mart-buybar { left: 12px; right: 16px; bottom: calc(92px + env(safe-area-inset-bottom)); padding: 0.5rem 0.6rem 0.5rem 1rem; border: 3px solid #1B1033; border-radius: var(--r-lg); box-shadow: 4px 4px 0 #1B1033; }
+  #mart-toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
+  body.mart:has(.mart-buybar) #mart-toast { bottom: calc(170px + env(safe-area-inset-bottom)); }
+  .mart-jump { top: 78px; }
+  /* the home chip row already bleeds to the screen edge; the general chip rule's extra -1rem pushed the page 16 px wide */
+  .mart-phone-chips ul { margin-right: 0; }
+}
+@media (max-width: 699px) and (prefers-reduced-motion: reduce) { .mart-tab-raised::before { transition: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .mart-nav, .mart-mi::before, .mart-mi::after { transition: none !important; }
+  .mart-nav-open .mart-panel { animation: none !important; }
+}
+/* the cart on a laptop: a floating card like the bar, not a panel glued to the edge */
+@media (min-width: 700px) {
+  .mart-cart { inset: 12px 12px 12px auto; width: min(420px, calc(100% - 24px)); border: 3px solid #1B1033; border-radius: var(--r-lg);
+    box-shadow: 6px 6px 0 #1B1033, 0 0 0 100vmax rgba(27,16,51,0.55); }
+}
